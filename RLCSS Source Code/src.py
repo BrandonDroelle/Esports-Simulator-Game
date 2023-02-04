@@ -48,21 +48,6 @@ def imgDim(img):
     imgHei = img.get_height()
     return imgWid, imgHei
 
-#check if new save
-def checkNewSave(gameState):
-    if gameState[0] == 'gameData1.txt':
-        saveNum = 1
-    if gameState[0] == 'gameData2.txt':
-        saveNum = 2
-    if gameState[0] == 'gameData3.txt':
-        saveNum = 3
-    saveNum = str(saveNum)
-    saveState = "save " + saveNum + "\n"
-    print ("saveState: ", saveState)
-    newSave = saveData.read(gameState, saveState)
-    print("newSave: ", newSave)
-    return newSave
-
 #main
 def main(gameState):
     #sets default gamestate ['save file', 'current menu']
@@ -89,14 +74,11 @@ def main(gameState):
             print('run settings menu')
             settingsMenu.settingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
             print('exit settings menu')
+        if gameState[1] == 'newSave':
+            print('run new game menu')
+            newGameMenu.newGameMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit new save menu')
         if gameState[1] == 'openSave':
-            #check if save file is new
-            newSave = checkNewSave(gameState)
-            print("new save", newSave)
-            if newSave == " 0":
-                print('run new game menu')
-                newGameMenu(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
-                newSave = updateSave(gameState, newSave)
             print('run locker room menu')
             lockerRoomMenu.lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
             print('exit locker room menu')

@@ -1,8 +1,8 @@
-Save 2
+save 2
 0
-Player Name
-
-Players Team
+player name
+Droelee
+player team
 
 career goals
 
@@ -12,11 +12,10 @@ career saves
 
 career shots
 
-Season 1
-season goals
+season 1 goals
 
-season assists
+season 1 assists
 
-season saves
+season 1 saves
 
-season shots
+season 1 shotstest 1

@@ -1,5 +1,24 @@
 import pygame, sys
 import buttonClassObj
+import saveData
+
+#check if new save by checking if second row in corrosponding game data file is 0 (new save) or 1 (old save)
+def checkNewSave(gameState):
+    print("in checkNewSave Function")
+    if gameState[0] == 'gameData1.txt':
+        saveNum = 1
+    if gameState[0] == 'gameData2.txt':
+        saveNum = 2
+    if gameState[0] == 'gameData3.txt':
+        saveNum = 3
+    saveNum = str(saveNum)
+    #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
+    saveState = "save " + saveNum + "\n"
+    print ("saveState: ", saveState)
+    #this calls the cunction to search for thestrings and return the string in the row below (so either a 0 or 1)
+    newSave = saveData.read(gameState, saveState)
+    print("newSave: ", newSave)
+    return newSave
 
 #display start menu
 def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img):
@@ -72,15 +91,47 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     print("mouse click save 1 btn")
                     #change gamestate[0] to number of file to check for match in textfile
                     gameState[0] = 'gameData1.txt'
-                    gameState[1] = 'openSave'
+                    #check if save file is new
+                    newSave = checkNewSave(gameState)
+                    print("newSave After check:",newSave)
+                    print(type(newSave))
+                    #checks if data file is new (0) or already used (1)
+                    if newSave == "0\n":
+                        print('run new game menu')
+                        gameState[1] = 'newSave'
+                    else:
+                        print('run locker room menu')
+                        gameState[1] = 'openSave'
                 if btn2Hov == True:
                     print("mouse click save 2 btn")
+                    #change gamestate[0] to number of file to check for match in textfile
                     gameState[0] = 'gameData2.txt'
-                    gameState[1] = 'openSave'
+                    #check if save file is new
+                    newSave = checkNewSave(gameState)
+                    print("newSave After check:",newSave)
+                    print(type(newSave))
+                    #checks if data file is new (0) or already used (1)
+                    if newSave == "0\n":
+                        print('run new game menu')
+                        gameState[1] = 'newSave'
+                    else:
+                        print('run locker room menu')
+                        gameState[1] = 'openSave'
                 if btn3Hov == True:
                     print("mouse click save 3 btn")
+                    #change gamestate[0] to number of file to check for match in textfile
                     gameState[0] = 'gameData3.txt'
-                    gameState[1] = 'openSave'
+                    #check if save file is new
+                    newSave = checkNewSave(gameState)
+                    print("newSave After check:",newSave)
+                    print(type(newSave))
+                    #checks if data file is new (0) or already used (1)
+                    if newSave == "0\n":
+                        print('run new game menu')
+                        gameState[1] = 'newSave'
+                    else:
+                        print('run locker room menu')
+                        gameState[1] = 'openSave'
                 if btn4Hov == True:
                     print("mouse click how to btn")
                     gameState[1] = 'howToPlay'

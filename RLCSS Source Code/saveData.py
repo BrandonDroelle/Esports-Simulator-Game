@@ -1,33 +1,35 @@
 #read and write data to save file
 
-#write to file
-def write(gameState, data, newText):
+#write to file send(gameState, type of data, data to be added)
+def write(gameState, dataType, newData):
+    print("in saveData.write")
+    print("file: ", gameState[0])
+    print("dataType searching for: ", dataType)
+    #chooses which data file to open based on gameState
     gameData = open(gameState[0], 'r+')
     found = False
     text = "null"
     count = 0
     flag = False
 
+    #add /n to dataType string to match the txt document
+    #dataType = dataType + "/n"
+
     while found == False:
         text = gameData.readline()
-        print("text: ", text)
-        print("string: ", newText)
+        print("current dataType: ", text)
+        print("newData: ", newData)
         if flag == True:
             found = True
-        if text == data:
+        if text == dataType:
             flag = True
-        if count > 1000:
+        if count > 100:
             found = True
             text = "null"
         count = count + 1
-        print("found: ", found)
+        print("dataType found: ", found)
 
-    print (newText, text)
-
-
-
-
-
+    print (newData, text)
 
     gameData.write("test 1")
     gameData.close()
@@ -55,6 +57,7 @@ def read(gameState, row):
 #read specific line from file after set string
 #input string, will read the data in the row below
 def read(gameState, testStr):
+    print("in saveData.read String")
     gameData = open(gameState[0], 'r')
     found = False
     text = "null"
