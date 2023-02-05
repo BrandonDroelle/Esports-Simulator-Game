@@ -1,40 +1,78 @@
 #read and write data to save file
 
 #write to file send(gameState, type of data, data to be added)
+# def write(gameState, dataType, newData):
+#     print("in saveData.write")
+#     print("file: ", gameState[0])
+#     print("dataType searching for: ", dataType)
+#     #chooses which data file to open based on gameState
+#     gameData = open(gameState[0], 'r+')
+#     found = False
+#     text = "null"
+#     count = 0
+#     flag = False
+
+#     #add /n to dataType string to match the txt document
+#     #dataType = dataType + "/n"
+
+#     while found == False:
+#         text = gameData.readline()
+#         print("current dataType: ", text)
+#         print("newData: ", newData)
+#         if flag == True:
+#             found = True
+#         if text == dataType:
+#             flag = True
+#         if count > 100:
+#             found = True
+#             text = "null"
+#         count = count + 1
+#         print("dataType found: ", found)
+
+#     print (newData, text)
+
+#     gameData.write("test 1")
+#     gameData.close()
+
+#new write function which creates a list of the lines from the data sheet, and then replaces the data at the correct index, then rewrites it onto the txt document
 def write(gameState, dataType, newData):
-    print("in saveData.write")
+    print("in new saveData.write")
     print("file: ", gameState[0])
-    print("dataType searching for: ", dataType)
+    print("dataType searching for:", dataType)
     #chooses which data file to open based on gameState
     gameData = open(gameState[0], 'r+')
+    #convert newData to string
+    newData = str(newData)
+    #get list of data
+    lines = gameData.readlines()
     found = False
-    text = "null"
     count = 0
-    flag = False
 
-    #add /n to dataType string to match the txt document
-    #dataType = dataType + "/n"
-
+    print(lines)
+    #checks each line from txt file to see if it matches the data type thats being searched for
     while found == False:
-        text = gameData.readline()
-        print("current dataType: ", text)
-        print("newData: ", newData)
-        if flag == True:
-            found = True
-        if text == dataType:
-            flag = True
-        if count > 100:
-            found = True
-            text = "null"
-        count = count + 1
-        print("dataType found: ", found)
+        if count <= len(lines):
+            print("line ", count, ":", lines[count])
+            currentLine = lines[count]
+            if currentLine == dataType:
+                found = True
+            print("found: ", found)
+            if found == True:
+                lines[count + 1] = newData + "\n"#when dataTypes match the list is updated with the new data (+1 is added to count because data is stored in the index after the data type)
+            count = count + 1
+        else:
+            print("Data Type:", dataType, "is not in file")
+    print(lines)
+    #Now that the data location has been found the list will be rewritten onto the txt file
+    with open(gameState[0], "w") as gameData:
+        for line in lines:
+            gameData.write(line)
+    
+    #for index in lines:
+        #gameData.write(lines[index])
 
-    print (newData, text)
+        
 
-    gameData.write("test 1")
-    gameData.close()
-
-#
 
 #read specific line from file
 #input row number integer

@@ -1,5 +1,5 @@
 save 1
-0
+1
 player name
 Droelee
 player team
@@ -18,4 +18,4 @@ season 1 assists
 
 season 1 saves
 
-season 1 shotstest 1test 1test 1
+season 1 shots
