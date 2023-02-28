@@ -31,17 +31,40 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
     #create buttons (button image, image x, image y, font, string, text x offset, text y offset)
     btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) - 150, basicFont, 'Save 1', 75, 15)
     btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) - 150, basicFont, 'Save 1', 75, 15)
-    btn2 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2), basicFont, 'Save 2', 75, 15)
-    btn2H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2), basicFont, 'Save 2', 75, 15)
-    btn3 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 150, basicFont, 'Save 3', 75, 15)
-    btn3H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 150, basicFont, 'Save 3', 75, 15)
+    btn2 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) - 50, basicFont, 'Save 2', 75, 15)
+    btn2H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) - 50, basicFont, 'Save 2', 75, 15)
+    btn3 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 50, basicFont, 'Save 3', 75, 15)
+    btn3H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 50, basicFont, 'Save 3', 75, 15)
     btn4 = buttonClassObj.buttonClass(buttonimg, win.get_width() - 400, (win.get_height() / 2) + 200, basicFont, 'How to Play', 25, 15)
     btn4H = buttonClassObj.buttonClass(button2img, win.get_width() - 400, (win.get_height() / 2) + 200, basicFont, 'How to Play', 25, 15)
     btn5 = buttonClassObj.buttonClass(buttonimg, 100, (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
     btn5H = buttonClassObj.buttonClass(button2img, 100, (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
+    btn6 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Exit Game', 50, 15)
+    btn6H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Exit Game', 50, 15)
     btnx1 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) - 140, basicFont, '', 0, 0)
-    btnx2 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) + 10, basicFont, '', 0, 0)
-    btnx3 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) + 160, basicFont, '', 0, 0)
+    btnx2 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) - 40, basicFont, '', 0, 0)
+    btnx3 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) + 60, basicFont, '', 0, 0)
+
+    #checks if save file is not new, if file is not new then show delete file button
+    #change gamestate[0] to number of file to check for match in textfile
+    gameState[0] = 'gameData1.txt'
+    #check if save file is new
+    newSave1 = checkNewSave(gameState)
+    print("newSave After check:",newSave1)
+    print(type(newSave1))
+    #checks if data file is new (0) or already used (1)
+
+    gameState[0] = 'gameData2.txt'
+    #check if save file is new
+    newSave2 = checkNewSave(gameState)
+    print("newSave After check:",newSave2)
+    print(type(newSave2))
+
+    gameState[0] = 'gameData3.txt'
+    #check if save file is new
+    newSave3 = checkNewSave(gameState)
+    print("newSave After check:",newSave3)
+    print(type(newSave3))
 
     #Menu Loop
     while gameState[1] == 'start':
@@ -63,6 +86,7 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
             btn3Hov = buttonClassObj.imgHover(btn3)
             btn4Hov = buttonClassObj.imgHover(btn4)
             btn5Hov = buttonClassObj.imgHover(btn5)
+            btn6Hov = buttonClassObj.imgHover(btn6)
             btnx1Hov = buttonClassObj.imgHover(btnx1)
             btnx2Hov = buttonClassObj.imgHover(btnx2)
             btnx3Hov = buttonClassObj.imgHover(btnx3)
@@ -89,18 +113,40 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                 btn5H.draw(win)
             else:
                 btn5.draw(win)
-            if btnx1Hov == True:
-                btnx1.draw(win) #does not have hover sprite
+            if btn6Hov == True:
+                btn6H.draw(win)
             else:
-                btnx1.draw(win)
-            if btnx2Hov == True:
-                btnx2.draw(win) #does not have hover sprite
-            else:
-                btnx2.draw(win)
-            if btnx3Hov == True:
-                btnx3.draw(win) #does not have hover sprite
-            else:
-                btnx3.draw(win)
+                btn6.draw(win)
+
+            if newSave1 == "1\n":
+                #print('gameData1 is not new')
+                if btnx1Hov == True:
+                    btnx1.draw(win) #does not have hover sprite
+                else:
+                    btnx1.draw(win)
+
+            if newSave2 == "1\n":
+                #print('gameData2 is not new')
+                if btnx2Hov == True:
+                    btnx2.draw(win) #does not have hover sprite
+                else:
+                    btnx2.draw(win)
+
+            if newSave3 == "1\n":
+                #print('gameData3 is not new')
+                if btnx3Hov == True:
+                    btnx3.draw(win) #does not have hover sprite
+                else:
+                    btnx3.draw(win)
+            
+            #if btnx2Hov == True:
+            #    btnx2.draw(win) #does not have hover sprite
+            #else:
+            #    btnx2.draw(win)
+            #if btnx3Hov == True:
+            #    btnx3.draw(win) #does not have hover sprite
+            #else:
+            #    btnx3.draw(win)
 
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -156,6 +202,9 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                 if btn5Hov == True:
                     print("mouse click settings btn")
                     gameState[1] = 'settings'
+                if btn6Hov == True:
+                    print("mouse click exit game btn")
+                    gameState[1] = 'exit'
                 if btnx1Hov == True:
                     print("mouse click delete save 1 button")
                     gameState[0] = 'gameData1.txt'

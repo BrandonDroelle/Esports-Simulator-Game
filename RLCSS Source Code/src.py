@@ -94,6 +94,9 @@ def main(gameState):
             print('run start menu')
             startMenu.startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img, xButtonUIimg)
             print('exit start menu')
+        if gameState[1] == 'exit':
+            print('exit game')
+            sys.exit()
         if gameState[1] == 'howToPlay':
             print('run how to play menu')
             helpMenu.helpMenuFunc(gameState, win, basicFont, backgroundimg, helptxt1img, helptxt2img, buttonimg, button2img)
