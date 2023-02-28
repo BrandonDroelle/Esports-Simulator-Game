@@ -15,13 +15,13 @@ def checkNewSave(gameState):
     #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
     saveState = "save " + saveNum + "\n"
     print ("saveState: ", saveState)
-    #this calls the cunction to search for thestrings and return the string in the row below (so either a 0 or 1)
+    #this calls the function to search for the strings and return the string in the row below (so either a 0 or 1)
     newSave = saveData.read(gameState, saveState)
     print("newSave: ", newSave)
     return newSave
 
 #display start menu
-def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img):
+def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img, xButtonUIimg):
 
     print('in start menu func')
 
@@ -39,6 +39,9 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
     btn4H = buttonClassObj.buttonClass(button2img, win.get_width() - 400, (win.get_height() / 2) + 200, basicFont, 'How to Play', 25, 15)
     btn5 = buttonClassObj.buttonClass(buttonimg, 100, (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
     btn5H = buttonClassObj.buttonClass(button2img, 100, (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
+    btnx1 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) - 140, basicFont, '', 0, 0)
+    btnx2 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) + 10, basicFont, '', 0, 0)
+    btnx3 = buttonClassObj.buttonClass(xButtonUIimg, (win.get_width() / 2) + 175, (win.get_height() / 2) + 160, basicFont, '', 0, 0)
 
     #Menu Loop
     while gameState[1] == 'start':
@@ -60,6 +63,9 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
             btn3Hov = buttonClassObj.imgHover(btn3)
             btn4Hov = buttonClassObj.imgHover(btn4)
             btn5Hov = buttonClassObj.imgHover(btn5)
+            btnx1Hov = buttonClassObj.imgHover(btnx1)
+            btnx2Hov = buttonClassObj.imgHover(btnx2)
+            btnx3Hov = buttonClassObj.imgHover(btnx3)
 
             #Draw Buttons
             #if button hovered change img to hovered image
@@ -83,6 +89,18 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                 btn5H.draw(win)
             else:
                 btn5.draw(win)
+            if btnx1Hov == True:
+                btnx1.draw(win) #does not have hover sprite
+            else:
+                btnx1.draw(win)
+            if btnx2Hov == True:
+                btnx2.draw(win) #does not have hover sprite
+            else:
+                btnx2.draw(win)
+            if btnx3Hov == True:
+                btnx3.draw(win) #does not have hover sprite
+            else:
+                btnx3.draw(win)
 
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -138,6 +156,18 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                 if btn5Hov == True:
                     print("mouse click settings btn")
                     gameState[1] = 'settings'
+                if btnx1Hov == True:
+                    print("mouse click delete save 1 button")
+                    gameState[0] = 'gameData1.txt'
+                    gameState[1] = 'deleteSave'
+                if btnx2Hov == True:
+                    print("mouse click delete save 2 button")
+                    gameState[0] = 'gameData2.txt'
+                    gameState[1] = 'deleteSave'
+                if btnx3Hov == True:
+                    print("mouse click delete save 3 button")
+                    gameState[0] = 'gameData3.txt'
+                    gameState[1] = 'deleteSave'
 
 
         pygame.display.update()

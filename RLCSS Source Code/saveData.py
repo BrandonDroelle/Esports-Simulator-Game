@@ -71,8 +71,15 @@ def write(gameState, dataType, newData):
     #for index in lines:
         #gameData.write(lines[index])
 
-        
-
+#create function which creates a new txt document with newData added
+def create(gameState, newData):
+    print("in new saveData.create")
+    print("file: ", gameState[0])
+    #chooses which data file to open based on gameState
+    gameData = open(gameState[0], 'a+')
+    #convert newData to string
+    newData = str(newData)
+    gameData.write(newData)
 
 #read specific line from file
 #input row number integer

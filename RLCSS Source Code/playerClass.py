@@ -7,6 +7,7 @@ class PlayerClass:
         self.shots = 0
         self.wins = 0
         self.losses = 0
+        self.team = "Free Agent"
 
     #Setters
     def setName(self, name):
@@ -30,6 +31,9 @@ class PlayerClass:
     def setLosses(self, losses):
         self.losses = losses
 
+    def setTeam(self, team):
+        self.team = team
+
     #Getters
     def getName(self, name):
         return self.name
@@ -51,3 +55,6 @@ class PlayerClass:
 
     def getLosses(self, losses):
         return self.losses
+
+    def getTeam(self, team):
+        return self.team

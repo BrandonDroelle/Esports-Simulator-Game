@@ -27,7 +27,7 @@ def newGameMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2
             #Draw Strings
             win.blit(title, (510,70))
             #Draw Images
-
+            #win.blit(upArrowUIimg, (100, 150))
             
             #check for mouse hover
             btn1Hov = buttonClassObj.imgHover(btn1)
