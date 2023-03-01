@@ -1,39 +1,5 @@
 #read and write data to save file
 
-#write to file send(gameState, type of data, data to be added)
-# def write(gameState, dataType, newData):
-#     print("in saveData.write")
-#     print("file: ", gameState[0])
-#     print("dataType searching for: ", dataType)
-#     #chooses which data file to open based on gameState
-#     gameData = open(gameState[0], 'r+')
-#     found = False
-#     text = "null"
-#     count = 0
-#     flag = False
-
-#     #add /n to dataType string to match the txt document
-#     #dataType = dataType + "/n"
-
-#     while found == False:
-#         text = gameData.readline()
-#         print("current dataType: ", text)
-#         print("newData: ", newData)
-#         if flag == True:
-#             found = True
-#         if text == dataType:
-#             flag = True
-#         if count > 100:
-#             found = True
-#             text = "null"
-#         count = count + 1
-#         print("dataType found: ", found)
-
-#     print (newData, text)
-
-#     gameData.write("test 1")
-#     gameData.close()
-
 #new write function which creates a list of the lines from the data sheet, and then replaces the data at the correct index, then rewrites it onto the txt document
 def write(gameState, dataType, newData):
     print("in new saveData.write")
