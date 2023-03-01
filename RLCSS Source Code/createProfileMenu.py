@@ -1,6 +1,6 @@
 import pygame, sys
 import buttonClassObj
-import saveData
+import saveGame
 
 #create profile menu
 def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, keyBoardKeys, keyBoardKeysH):
@@ -138,10 +138,11 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
 
             #Draw Buttons
             #if button hovered change img to hovered image
-            if btn1Hov == True:
-                btn1H.draw(win)
-            else:
-                btn1.draw(win)
+            if length > 0: #make sure name string is atleast length one
+                if btn1Hov == True:
+                    btn1H.draw(win)
+                else:
+                    btn1.draw(win)
 
             if caps == 0:
                 print('draw number keys')
@@ -201,28 +202,10 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print("mouse click")
                 if btn1Hov == True:
-                    if length > 0: #make sure name string is atleast length one
-                        print("mouse accept name btn")
-                        #update save file to not new save so when reopened goes directly to locker room and not new game
-                        if gameState[0] == 'gameData1.txt':
-                            saveNum = 1
-                        if gameState[0] == 'gameData2.txt':
-                            saveNum = 2
-                        if gameState[0] == 'gameData3.txt':
-                            saveNum = 3
-                        saveNum = str(saveNum)
-                        #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
-                        saveState = "save " + saveNum + "\n"
-                        print ("saveState: ", saveState)
-                        saveData.write(gameState, saveState, 1) #gameState, type of data, new data to be written
-
-                        #updates save file with player name
-                        print("Add player name to save file")
-                        saveState = "player name" + "\n"
-                        saveData.write(gameState, saveState, name) #gameState, type of data, new data to be written
-                        print("Player name added to save file")
-
-                        gameState[1] = 'selectTeam'
+                    print("mouse accept name btn")
+                    #call function to update save file with new player name
+                    saveGame.updatePlayerName(gameState, name)
+                    gameState[1] = 'selectTeam'
 
                 if length < maxLen:
                     if but1Hov == True:

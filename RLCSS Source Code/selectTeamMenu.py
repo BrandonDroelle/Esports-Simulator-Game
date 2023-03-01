@@ -1,6 +1,7 @@
 import pygame, sys
 import buttonClassObj
 import random
+import saveGame
 
 #select team menu
 def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teams):
@@ -12,6 +13,7 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
     print("team logo length: ", length)
     leftSelect = 0
     rightSelect = 0
+    team = ''
     #determine two random teams for player to choose from
     flag = 0
     team1 = random.randrange(0, length, 1)
@@ -109,7 +111,15 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print("mouse click")
                 if btn1Hov == True:
-                    print("mouse click locker room menu btn")
+                    print("mouse click accept team btn")
+                    if rightSelect == 1:
+                        team = team2Name
+                    else:
+                        team = team1Name
+                    #call function to update save file to not new save
+                    saveGame.updateSave(gameState)
+                    #call function to update save file with current team
+                    saveGame.updateTeam(gameState, team)
                     gameState[1] = 'lockerRoom'
                 if btn2Hov == True:
                     print("mouse click right choose btn")
