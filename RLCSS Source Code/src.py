@@ -6,6 +6,7 @@ import settingsMenu
 import lockerRoomMenu
 import deleteSaveMenu
 import createProfileMenu
+import selectTeamMenu
 
 #Setup pygame
 #mainClock = pygame.time.Clock()
@@ -32,14 +33,15 @@ leftArrowUIimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RL
 rightArrowUIimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\rightArrowUI.png')
 downArrowUIimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\downArrowUI.png')
 xButtonUIimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\xButtonUI.png')
-barracudasLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\barracudasLogo.png')
-bearsLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\bearsLogo.png')
-bombersLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\bombersLogo.png')
-crusadorsLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\crusadorsLogo.png')
-cyclonesLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\cyclonesLogo.png')
-destroyersLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\destroyersLogo.png')
-dragonsLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\dragonslogo.png')
-expressLogoimg = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\expressLogo.png')
+
+barracudasLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\barracudasLogo.png')
+bearsLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\bearsLogo.png')
+bombersLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\bombersLogo.png')
+crusadorsLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\crusadorsLogo.png')
+cyclonesLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\cyclonesLogo.png')
+destroyersLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\destroyersLogo.png')
+dragonsLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\dragonslogo.png')
+expressLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\expressLogo.png')
 guardiansLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\guardiansLogo.png')
 mammothsLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\mammothsLogo.png')
 monarchsLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\monarchsLogo.png')
@@ -53,6 +55,7 @@ scorpiansLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLC
 seekersLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\seekersLogo.png')
 skyhawksLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\skyhawksLogo.png')
 wolvesLogo = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\wolvesLogo.png')
+
 but1 = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\but1.png')
 but2 = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\but2.png')
 but3 = pygame.image.load(r'C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\images\but3.png')
@@ -110,6 +113,13 @@ keyBoardKeysRaw = [but1, but2, but3, but4, but5, but6, but7, but8, but9, but0, b
 #updated list of all keyboard keys after resize
 keyBoardKeys = []
 
+#create list of all team logos
+teamLogosRaw = [barracudasLogo, bearsLogo, bombersLogo, crusadorsLogo, cyclonesLogo, destroyersLogo, dragonsLogo, expressLogo, guardiansLogo,
+                mammothsLogo, monarchsLogo, pharosLogo, predatorsLogo, ravagersLogo, reapersLogo, rebelsLogo, roversLogo, scorpiansLogo,
+                seekersLogo, skyhawksLogo, wolvesLogo]
+#updated list of all team logos after resize
+teamLogos = []
+
 #resize images
 trophyimg = pygame.transform.scale(trophyimg, (319, 400))
 helptxt1img = pygame.transform.scale(helptxt1img, (1100, 77))
@@ -126,9 +136,16 @@ for i in range(len(keyBoardKeysRaw)):
 #add space to end of list
 keyBoardKeys.append(butSpace)
 
+#resize list of team logos
+logoSize = 250
+for i in range(len(teamLogosRaw)):
+    print("i: ", i)
+    teamLogosRaw[i] = pygame.transform.scale(teamLogosRaw[i], (logoSize, logoSize))
+    teamLogos.append(teamLogosRaw[i])
 
-
-
+#list of teams
+teams = ['barracudas', 'bears', 'bombers', 'crusadors', 'cyclones', 'destroyers', 'dragons', 'express', 'guardians', 'mammoths', 'monarchs', 'pharos',
+         'predators', 'ravagers', 'reapers', 'rebels', 'rovers', 'scorpians', 'seekers', 'sky hawks', 'wolves']
 
 #Create gamestate
 gameState = ['gameData1.txt', 'start'] #[current save, current menu]
@@ -176,11 +193,15 @@ def main(gameState):
             print('run delete save menu')
             deleteSaveMenu.deleteSaveMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
             print('exit delete save menu')
-        if gameState[1] == 'newSave':
-            print('run new game menu')
+        if gameState[1] == 'createProfile':
+            print('run create profile menu')
             createProfileMenu.createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, keyBoardKeys, keyBoardKeys) #sends in same sprites for hover keys atm
-            print('exit new save menu')
-        if gameState[1] == 'openSave':
+            print('exit create profile menu')
+        if gameState[1] == 'selectTeam':
+            print('run select team menu')
+            selectTeamMenu.selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teams)
+            print('exit select team menu')
+        if gameState[1] == 'lockerRoom':
             print('run locker room menu')
             lockerRoomMenu.lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
             print('exit locker room menu')

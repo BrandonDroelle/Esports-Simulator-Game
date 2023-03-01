@@ -138,15 +138,8 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     btnx3.draw(win) #does not have hover sprite
                 else:
                     btnx3.draw(win)
-            
-            #if btnx2Hov == True:
-            #    btnx2.draw(win) #does not have hover sprite
-            #else:
-            #    btnx2.draw(win)
-            #if btnx3Hov == True:
-            #    btnx3.draw(win) #does not have hover sprite
-            #else:
-            #    btnx3.draw(win)
+
+
 
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -162,10 +155,10 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     #checks if data file is new (0) or already used (1)
                     if newSave == "0\n":
                         print('run new game menu')
-                        gameState[1] = 'newSave'
+                        gameState[1] = 'createProfile'
                     else:
                         print('run locker room menu')
-                        gameState[1] = 'openSave'
+                        gameState[1] = 'lockerRoom'
                 if btn2Hov == True:
                     print("mouse click save 2 btn")
                     #change gamestate[0] to number of file to check for match in textfile
@@ -177,10 +170,10 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     #checks if data file is new (0) or already used (1)
                     if newSave == "0\n":
                         print('run new game menu')
-                        gameState[1] = 'newSave'
+                        gameState[1] = 'createProfile'
                     else:
                         print('run locker room menu')
-                        gameState[1] = 'openSave'
+                        gameState[1] = 'lockerRoom'
                 if btn3Hov == True:
                     print("mouse click save 3 btn")
                     #change gamestate[0] to number of file to check for match in textfile
@@ -192,10 +185,10 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     #checks if data file is new (0) or already used (1)
                     if newSave == "0\n":
                         print('run new game menu')
-                        gameState[1] = 'newSave'
+                        gameState[1] = 'createProfile'
                     else:
                         print('run locker room menu')
-                        gameState[1] = 'openSave'
+                        gameState[1] = 'lockerRoom'
                 if btn4Hov == True:
                     print("mouse click how to btn")
                     gameState[1] = 'howToPlay'

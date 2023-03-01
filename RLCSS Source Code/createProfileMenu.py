@@ -23,8 +23,8 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
     baseX = 400
     baseY = 250
     #Create Buttons
-    btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 50, 15)
-    btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 50, 15)
+    btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 75, 15)
+    btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 75, 15)
     but1 = buttonClassObj.buttonClass(keyBoardKeys[0], baseX, baseY, basicFont, '',0, 0)
     but2 = buttonClassObj.buttonClass(keyBoardKeys[1], baseX + 50, baseY, basicFont, '',0, 0)
     but3 = buttonClassObj.buttonClass(keyBoardKeys[2], baseX + 100, baseY, basicFont, '',0, 0)
@@ -78,7 +78,7 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
     
 
     #Menu Loop
-    while gameState[1] == 'newSave':
+    while gameState[1] == 'createProfile':
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -201,27 +201,28 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print("mouse click")
                 if btn1Hov == True:
-                    print("mouse click start game btn")
-                    #update save file to not new save so when reopened goes directly to locker room and not new game
-                    if gameState[0] == 'gameData1.txt':
-                        saveNum = 1
-                    if gameState[0] == 'gameData2.txt':
-                        saveNum = 2
-                    if gameState[0] == 'gameData3.txt':
-                        saveNum = 3
-                    saveNum = str(saveNum)
-                    #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
-                    saveState = "save " + saveNum + "\n"
-                    print ("saveState: ", saveState)
-                    saveData.write(gameState, saveState, 1) #gameState, type of data, new data to be written
+                    if length > 0: #make sure name string is atleast length one
+                        print("mouse accept name btn")
+                        #update save file to not new save so when reopened goes directly to locker room and not new game
+                        if gameState[0] == 'gameData1.txt':
+                            saveNum = 1
+                        if gameState[0] == 'gameData2.txt':
+                            saveNum = 2
+                        if gameState[0] == 'gameData3.txt':
+                            saveNum = 3
+                        saveNum = str(saveNum)
+                        #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
+                        saveState = "save " + saveNum + "\n"
+                        print ("saveState: ", saveState)
+                        saveData.write(gameState, saveState, 1) #gameState, type of data, new data to be written
 
-                    #updates save file with player name
-                    print("Add player name to save file")
-                    saveState = "player name" + "\n"
-                    saveData.write(gameState, saveState, name) #gameState, type of data, new data to be written
-                    print("Player name added to save file")
+                        #updates save file with player name
+                        print("Add player name to save file")
+                        saveState = "player name" + "\n"
+                        saveData.write(gameState, saveState, name) #gameState, type of data, new data to be written
+                        print("Player name added to save file")
 
-                    gameState[1] = 'openSave'
+                        gameState[1] = 'selectTeam'
 
                 if length < maxLen:
                     if but1Hov == True:

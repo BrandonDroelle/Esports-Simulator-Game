@@ -17,7 +17,7 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     btn2H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) - 200, basicFont, 'test file', 35, 15)
 
     #Menu Loop
-    while gameState[1] == 'openSave':
+    while gameState[1] == 'lockerRoom':
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
