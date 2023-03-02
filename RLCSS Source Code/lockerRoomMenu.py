@@ -101,24 +101,25 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
                 print("mouse click")
                 if btn1Hov == True:
                     print("mouse click start menu btn")
-                    gameState[1] = 'start'
+                    gameState[1] = 'gamePreview'
                 if btn2Hov == True:
                     print("mouse click team stats btn")
-
+                    gameState[1] = 'teamStats'
                 if btn3Hov == True:
                     print("mouse click player stats btn")
-
+                    gameState[1] = 'playerStats'
                 if btn4Hov == True:
                     print("mouse click Hall of Fame stats btn")
-
+                    gameState[1] = 'hallOfFame'
                 if btn5Hov == True:
                     print("mouse click Schedule btn")
-
+                    gameState[1] = 'schedule'
                 if btn6Hov == True:
                     print("mouse click Standings btn")
-
+                    gameState[1] = 'standings'
                 if btn7Hov == True:
                     print("mouse click Settings btn")
+                    gameState[1] = 'inGameSettings'
 
 
 

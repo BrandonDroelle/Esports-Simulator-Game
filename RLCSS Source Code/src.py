@@ -7,6 +7,16 @@ import lockerRoomMenu
 import deleteSaveMenu
 import createProfileMenu
 import selectTeamMenu
+import inGameSettingsMenu
+import standingsMenu
+import teamStatsMenu
+import playerStatsMenu
+import scheduleMenu
+import hallOfFameMenu
+import playerAwardsMenu
+import gamePreviewMenu
+import recordResultsMenu
+import weeklyResultsMenu
 
 #Setup pygame
 #mainClock = pygame.time.Clock()
@@ -205,6 +215,46 @@ def main(gameState):
             print('run locker room menu')
             lockerRoomMenu.lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teams)
             print('exit locker room menu')
+        if gameState[1] == 'inGameSettings':
+            print('run in game settings menu')
+            inGameSettingsMenu.inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit in game settings menu')
+        if gameState[1] == 'standings':
+            print('run standings menu')
+            standingsMenu.standingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit standings menu')
+        if gameState[1] == 'teamStats':
+            print('run Team Stats menu')
+            teamStatsMenu.teamStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit team stats menu')
+        if gameState[1] == 'playerStats':
+            print('run player Stats menu')
+            playerStatsMenu.playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit player stats menu')
+        if gameState[1] == 'schedule':
+            print('run schedule menu')
+            scheduleMenu.scheduleMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit schedule menu')
+        if gameState[1] == 'hallOfFame':
+            print('run hall of fame menu')
+            hallOfFameMenu.hallOfFameMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit hall of fame menu')
+        if gameState[1] == 'playerAwards':
+            print('run player awards menu')
+            playerAwardsMenu.playerAwardsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit player awards menu')
+        if gameState[1] == 'gamePreview':
+            print('run game preview menu')
+            gamePreviewMenu.gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit game preview menu')
+        if gameState[1] == 'recordResults':
+            print('run record results menu')
+            recordResultsMenu.recordResultsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit record results menu')
+        if gameState[1] == 'weeklyResults':
+            print('run weekly results menu')
+            weeklyResultsMenu.weeklyResultsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            print('exit weekly results menu')
 
 
         #pygame.display.update()
