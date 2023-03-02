@@ -203,7 +203,7 @@ def main(gameState):
             print('exit select team menu')
         if gameState[1] == 'lockerRoom':
             print('run locker room menu')
-            lockerRoomMenu.lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            lockerRoomMenu.lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teams)
             print('exit locker room menu')
 
 

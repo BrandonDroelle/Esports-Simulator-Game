@@ -22,6 +22,12 @@ def updatePlayerName(gameState, name):
     saveData.write(gameState, saveState, name) #gameState, type of data, new data to be written
     print("Player name added to save file")
 
+def getPlayerName(gameState):
+    print('get player name')
+    name = saveData.read(gameState, 'player name\n')
+    name = name.replace("\n", "")
+    return name
+
 #update player name to save file
 def updateTeam(gameState, team):
     #updates save file with player name
@@ -29,3 +35,10 @@ def updateTeam(gameState, team):
     saveState = "player team" + "\n"
     saveData.write(gameState, saveState, team) #gameState, type of data, new data to be written
     print("Player team added to save file")
+
+def getTeamName(gameState):
+    print('get team name')
+    teamName = saveData.read(gameState, 'player team\n')
+    teamName = teamName.replace("\n", "")
+    teamName = teamName.replace(" ", "")
+    return teamName

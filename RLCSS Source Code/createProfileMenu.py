@@ -201,11 +201,12 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print("mouse click")
-                if btn1Hov == True:
-                    print("mouse accept name btn")
-                    #call function to update save file with new player name
-                    saveGame.updatePlayerName(gameState, name)
-                    gameState[1] = 'selectTeam'
+                if length > 0: #make sure name string is atleast length one
+                    if btn1Hov == True:
+                        print("mouse accept name btn")
+                        #call function to update save file with new player name
+                        saveGame.updatePlayerName(gameState, name)
+                        gameState[1] = 'selectTeam'
 
                 if length < maxLen:
                     if but1Hov == True:

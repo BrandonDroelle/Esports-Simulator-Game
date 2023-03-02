@@ -42,12 +42,12 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
     teamRight = basicFont.render(team2Name.capitalize(), False, (255, 255, 255))
 
     #Create Buttons
-    btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 50, 15)
-    btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 50, 15)
-    btn2 = buttonClassObj.buttonClass(buttonimg, win.get_width() - 400, (win.get_height() / 2) + 200, basicFont, 'Select', 60, 15)
-    btn2H = buttonClassObj.buttonClass(button2img, win.get_width() - 400, (win.get_height() / 2) + 200, basicFont, 'Select', 60, 15)
-    btn3 = buttonClassObj.buttonClass(buttonimg, 100, (win.get_height() / 2) + 200, basicFont, 'Select', 60, 15)
-    btn3H = buttonClassObj.buttonClass(button2img, 100, (win.get_height() / 2) + 200, basicFont, 'Select', 60, 15)
+    btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 75, 15)
+    btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Accept', 75, 15)
+    btn2 = buttonClassObj.buttonClass(buttonimg, win.get_width() - 400, (win.get_height() / 2) + 200, basicFont, 'Select', 75, 15) #right
+    btn2H = buttonClassObj.buttonClass(button2img, win.get_width() - 400, (win.get_height() / 2) + 200, basicFont, 'Select', 75, 15) #right
+    btn3 = buttonClassObj.buttonClass(buttonimg, 100, (win.get_height() / 2) + 200, basicFont, 'Select', 75, 15) #left
+    btn3H = buttonClassObj.buttonClass(button2img, 100, (win.get_height() / 2) + 200, basicFont, 'Select', 75, 15) #left
 
     
 
@@ -110,17 +110,18 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print("mouse click")
-                if btn1Hov == True:
-                    print("mouse click accept team btn")
-                    if rightSelect == 1:
-                        team = team2Name
-                    else:
-                        team = team1Name
-                    #call function to update save file to not new save
-                    saveGame.updateSave(gameState)
-                    #call function to update save file with current team
-                    saveGame.updateTeam(gameState, team)
-                    gameState[1] = 'lockerRoom'
+                if rightSelect == 1 or leftSelect == 1:
+                    if btn1Hov == True:
+                        print("mouse click accept team btn")
+                        if rightSelect == 1:
+                            team = team2Name
+                        else:
+                            team = team1Name
+                        #call function to update save file to not new save
+                        saveGame.updateSave(gameState)
+                        #call function to update save file with current team
+                        saveGame.updateTeam(gameState, team)
+                        gameState[1] = 'lockerRoom'
                 if btn2Hov == True:
                     print("mouse click right choose btn")
                     if rightSelect == 0:
