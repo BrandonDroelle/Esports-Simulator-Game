@@ -155,7 +155,7 @@ for i in range(len(teamLogosRaw)):
 
 #list of teams
 teams = ['barracudas', 'bears', 'bombers', 'crusadors', 'cyclones', 'destroyers', 'dragons', 'express', 'guardians', 'mammoths', 'monarchs', 'pharos',
-         'predators', 'ravagers', 'reapers', 'rebels', 'rovers', 'scorpians', 'seekers', 'sky hawks', 'wolves']
+         'predators', 'ravagers', 'reapers', 'rebels', 'rovers', 'scorpians', 'seekers', 'skyhawks', 'wolves']
 
 #Create gamestate
 gameState = ['gameData1.txt', 'start'] #[current save, current menu]

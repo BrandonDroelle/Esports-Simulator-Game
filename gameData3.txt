@@ -4,6 +4,10 @@ player name
 
 player team
 
+current season
+
+current week
+
 career goals
 
 career assists

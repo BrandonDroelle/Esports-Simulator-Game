@@ -12,11 +12,7 @@ career saves
 
 career shots
 
-season 1 goals
+current season
 
-season 1 assists
-
-season 1 saves
-
-season 1 shots
+current week
 

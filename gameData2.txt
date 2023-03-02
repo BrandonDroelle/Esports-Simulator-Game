@@ -1,9 +1,9 @@
 save 2
-0
+1
 player name
 
 player team
-
+express
 career goals
 
 career assists
@@ -12,11 +12,314 @@ career saves
 
 career shots
 
-season 1 goals
+current season
+1
+current week
+1
+season 1
+Week: 1
+cyclones None
+rovers express
+skyhawks seekers
+crusadors ravagers
+wolves rebels
+bombers barracudas
+predators scorpians
+pharos mammoths
+dragons bears
+reapers guardians
+destroyers monarchs
 
-season 1 assists
+Week: 2
+None skyhawks
+crusadors rovers
+wolves cyclones
+bombers express
+predators seekers
+pharos ravagers
+dragons rebels
+reapers barracudas
+destroyers scorpians
+monarchs mammoths
+guardians bears
 
-season 1 saves
+Week: 3
+None wolves
+bombers crusadors
+predators skyhawks
+pharos rovers
+dragons cyclones
+reapers express
+destroyers seekers
+monarchs ravagers
+guardians rebels
+bears barracudas
+mammoths scorpians
 
-season 1 shots
+Week: 4
+None dragons
+reapers pharos
+destroyers predators
+monarchs bombers
+guardians wolves
+bears crusadors
+mammoths skyhawks
+scorpians rovers
+barracudas cyclones
+rebels express
+ravagers seekers
 
+Week: 5
+scorpians None
+barracudas mammoths
+rebels bears
+ravagers guardians
+seekers monarchs
+express destroyers
+cyclones reapers
+rovers dragons
+skyhawks pharos
+crusadors predators
+wolves bombers
+
+Week: 6
+rebels None
+ravagers barracudas
+seekers scorpians
+express mammoths
+cyclones bears
+rovers guardians
+skyhawks monarchs
+crusadors destroyers
+wolves reapers
+bombers dragons
+predators pharos
+
+Week: 7
+None reapers
+destroyers dragons
+monarchs pharos
+guardians predators
+bears bombers
+mammoths wolves
+scorpians crusadors
+barracudas skyhawks
+rebels rovers
+ravagers cyclones
+seekers express
+
+Week: 8
+monarchs None
+guardians destroyers
+bears reapers
+mammoths dragons
+scorpians pharos
+barracudas predators
+rebels bombers
+ravagers wolves
+seekers crusadors
+express skyhawks
+cyclones rovers
+
+Week: 9
+guardians None
+bears monarchs
+mammoths destroyers
+scorpians reapers
+barracudas dragons
+rebels pharos
+ravagers predators
+seekers bombers
+express wolves
+cyclones crusadors
+rovers skyhawks
+
+Week: 10
+express None
+cyclones seekers
+rovers ravagers
+skyhawks rebels
+crusadors barracudas
+wolves scorpians
+bombers mammoths
+predators bears
+pharos guardians
+dragons monarchs
+reapers destroyers
+
+Week: 11
+seekers None
+express ravagers
+cyclones rebels
+rovers barracudas
+skyhawks scorpians
+crusadors mammoths
+wolves bears
+bombers guardians
+predators monarchs
+pharos destroyers
+dragons reapers
+
+Week: 12
+mammoths None
+scorpians bears
+barracudas guardians
+rebels monarchs
+ravagers destroyers
+seekers reapers
+express dragons
+cyclones pharos
+rovers predators
+skyhawks bombers
+crusadors wolves
+
+Week: 13
+None rovers
+skyhawks cyclones
+crusadors express
+wolves seekers
+bombers ravagers
+predators rebels
+pharos barracudas
+dragons scorpians
+reapers mammoths
+destroyers bears
+monarchs guardians
+
+Week: 14
+barracudas None
+rebels scorpians
+ravagers mammoths
+seekers bears
+express guardians
+cyclones monarchs
+rovers destroyers
+skyhawks reapers
+crusadors dragons
+wolves pharos
+bombers predators
+
+Week: 15
+None bombers
+predators wolves
+pharos crusadors
+dragons skyhawks
+reapers rovers
+destroyers cyclones
+monarchs express
+guardians seekers
+bears ravagers
+mammoths rebels
+scorpians barracudas
+
+Week: 16
+None pharos
+dragons predators
+reapers bombers
+destroyers wolves
+monarchs crusadors
+guardians skyhawks
+bears rovers
+mammoths cyclones
+scorpians express
+barracudas seekers
+rebels ravagers
+
+Week: 17
+ravagers None
+seekers rebels
+express barracudas
+cyclones scorpians
+rovers mammoths
+skyhawks bears
+crusadors guardians
+wolves monarchs
+bombers destroyers
+predators reapers
+pharos dragons
+
+Week: 18
+bears None
+mammoths guardians
+scorpians monarchs
+barracudas destroyers
+rebels reapers
+ravagers dragons
+seekers pharos
+express predators
+cyclones bombers
+rovers wolves
+skyhawks crusadors
+
+Week: 19
+None predators
+pharos bombers
+dragons wolves
+reapers crusadors
+destroyers skyhawks
+monarchs rovers
+guardians cyclones
+bears express
+mammoths seekers
+scorpians ravagers
+barracudas rebels
+
+Week: 20
+None destroyers
+monarchs reapers
+guardians dragons
+bears pharos
+mammoths predators
+scorpians bombers
+barracudas wolves
+rebels crusadors
+ravagers skyhawks
+seekers rovers
+express cyclones
+
+Week: 21
+None crusadors
+wolves skyhawks
+bombers rovers
+predators cyclones
+pharos express
+dragons seekers
+reapers ravagers
+destroyers rebels
+monarchs barracudas
+guardians scorpians
+bears mammoths
+
+s1w1
+express
+rovers
+express p1
+3
+0
+1
+4
+express p2
+0
+1
+0
+1
+express p3
+0
+0
+0
+1
+rovers p1
+0
+0
+3
+0
+rovers p2
+1
+0
+0
+3
+rovers p3
+0
+1
+0
+1

@@ -2,6 +2,7 @@ import pygame, sys
 import buttonClassObj
 import random
 import saveGame
+import generateSchedule
 
 #select team menu
 def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teams):
@@ -10,7 +11,9 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
 
     #Create Variables
     length = len(teamLogos)
-    print("team logo length: ", length)
+    length2 = len(teams)
+    print("teamLogos length: ", length)
+    print("teams length: ", length2)
     leftSelect = 0
     rightSelect = 0
     team = ''
@@ -121,6 +124,17 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         saveGame.updateSave(gameState)
                         #call function to update save file with current team
                         saveGame.updateTeam(gameState, team)
+                        #call function to update save file with current season
+                        saveGame.updateSeason(gameState, 1)
+                        #call function to update save file with current week
+                        saveGame.updateWeek(gameState, 1)
+                        #call function to generate season schedule
+                        schedule = generateSchedule.generateRoundRobin(gameState, teams)
+                        generateSchedule.printSchedule(schedule)
+                        generateSchedule.printTeams(teams)
+                        scheduleString = generateSchedule.getScheduleString(schedule)
+                        #print("schedule string: ", scheduleString)
+                        #saveGame.updateSchedule(gameState, scheduleString)
                         gameState[1] = 'lockerRoom'
                 if btn2Hov == True:
                     print("mouse click right choose btn")

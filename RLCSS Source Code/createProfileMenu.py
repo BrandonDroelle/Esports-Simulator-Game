@@ -145,7 +145,7 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
                     btn1.draw(win)
 
             if caps == 0:
-                print('draw number keys')
+                #print('draw number keys')
                 but1.draw(win)
                 but2.draw(win)
                 but3.draw(win)
@@ -157,7 +157,7 @@ def createProfileMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, b
                 but9.draw(win)
                 but0.draw(win)
             if caps == 1:
-                print('draw symbol keys')
+                #print('draw symbol keys')
                 but1S.draw(win)
                 but2S.draw(win)
                 but3S.draw(win)

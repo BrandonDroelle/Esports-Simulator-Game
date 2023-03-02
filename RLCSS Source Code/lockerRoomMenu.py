@@ -1,6 +1,5 @@
 import pygame, sys
 import buttonClassObj
-import saveData
 import saveGame
 
 # #display locker room menu
@@ -17,7 +16,7 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     count = 0
     for i in teams:
         print("team name: ", teamName)
-        print("teams[i]: ", teams[count])
+        print("teams[count]: ", teams[count])
         if teamName == teams[count]:
             print("match")
             teamLogoIndex = count

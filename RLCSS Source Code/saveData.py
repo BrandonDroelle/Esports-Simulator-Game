@@ -93,3 +93,14 @@ def read(gameState, testStr):
     gameData.close()
     return text
 #return string from specified row
+
+#append new data to end of save file
+def append(gameState, newData):
+    print("in saveData.append")
+    gameData = open(gameState[0], 'a')
+    count = 0
+    for i in newData:
+        gameData.write(newData[0])
+        count = count + 1
+    print("new data appended")
+    gameData.close
