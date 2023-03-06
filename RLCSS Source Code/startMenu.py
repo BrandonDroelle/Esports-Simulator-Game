@@ -14,10 +14,10 @@ def checkNewSave(gameState):
     saveNum = str(saveNum)
     #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
     saveState = "save " + saveNum + "\n"
-    print ("saveState: ", saveState)
+    #print ("saveState: ", saveState)
     #this calls the function to search for the strings and return the string in the row below (so either a 0 or 1)
     newSave = saveData.read(gameState, saveState)
-    print("newSave: ", newSave)
+    #print("newSave: ", newSave)
     return newSave
 
 #display start menu
@@ -50,21 +50,21 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
     gameState[0] = 'gameData1.txt'
     #check if save file is new
     newSave1 = checkNewSave(gameState)
-    print("newSave After check:",newSave1)
-    print(type(newSave1))
+    #print("newSave After check:",newSave1)
+    #print(type(newSave1))
     #checks if data file is new (0) or already used (1)
 
     gameState[0] = 'gameData2.txt'
     #check if save file is new
     newSave2 = checkNewSave(gameState)
-    print("newSave After check:",newSave2)
-    print(type(newSave2))
+    #print("newSave After check:",newSave2)
+    #print(type(newSave2))
 
     gameState[0] = 'gameData3.txt'
     #check if save file is new
     newSave3 = checkNewSave(gameState)
-    print("newSave After check:",newSave3)
-    print(type(newSave3))
+    #print("newSave After check:",newSave3)
+    #print(type(newSave3))
 
     #Menu Loop
     while gameState[1] == 'start':
@@ -150,7 +150,7 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     gameState[0] = 'gameData1.txt'
                     #check if save file is new
                     newSave = checkNewSave(gameState)
-                    print("newSave After check:",newSave)
+                    #print("newSave After check:",newSave)
                     print(type(newSave))
                     #checks if data file is new (0) or already used (1)
                     if newSave == "0\n":
@@ -165,7 +165,7 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     gameState[0] = 'gameData2.txt'
                     #check if save file is new
                     newSave = checkNewSave(gameState)
-                    print("newSave After check:",newSave)
+                    #print("newSave After check:",newSave)
                     print(type(newSave))
                     #checks if data file is new (0) or already used (1)
                     if newSave == "0\n":
@@ -180,7 +180,7 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     gameState[0] = 'gameData3.txt'
                     #check if save file is new
                     newSave = checkNewSave(gameState)
-                    print("newSave After check:",newSave)
+                    #print("newSave After check:",newSave)
                     print(type(newSave))
                     #checks if data file is new (0) or already used (1)
                     if newSave == "0\n":

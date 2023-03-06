@@ -1,8 +1,8 @@
 #generate round robin schedule for the season
 import random
 
-def randomizeTeams(teams):
-    print('in randomize teams')
+def randomizeList(teams):
+    print('in randomize list')
     #print("teams: ", teams)
     random.shuffle(teams)
     #print("teams shuffle: ", teams)
@@ -15,7 +15,7 @@ def generateRoundRobin(gameState, teams):
 
     #Randomize list of teams sent in
     teamsShuffle = teams.copy() #makes a copy of the teams list so the teams list stays in the original order
-    teamsShuffle = randomizeTeams(teamsShuffle)
+    teamsShuffle = randomizeList(teamsShuffle)
     #print("teams: ", teams)
     #print("teamsShuffle: ", teamsShuffle)
     
@@ -68,14 +68,15 @@ def getScheduleString(schedule):
     scheduleSaveFormat = ""
     team = ''
     for i in range(sLength):
-        print("Week:", i + 1)
+        #print("Week:", i + 1)
         for j in range(rLength):
             game = ("{} {}".format(schedule[i][j][0],schedule[i][j][1]))
-            print("game:", game)
-            print("g", i + 1, 't', i+1, ':', schedule[i][j][0], schedule[i][j][1])
+            #print("game:", game)
+            #print("g", i + 1, 't', i+1, ':', schedule[i][j][0], schedule[i][j][1])
             homeTeam = str(schedule[i][j][0])
             awayTeam = str(schedule[i][j][1])
-            print("home team:", homeTeam, "\naway team:", awayTeam)
+            #print("home team:", homeTeam, "\naway team:", awayTeam)
+            #reformat schedule list to fit save data file
             scheduleSaveFormat = scheduleSaveFormat + homeTeam + '\n' + awayTeam + '\n'
-            print('scheduleSaveFormat:', scheduleSaveFormat)
+            #print('scheduleSaveFormat:', scheduleSaveFormat)
     return scheduleSaveFormat

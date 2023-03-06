@@ -10,18 +10,18 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     #Create Variables
     teamName = saveGame.getTeamName(gameState)
     titleText = teamName.capitalize() + ' Locker Room'
-    print('titletext: ', titleText)
+    #print('titletext: ', titleText)
     #get team logo from list
     teamLogoIndex = 99
     count = 0
     for i in teams:
-        print("team name: ", teamName)
-        print("teams[count]: ", teams[count])
+        #print("team name: ", teamName)
+        #print("teams[count]: ", teams[count])
         if teamName == teams[count]:
-            print("match")
+            #print("match")
             teamLogoIndex = count
         count = count + 1
-    print("team logo index: ", teamLogoIndex)
+    #print("team logo index: ", teamLogoIndex)
     #Create Strings
     title = basicFont.render( titleText, False, (255, 255, 255))
 

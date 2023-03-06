@@ -79,5 +79,11 @@ def getWeek(gameState):
 
 #update schedule to save file
 def updateSchedule(gameState, schedule):
-    print('Add schedule to sace file')
+    print('Add schedule to save file')
     saveData.append(gameState, schedule)
+
+#update teams with roster to save file
+def updateRoster(gameState, teams):
+    print("Add team rosters to save file")
+    saveState = "rosters" + "\n"
+    saveData.write(gameState, saveState, teams)

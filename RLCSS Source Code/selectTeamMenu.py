@@ -3,17 +3,19 @@ import buttonClassObj
 import random
 import saveGame
 import generateSchedule
+import createCache
+import teamClass
 
 #select team menu
-def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teams):
+def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames):
 
     print('in select team menu - ', gameState)
 
     #Create Variables
     length = len(teamLogos)
-    length2 = len(teams)
-    print("teamLogos length: ", length)
-    print("teams length: ", length2)
+    length2 = len(teamNames)
+    #print("teamLogos length: ", length)
+    #print("teams length: ", length2)
     leftSelect = 0
     rightSelect = 0
     team = ''
@@ -29,8 +31,8 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
     print("team 1: ", team1)
     print("team 2: ", team2)
 
-    team1Name = teams[team1]
-    team2Name = teams[team2]
+    team1Name = teamNames[team1]
+    team2Name = teamNames[team2]
     print("team 1: ", team1Name)
     print("team 2: ", team2Name)
 
@@ -120,6 +122,21 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                             team = team2Name
                         else:
                             team = team1Name
+
+                        #call function to generate season schedule
+                        schedule = generateSchedule.generateRoundRobin(gameState, teamNames)
+                        #generateSchedule.printSchedule(schedule)
+                        #generateSchedule.printTeams(teamNames)
+                        scheduleString = generateSchedule.getScheduleString(schedule)
+                        #print("schedule string: ", scheduleString)
+                        #generate players
+                        playerObjects = createCache.createPlayerObjects(gameState, playerNames)
+                        print("player objects generated")
+                        #generate teams
+                        teamObjects = createCache.createTeamObjects(teamNames)
+                        print("team objects generated")
+                        
+
                         #call function to update save file to not new save
                         saveGame.updateSave(gameState)
                         #call function to update save file with current team
@@ -128,13 +145,20 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         saveGame.updateSeason(gameState, 1)
                         #call function to update save file with current week
                         saveGame.updateWeek(gameState, 1)
-                        #call function to generate season schedule
-                        schedule = generateSchedule.generateRoundRobin(gameState, teams)
-                        generateSchedule.printSchedule(schedule)
-                        generateSchedule.printTeams(teams)
-                        scheduleString = generateSchedule.getScheduleString(schedule)
-                        #print("schedule string: ", scheduleString)
-                        #saveGame.updateSchedule(gameState, scheduleString)
+                        #save season schedule to save file
+
+
+                        saveGame.updateSchedule(gameState, scheduleString)
+
+
+                        #fill team rosters, each team gets three players (Have to update save file with team name before filling team rosters)
+                        teamObjects = createCache.fillTeamRosters(gameState, playerObjects, teamObjects)
+                        #assign user to the team they picked instead of a random team
+                        createCache.swapUserWithNPC(gameState, playerObjects, teamObjects)
+                        
+                        
+
+
                         gameState[1] = 'lockerRoom'
                 if btn2Hov == True:
                     print("mouse click right choose btn")
