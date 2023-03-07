@@ -53,6 +53,14 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
     print("Number of Players:", len(playersShuffle))
     print("Number of teams:", len(teamObjects))
     #randomly assigns three players to each team
+    c = 0
+    for i in playerObjects:
+        n = playerObjects[c].getName()
+        print("players", n)
+        c = c + 1
+
+    
+
     while pcount < len(playersShuffle):
         teamObjects[tcount].setP1(playersShuffle[pcount])
         pcount = pcount + 1

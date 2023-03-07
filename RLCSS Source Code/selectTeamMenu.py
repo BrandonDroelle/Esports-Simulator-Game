@@ -7,13 +7,21 @@ import createCache
 import teamClass
 
 #select team menu
-def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames):
+def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames):
 
     print('in select team menu - ', gameState)
 
     #Create Variables
     length = len(teamLogos)
     length2 = len(teamNames)
+
+    #list of players
+    playerNames = ['marley', 'casper', 'myrtle', 'samara', 'storm', 'fury', 'rainmaker', 'squall', 'hound', 'viper', 'imp', 'mountain', 'tusk', 'sabretooth',
+               'beast', 'roundhouse', 'gerwin', 'c-block', 'centice', 'junker', 'foamer', 'sticks', 'boomer', 'caveman', 'rex', 'khan', 'Raja', 'sultan',
+               'saltie', 'scout', 'swabbie', 'middy', 'bandit', 'outlaw', 'poncho', 'dude', 'buzz', 'armstrong', 'shepard', 'yuri', 'maverick', 'iceman',
+               'goose', 'cougar', 'tex', 'merlin', 'stinger', 'hollywood', 'sundown', 'jester', 'heater', 'slider', 'chipper', 'wolfman', 'stig', 'clu',
+               'fulcrum', 'alleycat', 'soap', 'echo', 'heavy', 'fives']
+
     #print("teamLogos length: ", length)
     #print("teams length: ", length2)
     leftSelect = 0
@@ -123,31 +131,38 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         else:
                             team = team1Name
 
-                        #call function to generate season schedule
-                        schedule = generateSchedule.generateRoundRobin(gameState, teamNames)
-                        #generateSchedule.printSchedule(schedule)
-                        #generateSchedule.printTeams(teamNames)
-                        scheduleString = generateSchedule.getScheduleString(schedule)
-                        #print("schedule string: ", scheduleString)
+                        ###Update Save File###
+
+                        #call function to update save file with current season
+                        saveGame.updateSeason(gameState, 1)
+
+                        ###Update Cache Data###
+
                         #generate players
-                        playerObjects = createCache.createPlayerObjects(gameState, playerNames)
+                        playerObjects = createCache.createPlayerObjects(gameState, playerNames) #here is when the player name is added to the list of player names
                         print("player objects generated")
                         #generate teams
                         teamObjects = createCache.createTeamObjects(teamNames)
                         print("team objects generated")
+                        #call function to generate season schedule
+                        schedule = generateSchedule.generateRoundRobin(gameState, teamNames)
+                        #generateSchedule.printSchedule(schedule)
+                        #generateSchedule.printTeams(teamNames)
+                        scheduleString = generateSchedule.getScheduleString(gameState, schedule, teamObjects)
+                        #print("schedule string: ", scheduleString)
                         
+
+                        
+                        ###Update Save File###
 
                         #call function to update save file to not new save
                         saveGame.updateSave(gameState)
                         #call function to update save file with current team
                         saveGame.updateTeam(gameState, team)
-                        #call function to update save file with current season
-                        saveGame.updateSeason(gameState, 1)
+                        
                         #call function to update save file with current week
                         saveGame.updateWeek(gameState, 1)
                         #save season schedule to save file
-
-
                         saveGame.updateSchedule(gameState, scheduleString)
 
 
@@ -155,6 +170,8 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         teamObjects = createCache.fillTeamRosters(gameState, playerObjects, teamObjects)
                         #assign user to the team they picked instead of a random team
                         createCache.swapUserWithNPC(gameState, playerObjects, teamObjects)
+                        #add players to schedule in save file
+                        saveGame.addPlayersToSchedule(gameState, teamObjects)
                         
                         
 

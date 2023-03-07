@@ -1,5 +1,6 @@
 #generate round robin schedule for the season
 import random
+import saveGame
 
 def randomizeList(teams):
     print('in randomize list')
@@ -60,13 +61,18 @@ def printSchedule(schedule):
             print(game)
         print()
 
-def getScheduleString(schedule):
+#create a string from the schedule tuple formated to store data in the save file
+def getScheduleString(gameState, schedule, teamObjects):
     sLength = len(schedule)
     rLength = len(schedule[0])
     print("schedule[o]", schedule[0])
     print("schedule[o] length", rLength)
-    scheduleSaveFormat = ""
-    team = ''
+    currentSeason = str(saveGame.getSeason(gameState))
+    print("current season:", currentSeason)
+    scheduleSaveFormat = 'Season ' + currentSeason + '\n'
+    count = 0
+    weekCount = 2
+    scheduleSaveFormat = scheduleSaveFormat + "Week " + '1' + "\n"
     for i in range(sLength):
         #print("Week:", i + 1)
         for j in range(rLength):
@@ -79,4 +85,17 @@ def getScheduleString(schedule):
             #reformat schedule list to fit save data file
             scheduleSaveFormat = scheduleSaveFormat + homeTeam + '\n' + awayTeam + '\n'
             #print('scheduleSaveFormat:', scheduleSaveFormat)
+            count = count + 1
+            #adds a string for each week
+            if count == 11:
+                weekCountStr = str(weekCount)
+                scheduleSaveFormat = scheduleSaveFormat + "Week " + weekCountStr + "\n"
+                count = 0
+                weekCount = weekCount + 1
+    scheduleSaveFormat = scheduleSaveFormat + 'Season ' + currentSeason + ' End\n'
+    
     return scheduleSaveFormat
+
+
+    
+    

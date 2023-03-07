@@ -1,7 +1,7 @@
 #read and write data to save file
 
 #new write function which creates a list of the lines from the data sheet, and then replaces the data at the correct index, then rewrites it onto the txt document
-def write(gameState, dataType, newData):
+def write(gameState, dataType, newData, multiple):
     print("in new saveData.write")
     #print("file: ", gameState[0])
     #print("dataType searching for:", dataType)
@@ -15,24 +15,27 @@ def write(gameState, dataType, newData):
     count = 0
 
     #print(lines)
+    if multiple >= 1:
     #checks each line from txt file to see if it matches the data type thats being searched for
-    while found == False:
-        if count <= len(lines):
-            #print("line ", count, ":", lines[count])
-            currentLine = lines[count]
-            if currentLine == dataType:
-                found = True
-            #print("found: ", found)
-            if found == True:
-                lines[count + 1] = newData + "\n"#when dataTypes match the list is updated with the new data (+1 is added to count because data is stored in the index after the data type)
-            count = count + 1
-        else:
-            print("Data Type:", dataType, "is not in file")
-    #print(lines)
-    #Now that the data location has been found the list will be rewritten onto the txt file
-    with open(gameState[0], "w") as gameData:
-        for line in lines:
-            gameData.write(line)
+        while found == False:
+            if count <= len(lines):
+                #print("line ", count, ":", lines[count])
+                currentLine = lines[count]
+                if currentLine == dataType:
+                    found = True
+                #print("found: ", found)
+                if found == True:
+                    lines[count + 1] = newData + "\n"#when dataTypes match the list is updated with the new data (+1 is added to count because data is stored in the index after the data type)
+
+                count = count + 1
+            else:
+                print("Data Type:", dataType, "is not in file")
+        #print(lines)
+        #Now that the data location has been found the list will be rewritten onto the txt file
+        with open(gameState[0], "w") as gameData:
+            for line in lines:
+                gameData.write(line)
+        multiple = multiple - 1
     
     #for index in lines:
         #gameData.write(lines[index])
