@@ -1,3 +1,4 @@
+from logging import exception
 import saveData
 import teamClass
 
@@ -92,13 +93,13 @@ def updateRoster(gameState, teams):
 #add players to the schedule in the save file
 def addPlayersToSchedule(gameState, teamObjects):
     print("In add players to schedule function")
-    checkPlayerTeam = 0
-    teamName = ''
+    currentSeason = str(getSeason(gameState))
+    exception = 'Season ' + currentSeason + '\n'
     count = 0
     #for i in teamObjects:
     teamName = teamObjects[count].getTeamName() + '\n'
     #print('count:', count)
-    roster = teamObjects[count].rosterString()
+    roster = teamObjects[count].getRosterString()
     #print('teamName:', teamName, 'roster:', roster)
-    #saveData.write(gameState, teamName, roster, 21)
+    saveData.write(gameState, teamName, roster, 20, exception)
     count = count + 1

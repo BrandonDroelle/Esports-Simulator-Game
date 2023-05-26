@@ -36,6 +36,10 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
             flag = 0
         else:
             flag = 1
+    #riged teams
+    team1 = 0
+    team2 = 1
+
     #print("team 1: ", team1)
     #print("team 2: ", team2)
 

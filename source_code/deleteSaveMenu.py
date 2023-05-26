@@ -19,7 +19,7 @@ def deleteSaveMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     path = saveData.getSaveFilePath(gameState)
 
     #This string replaces text in save file
-    newSaveData = saveFileName + "\n0\nplayer name\n\nplayer team\n\ncareer goals\n\ncareer assists\n\ncareer saves\n\ncareer shots\n\ncurrent season\n\ncurrent week\n\nrosters\n\n"
+    newSaveData = "RLCS Save Data\n" + saveFileName + "\n0\nplayer name\n\nplayer team\n\ncareer goals\n\ncareer assists\n\ncareer saves\n\ncareer shots\n\ncurrent season\n\ncurrent week\n\n"
 
     title = basicFont.render('Delete ' + saveFileName, False, (255, 255, 255))
 

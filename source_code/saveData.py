@@ -18,7 +18,7 @@ def getSaveFilePath(gameState):
     #"C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\saves\\" + gameState[0]
 
 #new write function which creates a list of the lines from the data sheet, and then replaces the data at the correct index, then rewrites it onto the txt document
-def write(gameState, dataType, newData, multiple = 1):
+def write(gameState, dataType, newData, multiple = 1, exception = "RLCS Save Data\n"):
     #multiple is used to write the same data multiple times
     print("in new saveData.write")
     #print("file: ", gameState[0])
@@ -35,17 +35,18 @@ def write(gameState, dataType, newData, multiple = 1):
     lines = gameData.readlines()
     found = False
     count = 0   #counts current line in save file
-    skips = 0   #counts number of dataType matches to skip
-    skipsTotal = 1  #counts number of times through the loop to add 
-
+    exceptionFlag = False #This is False the the string exception has not been read yet
 
     #print(lines)
     while multiple > 0:
-        print ("multiple: ", multiple)
+        #print ("multiple: ", multiple)
         while found == False:                       #checks each line from txt file to see if it matches the data type thats being searched for
             #print("line", count, ":", lines[count])
             currentLine = lines[count]
-            if currentLine == dataType:
+            if currentLine == exception:            #checks current line for exception
+                exceptionFlag = True
+            if currentLine == dataType:             #check current lin for data type
+                if exceptionFlag == True:           #checks that the exception has been passed before allowing data to be written
                    found = True
             #print("found: ", found)
             if found == True:
@@ -65,6 +66,32 @@ def write(gameState, dataType, newData, multiple = 1):
     
     #for index in lines:
         #gameData.write(lines[index])
+
+
+        ##########
+        #while multiple > 0:
+        ##print ("multiple: ", multiple)
+        #while found == False:                       #checks each line from txt file to see if it matches the data type thats being searched for
+        #    #print("line", count, ":", lines[count])
+        #    currentLine = lines[count]
+        #    if currentLine == dataType:
+        #           found = True
+        #    #print("found: ", found)
+        #    if found == True:
+        #            lines[count + 1] = newData + "\n" #when dataTypes match the list is updated with the new data (+1 is added to count because data is stored in the index after the data type)
+        #            #Now that the data location has been found the list will be rewritten onto the txt file
+        #            with open(path, "w") as gameData:
+        #                for line in lines:
+        #                    gameData.write(line)
+        #    count = count + 1
+        ##reset lines with new data
+        #gameData = open(path, 'r+')
+        #newData = str(newData)
+        #lines = gameData.readlines()
+        #found = False
+        #multiple = multiple - 1
+        ##########
+
 
 #create function which creates a new txt document with newData added
 def create(gameState, newData):

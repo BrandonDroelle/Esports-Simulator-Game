@@ -1,3 +1,4 @@
+RLCS Save Data
 save 2
 0
 player name

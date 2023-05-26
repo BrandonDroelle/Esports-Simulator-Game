@@ -53,11 +53,11 @@ class TeamClass:
         print(self.p3.getName())
 
     #create roster string to go into save file
-    def rosterString(self):
+    def getRosterString(self):
         p1n = self.p1.getName()
         p2n = self.p2.getName()
         p3n = self.p3.getName()
         statsStr = "\ngoals\n\nassists\n\nsaves\n\nshots\n\n"
-        rosterStr = p1n + statsStr + p2n + statsStr + p3n + statsStr
+        rosterStr = p1n + statsStr + p2n + statsStr + p3n + "\ngoals\n\nassists\n\nsaves\n\nshots\n"
         return rosterStr
         
