@@ -96,10 +96,10 @@ def addPlayersToSchedule(gameState, teamObjects):
     currentSeason = str(getSeason(gameState))
     exception = 'Season ' + currentSeason + '\n'
     count = 0
-    #for i in teamObjects:
-    teamName = teamObjects[count].getTeamName() + '\n'
-    #print('count:', count)
-    roster = teamObjects[count].getRosterString()
-    #print('teamName:', teamName, 'roster:', roster)
-    saveData.write(gameState, teamName, roster, 20, exception)
-    count = count + 1
+    for i in teamObjects:
+        teamName = teamObjects[count].getTeamName() + '\n'
+        #print('count:', count)
+        roster = teamObjects[count].getRosterString()
+        #print('teamName:', teamName, 'roster:', roster)
+        saveData.write(gameState, teamName, roster, 20, exception)
+        count = count + 1
