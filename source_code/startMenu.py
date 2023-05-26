@@ -143,17 +143,17 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
 
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
-                print("mouse click")
+                #print("mouse click")
                 if btn1Hov == True:
                     print("mouse click save 1 btn")
                     #change gamestate[0] to number of file to check for match in textfile
                     gameState[0] = 'gameData1.txt'
                     #check if save file is new
-                    newSave = checkNewSave(gameState)
+                    ###newSave = checkNewSave(gameState)### Can potentially remove
                     #print("newSave After check:",newSave)
-                    print(type(newSave))
+                    #print(type(newSave))
                     #checks if data file is new (0) or already used (1)
-                    if newSave == "0\n":
+                    if newSave1 == "0\n":
                         print('run new game menu')
                         gameState[1] = 'createProfile'
                     else:
@@ -164,11 +164,11 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     #change gamestate[0] to number of file to check for match in textfile
                     gameState[0] = 'gameData2.txt'
                     #check if save file is new
-                    newSave = checkNewSave(gameState)
+                    ###newSave = checkNewSave(gameState)### Can potentially remove
                     #print("newSave After check:",newSave)
-                    print(type(newSave))
+                    #print(type(newSave))
                     #checks if data file is new (0) or already used (1)
-                    if newSave == "0\n":
+                    if newSave2 == "0\n":
                         print('run new game menu')
                         gameState[1] = 'createProfile'
                     else:
@@ -179,11 +179,11 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                     #change gamestate[0] to number of file to check for match in textfile
                     gameState[0] = 'gameData3.txt'
                     #check if save file is new
-                    newSave = checkNewSave(gameState)
+                    ###newSave = checkNewSave(gameState)### Can potentially remove
                     #print("newSave After check:",newSave)
-                    print(type(newSave))
+                    #print(type(newSave))
                     #checks if data file is new (0) or already used (1)
-                    if newSave == "0\n":
+                    if newSave3 == "0\n":
                         print('run new game menu')
                         gameState[1] = 'createProfile'
                     else:

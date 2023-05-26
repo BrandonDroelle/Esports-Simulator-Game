@@ -50,13 +50,13 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
     playersShuffle = generateSchedule.randomizeList(playersShuffle)
     tcount = 0 #plus one every loop to change team
     pcount = 0 #plus one every assignment to change player
-    print("Number of Players:", len(playersShuffle))
-    print("Number of teams:", len(teamObjects))
+    #print("Number of Players:", len(playersShuffle))
+    #print("Number of teams:", len(teamObjects))
     #randomly assigns three players to each team
     c = 0
     for i in playerObjects:
         n = playerObjects[c].getName()
-        print("players", n)
+        #print("players", n)
         c = c + 1
 
     
@@ -80,7 +80,7 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
 #finds the users player index
 def getUserPLayerIndex(gameState, playerObjects):
     userName = saveGame.getPlayerName(gameState)    #gets users playerName from save file
-    print("User Name:", userName)
+    #print("User Name:", userName)
 
     flag = 0
     count = 0
@@ -89,46 +89,46 @@ def getUserPLayerIndex(gameState, playerObjects):
         #print("userName:", userName)
         #print("tempUsersName:", tempUserName)
         if userName == tempUserName:
-            print("Found User Player Object")
+            #print("Found User Player Object")
             userPlayerObject = playerObjects[count] #get user player object
             userPlayerIndex = count                 #get user player index
             flag = 1
         if count == 1000:
-            print("Did Not Found User Player Object")
+            #print("Did Not Found User Player Object")
             flag = 1
         count = count + 1
 
-    print("Users Player Name:", tempUserName)
-    print("Users Player Index:", userPlayerIndex)
+    #print("Users Player Name:", tempUserName)
+    #print("Users Player Index:", userPlayerIndex)
     return userPlayerIndex
 
 def getUserTeamIndex(gameState, teamObjects):
     userTeam = saveGame.getTeamName(gameState)      #gets users teamName from save file
-    print("User Team:", userTeam)
+    #print("User Team:", userTeam)
 
     flag = 0
     count = 0
-    print("Number of teams:", len(teamObjects))
-    print("User Team:", userTeam)
+    #print("Number of teams:", len(teamObjects))
+    #print("User Team:", userTeam)
     while flag == 0:
         tempTeamName = teamObjects[count].getTeamName()
-        print("User Team:", userTeam)
-        print("Temp Team:", tempTeamName)
+        #print("User Team:", userTeam)
+        #print("Temp Team:", tempTeamName)
         if userTeam == tempTeamName:
-            print("Found User Team Object")
+            #print("Found User Team Object")
             userTeamObject = teamObjects[count] #get user team object
             userTeamIndex = count               #get user team index of team to be swapped to
             flag = 1
-            print("flag if match:", flag)
+            #print("flag if match:", flag)
         if count == 1000:
-            print("Did Not Found User Team Object")
+            #print("Did Not Found User Team Object")
             flag = 1
-            print("flag if no match:", flag)
+            #print("flag if no match:", flag)
         count = count + 1
-        print("flag:", flag)
+        #print("flag:", flag)
 
-    print("Users Team Name:", tempTeamName)
-    print("Users Team Index:", userTeamIndex)
+    #print("Users Team Name:", tempTeamName)
+    #print("Users Team Index:", userTeamIndex)
     return userTeamIndex
 
 #get player index from name
@@ -138,12 +138,12 @@ def getPlayerIndex (gameState, name, playerObjects):
     while flag == 0:
         tempName = playerObjects[count].getName()
         if name == tempName:
-            print("Found NPC player Object")
+            #print("Found NPC player Object")
             npcPlayerObject = playerObjects[count] #get npc player object
             npcPlayerIndex = count                 #get npc player index
             flag = 1
         if count == 1000:
-            print("Did Not Found User Player Object")
+            #print("Did Not Found User Player Object")
             flag = 1
         count = count + 1
     return npcPlayerIndex
@@ -169,7 +169,7 @@ def swapUserWithNPC(gameState, playerObjects, teamObjects):
         p1 = teamObjects[count].getP1()     #gets p1 from team
         p1n = p1.getName()                  #gets p1 name
         if p1n == userName:                 #checks for match
-            print("found name")
+            #print("found name")
             tempTeamName = teamObjects[count].getTeamName()     #get temp team name
             tempTeamObject = teamObjects[count]             #get temp team object
             tempTeamIndex = count                           #get temp team index for NPC to be swapped to
@@ -178,7 +178,7 @@ def swapUserWithNPC(gameState, playerObjects, teamObjects):
         p2 = teamObjects[count].getP2() #gets p2 from team
         n2 = p2.getName()               #gets p2 name
         if n2 == userName:              #checks for match
-            print("found name")
+            #print("found name")
             tempTeamName = teamObjects[count].getTeamName() #get temp team name
             tempTeamObject = teamObjects[count]         #get temp team object
             tempTeamIndex = count                       #get temp team index for NPC to be swapped to
@@ -187,82 +187,82 @@ def swapUserWithNPC(gameState, playerObjects, teamObjects):
         p3 = teamObjects[count].getP3() #gets p3 from team
         n3 = p3.getName()               #gets p3 name
         if n3 == userName:              #checks for match
-            print("found name")
+            #print("found name")
             tempTeamName = teamObjects[count].getTeamName() #get temp team name
             tempTeamObject = teamObjects[count]         #get temp team object
             tempTeamIndex = count                       #get temp team index for NPC to be swapped to
             pos = 3
             flag = 1
         if count == 1000:
-            print("Did Not NPC player name")
+            #print("Did Not NPC player name")
             flag = 1
             tempTeamName = "Not Found"
         count = count + 1
 
     #print team the player picked before swap
-    print("\nTeam user picked before swap")
+    #print("\nTeam user picked before swap")
     teamObjects[userTeamIndex].printRoster()
     #print team the player got randomly assigned before swap
-    print("Team user got randomly assigned before swap")
+    #print("Team user got randomly assigned before swap")
     teamObjects[tempTeamIndex].printRoster()
 
-    print("team to be swapped from:", tempTeamName)
+    #print("team to be swapped from:", tempTeamName)
 
     #get name of player from tempTeamObject
     npcObject = teamObjects[userTeamIndex].getP1()
     npcName = npcObject.getName()
 
-    print("npc to be swapped:", npcName)
+    #print("npc to be swapped:", npcName)
 
     #This function returns the index of a player based on the name string
     npcIndex = getPlayerIndex(gameState, npcName, playerObjects)
 
     tempTeamName = teamObjects[tempTeamIndex].getTeamName()
-    print("Team User was on:", tempTeamName)
+    #print("Team User was on:", tempTeamName)
     npcName = playerObjects[npcIndex].getName()
-    print("NPC being swapped:", npcName)
+    #print("NPC being swapped:", npcName)
     tempTeamName2 = teamObjects[userTeamIndex].getTeamName()
-    print("Team User is going to:", tempTeamName2)
+    #print("Team User is going to:", tempTeamName2)
     userName2 = playerObjects[userPlayerIndex].getName()
-    print("player being swapped:", userName2)
+    #print("player being swapped:", userName2)
 
-    print("initiate player and NPC swap")
+    #print("initiate player and NPC swap")
     #Swap the users player object to the team they picked with the npc player object on that team
     if pos == 1:
-        print("set npc to p1")
+        #print("set npc to p1")
         teamObjects[tempTeamIndex].setP1(playerObjects[npcIndex]) #sets NPC player object to team that User was on
     if pos == 2:
-        print("set npc to p2")
+        #print("set npc to p2")
         teamObjects[tempTeamIndex].setP2(playerObjects[npcIndex]) #sets NPC player object to team that User was on
     if pos == 3:
-        print("set npc to p3")
+        #print("set npc to p3")
         teamObjects[tempTeamIndex].setP3(playerObjects[npcIndex]) #sets NPC player object to team that User was on
     
     teamObjects[userTeamIndex].setP1(playerObjects[userPlayerIndex]) #sets User player object to team that NPC was on
 
     userName = playerObjects[userPlayerIndex].getName()
-    print("Users Name from player object:", userName)
+    #print("Users Name from player object:", userName)
     npcName = playerObjects[npcIndex].getName()
-    print("npcs Name from player object:", npcName)
+    #print("npcs Name from player object:", npcName)
 
     #print team the player got randomly assigned after swap
-    print("Team user got randomly assigned after swap\n")
+    #print("Team user got randomly assigned after swap\n")
     teamObjects[tempTeamIndex].printRoster()
     #print team the player picked after swap
-    print("Team user picked after swap\n")
+    #print("Team user picked after swap\n")
     teamObjects[userTeamIndex].printRoster()
     
 
-    print("Users team after swap")
-    print("Users Player Name:", userName)
-    print("Users Player Index:", userPlayerIndex)
-    print("Users Team Name:", userTeam)
-    print("Users Team Index:", userTeamIndex)
+    #print("Users team after swap")
+    #print("Users Player Name:", userName)
+    #print("Users Player Index:", userPlayerIndex)
+    #print("Users Team Name:", userTeam)
+    #print("Users Team Index:", userTeamIndex)
 
     
 
-    print("npcs team after swap")
-    print("npcs Player Name:", npcName)
-    print("npcs Player Index:", npcIndex)
-    print("npcs Team Name:", tempTeamName)
-    print("npcs Team Index:", tempTeamIndex)
+    #print("npcs team after swap")
+    #print("npcs Player Name:", npcName)
+    #print("npcs Player Index:", npcIndex)
+    #print("npcs Team Name:", tempTeamName)
+    #print("npcs Team Index:", tempTeamIndex)

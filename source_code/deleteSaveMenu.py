@@ -8,13 +8,15 @@ def deleteSaveMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     print('in delete save menu - ', gameState)
 
     #Create Strings
-
     if gameState[0] == 'gameData1.txt':
         saveFileName = "save 1"
     if gameState[0] == "gameData2.txt":
         saveFileName = "save 2"
     if gameState[0] == "gameData3.txt":
         saveFileName = "save 3"
+
+    #get file path
+    path = saveData.getSaveFilePath(gameState)
 
     #This string replaces text in save file
     newSaveData = saveFileName + "\n0\nplayer name\n\nplayer team\n\ncareer goals\n\ncareer assists\n\ncareer saves\n\ncareer shots\n\ncurrent season\n\ncurrent week\n\nrosters\n\n"
@@ -58,7 +60,7 @@ def deleteSaveMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
 
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
-                print("mouse click")
+                #print("mouse click")
                 if btn1Hov == True:
                     print("mouse click start menu btn")
                     gameState[1] = 'start'
@@ -74,15 +76,14 @@ def deleteSaveMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
                     saveNum = str(saveNum)
                     #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
                     saveState = "save " + saveNum + "\n"
-                    print ("saveState: ", saveState)
-                    fileLocationString = r"C:\Users\bmdro\Documents\Python Projects\RLCS Simulator\RLCSS (GitRepo)\\" + gameState[0]
-                    print("file to remove" + fileLocationString)
+                    #print ("saveState: ", saveState)
+                    #print("file to remove" + path)
                     #deletes specified file
-                    os.remove(fileLocationString)
-                    print("save file deleted")
+                    os.remove(path)
+                    #print("save file deleted")
                     #create to file with tempalte
                     saveData.create(gameState, newSaveData)
-                    print("save file created")
+                    #print("save file created")
                     gameState[1] = 'start'
 
         pygame.display.update()

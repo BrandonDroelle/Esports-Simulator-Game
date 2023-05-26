@@ -17,6 +17,10 @@ import playerAwardsMenu
 import gamePreviewMenu
 import recordResultsMenu
 import weeklyResultsMenu
+import saveData
+
+#check directory
+saveData.printSaveFilePath()
 
 #Setup pygame
 #mainClock = pygame.time.Clock()

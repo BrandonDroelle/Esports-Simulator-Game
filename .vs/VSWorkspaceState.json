@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\RLCSS Source Code"
+    "\\saves",
+    "\\source_code"
   ],
-  "SelectedNode": "\\RLCSS Source Code\\saveGame.py",
+  "SelectedNode": "\\source_code\\generateSchedule.py",
   "PreviewInSolutionExplorer": false
 }

@@ -36,13 +36,13 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
             flag = 0
         else:
             flag = 1
-    print("team 1: ", team1)
-    print("team 2: ", team2)
+    #print("team 1: ", team1)
+    #print("team 2: ", team2)
 
     team1Name = teamNames[team1]
     team2Name = teamNames[team2]
-    print("team 1: ", team1Name)
-    print("team 2: ", team2Name)
+    #print("team 1: ", team1Name)
+    #print("team 2: ", team2Name)
 
     #Create Strings
     title = basicFont.render('Choose Your Team', False, (255, 255, 255))
@@ -140,10 +140,10 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
 
                         #generate players
                         playerObjects = createCache.createPlayerObjects(gameState, playerNames) #here is when the player name is added to the list of player names
-                        print("player objects generated")
+                        #print("player objects generated")
                         #generate teams
                         teamObjects = createCache.createTeamObjects(teamNames)
-                        print("team objects generated")
+                        #print("team objects generated")
                         #call function to generate season schedule
                         schedule = generateSchedule.generateRoundRobin(gameState, teamNames)
                         #generateSchedule.printSchedule(schedule)

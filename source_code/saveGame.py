@@ -13,14 +13,14 @@ def updateSave(gameState):
     #creates the string to search the data file in this case "save x\n" (x being 1 2 3 depending on which file to be opened)
     saveState = "save " + saveNum + "\n"
     print ("saveState: ", saveState)
-    saveData.write(gameState, saveState, 1, 1) #gameState, type of data, new data to be written
+    saveData.write(gameState, saveState, 1) #gameState, type of data, new data to be written
 
 #update player name to save file
 def updatePlayerName(gameState, name):
     #updates save file with player name
     print("Add player name to save file")
     saveState = "player name" + "\n"
-    saveData.write(gameState, saveState, name, 1) #gameState, type of data, new data to be written
+    saveData.write(gameState, saveState, name) #gameState, type of data, new data to be written
     print("Player name added to save file")
 
 #get player name
@@ -35,7 +35,7 @@ def updateTeam(gameState, team):
     #updates save file with team name
     print("Add team to save file")
     saveState = "player team" + "\n"
-    saveData.write(gameState, saveState, team, 1) #gameState, type of data, new data to be written
+    saveData.write(gameState, saveState, team) #gameState, type of data, new data to be written
     print("Player team added to save file")
 
 #get team name
@@ -51,7 +51,7 @@ def updateSeason(gameState, season):
     #updates save file with current season
     print("Add current season to save file")
     saveState = "current season" + "\n"
-    saveData.write(gameState, saveState, season, 1) #gameState, type of data, new data to be written
+    saveData.write(gameState, saveState, season) #gameState, type of data, new data to be written
     print("current season added to save file")
 
 #get current season
@@ -67,7 +67,7 @@ def updateWeek(gameState, week):
     #updates save file with week number
     print("Add week number to save file")
     saveState = "current week" + "\n"
-    saveData.write(gameState, saveState, week, 1) #gameState, type of data, new data to be written
+    saveData.write(gameState, saveState, week) #gameState, type of data, new data to be written
     print("current week added to save file")
 
 #get current week
@@ -87,7 +87,7 @@ def updateSchedule(gameState, schedule):
 def updateRoster(gameState, teams):
     print("Add team rosters to save file")
     saveState = "rosters" + "\n"
-    saveData.write(gameState, saveState, teams, 1)
+    saveData.write(gameState, saveState, teams)
 
 #add players to the schedule in the save file
 def addPlayersToSchedule(gameState, teamObjects):
@@ -95,10 +95,10 @@ def addPlayersToSchedule(gameState, teamObjects):
     checkPlayerTeam = 0
     teamName = ''
     count = 0
-    for i in teamObjects:
-        teamName = teamObjects[count].getTeamName() + '\n'
-        print('count:', count)
-        print('teamName:', teamName)
-        roster = teamObjects[count].rosterString()
-        saveData.write(gameState, teamName, roster, 21)
-        count = count + 1
+    #for i in teamObjects:
+    teamName = teamObjects[count].getTeamName() + '\n'
+    #print('count:', count)
+    roster = teamObjects[count].rosterString()
+    #print('teamName:', teamName, 'roster:', roster)
+    #saveData.write(gameState, teamName, roster, 21)
+    count = count + 1

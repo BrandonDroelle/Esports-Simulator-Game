@@ -4,10 +4,6 @@ player name
 
 player team
 
-current season
-
-current week
-
 career goals
 
 career assists
@@ -16,11 +12,9 @@ career saves
 
 career shots
 
-season 1 goals
+current season
 
-season 1 assists
+current week
 
-season 1 saves
-
-season 1 shots
+rosters
 

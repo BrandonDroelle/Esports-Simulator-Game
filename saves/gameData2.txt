@@ -1,0 +1,20 @@
+save 2
+0
+player name
+
+player team
+
+career goals
+
+career assists
+
+career saves
+
+career shots
+
+current season
+
+current week
+
+rosters
+

@@ -53,29 +53,34 @@ def generateRoundRobin(gameState, teams):
 def printSchedule(schedule):
     sLength = len(schedule)
     rLength = len(schedule[0])
-    print("SCHEDULE\n**********************")
+    #print("SCHEDULE\n**********************")
     for i in range(sLength):
-        print("Week:", i + 1)
+        #print("Week:", i + 1)
         for j in range(rLength):
             game = ("{} {}".format(schedule[i][j][0],schedule[i][j][1]))
-            print(game)
-        print()
+            #print(game)
+        #print()
 
 #create a string from the schedule tuple formated to store data in the save file
 def getScheduleString(gameState, schedule, teamObjects):
     sLength = len(schedule)
     rLength = len(schedule[0])
-    print("schedule[o]", schedule[0])
-    print("schedule[o] length", rLength)
+    #print("schedule[o]", schedule[0])
+    #print("schedule[o] length", rLength)
     currentSeason = str(saveGame.getSeason(gameState))
-    print("current season:", currentSeason)
+    #print("current season:", currentSeason)
     scheduleSaveFormat = 'Season ' + currentSeason + '\n'
     count = 0
-    weekCount = 2
-    scheduleSaveFormat = scheduleSaveFormat + "Week " + '1' + "\n"
+    weekCount = 1
+    #scheduleSaveFormat = scheduleSaveFormat + "Week " + '1' + "\n"
     for i in range(sLength):
-        #print("Week:", i + 1)
+        #add the current week to the schedule string
+        print("$$$$$$Week:", i + 1,"$$$$$$$$")
+        weekCountStr = str(i + 1)
+        scheduleSaveFormat = scheduleSaveFormat + "Week " + weekCountStr + "\n"
+        count = 0
         for j in range(rLength):
+            #add each team in order every week to the schedule string
             game = ("{} {}".format(schedule[i][j][0],schedule[i][j][1]))
             #print("game:", game)
             #print("g", i + 1, 't', i+1, ':', schedule[i][j][0], schedule[i][j][1])
@@ -86,16 +91,7 @@ def getScheduleString(gameState, schedule, teamObjects):
             scheduleSaveFormat = scheduleSaveFormat + homeTeam + '\n' + awayTeam + '\n'
             #print('scheduleSaveFormat:', scheduleSaveFormat)
             count = count + 1
-            #adds a string for each week
-            if count == 11:
-                weekCountStr = str(weekCount)
-                scheduleSaveFormat = scheduleSaveFormat + "Week " + weekCountStr + "\n"
-                count = 0
-                weekCount = weekCount + 1
+      
     scheduleSaveFormat = scheduleSaveFormat + 'Season ' + currentSeason + ' End\n'
     
     return scheduleSaveFormat
-
-
-    
-    
