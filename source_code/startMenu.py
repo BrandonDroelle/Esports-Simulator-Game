@@ -157,6 +157,8 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                         print('run new game menu')
                         gameState[1] = 'createProfile'
                     else:
+                        print('load caches from save file')
+
                         print('run locker room menu')
                         gameState[1] = 'lockerRoom'
                 if btn2Hov == True:

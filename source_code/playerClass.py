@@ -68,10 +68,22 @@
 class PlayerClass:
     def __init__(self, name):
         self.name = name
+        self.currentTeam = "none"
+        self.goalsCareer = 0
+        self.assistsCareer = 0
+        self.savesCareer = 0
+        self.shotsCareer = 0
+        self.goalsSeason = 0
+        self.assistsSeason = 0
+        self.savesSeason = 0
+        self.shotsSeason = 0
 
     #Setters
     def setName(self, name):
         self.name = name
+
+    def setGoalsCareer(self, goalsCareer):
+        self.goalsCareer = goalsCareer
 
     #Getters
     def getName(self):

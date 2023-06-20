@@ -18,12 +18,16 @@ def createPlayerObjects(gameState, playerNames):
     players = []
     for i in range(l):
         #print("i:", i)
-        playerTemp = playerClass.PlayerClass(playerNames[i])
-        players.append(playerTemp)
+        playerTemp = playerClass.PlayerClass(playerNames[i]) #creates player object with name from list
+        players.append(playerTemp)                           #add player object to list of player objects
         name = players[i].getName()
         #print("Player Name:", name)
     #print("Player Objects: ", players)
     return players
+
+#creates list of player objects from data on save file
+#def loadPlayerAndTeamsFromCache(gameState, teamNames):
+
 
 #creates list of team objects from list of team name strings
 def createTeamObjects(teamNames):
@@ -41,6 +45,16 @@ def createTeamObjects(teamNames):
         #print("Team Name:", name)
     #print("Team Objects: ", teams)
     return teams
+
+#load saved data from file to cache for each player
+def loadPlayerObjectData(gameState, playerNames):
+    #create player objects
+    playerObjects = createPlayerObjects(gameState, playerNames) #here is when the player name is added to the list of player names
+
+    l = len(playerNames)
+    for i in range(l):
+        playerObjects[i]
+
 
 #randomly fill each team with three players
 def fillTeamRosters(gameState, playerObjects, teamObjects):
@@ -147,6 +161,8 @@ def getPlayerIndex (gameState, name, playerObjects):
             flag = 1
         count = count + 1
     return npcPlayerIndex
+
+#create
 
 #after teams are randomly filled with players the users player object will be swapped to the team they picked
 def swapUserWithNPC(gameState, playerObjects, teamObjects):

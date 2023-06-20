@@ -1,13 +1,16 @@
 import pygame, sys
 import buttonClassObj
+import saveGame
 
 # #display settings menu
 def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img):
 
+    currentWeek = saveGame.getWeek(gameState)
+
     print('in game preview - ', gameState)
 
     #Create Strings
-    title = basicFont.render('Weekly Match', False, (255, 255, 255))
+    title = basicFont.render('Week ' + currentWeek + ' Matchups', False, (255, 255, 255))
 
     #Create Buttons
     btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 200, basicFont, 'Play Game', 35, 15)
@@ -23,7 +26,7 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             #Draw Background
             win.blit(backgroundimg, (0, 0))
             #Draw Strings
-            win.blit(title, (510,70))
+            win.blit(title, (450,70))
             #Draw Images
 
             

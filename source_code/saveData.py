@@ -45,7 +45,7 @@ def write(gameState, dataType, newData, multiple = 1, exception = "RLCS Save Dat
             currentLine = lines[count]
             if currentLine == exception:            #checks current line for exception
                 exceptionFlag = True
-            if currentLine == dataType:             #check current lin for data type
+            if currentLine == dataType:             #check current line for data type
                 if exceptionFlag == True:           #checks that the exception has been passed before allowing data to be written
                    found = True
             #print("found: ", found)
@@ -63,35 +63,6 @@ def write(gameState, dataType, newData, multiple = 1, exception = "RLCS Save Dat
         found = False
         multiple = multiple - 1
     #print(lines)
-    
-    #for index in lines:
-        #gameData.write(lines[index])
-
-
-        ##########
-        #while multiple > 0:
-        ##print ("multiple: ", multiple)
-        #while found == False:                       #checks each line from txt file to see if it matches the data type thats being searched for
-        #    #print("line", count, ":", lines[count])
-        #    currentLine = lines[count]
-        #    if currentLine == dataType:
-        #           found = True
-        #    #print("found: ", found)
-        #    if found == True:
-        #            lines[count + 1] = newData + "\n" #when dataTypes match the list is updated with the new data (+1 is added to count because data is stored in the index after the data type)
-        #            #Now that the data location has been found the list will be rewritten onto the txt file
-        #            with open(path, "w") as gameData:
-        #                for line in lines:
-        #                    gameData.write(line)
-        #    count = count + 1
-        ##reset lines with new data
-        #gameData = open(path, 'r+')
-        #newData = str(newData)
-        #lines = gameData.readlines()
-        #found = False
-        #multiple = multiple - 1
-        ##########
-
 
 #create function which creates a new txt document with newData added
 def create(gameState, newData):
@@ -106,51 +77,37 @@ def create(gameState, newData):
     newData = str(newData)
     gameData.write(newData)
 
-#read specific line from file
-#input row number integer
-def read(gameState, row):
-    print("in new saveData.read row")
-    #get file path
-    path = getSaveFilePath(gameState)
-    gameData = open(path, 'r')
-    count = 0
-    text = "null"
-    setRow = row
-    while row > 0:
-        #print("row: ", row)
-        #print("count: ", count)
-        text = gameData.readline()
-        #print("text: ", text)
-        row = row - 1
-    #print ("text from row ", setRow, ": ", text)
-    gameData.close()
-    return text
-#return string from specified row
-
 #read specific line from file after set string
 #input string, will read the data in the row below
-def read(gameState, testStr):
+def read(gameState, testStr, multiple = 1, exception = "RLCS Save Data\n"):
     print("in saveData.read String")
     path = getSaveFilePath(gameState)
     gameData = open(path, 'r')
     found = False
     text = "null"
     count = 0
-    flag = False
+    flag = False          #this flag marks when the testStr is read so the loop goes one more time to read the data in the line below
+    exceptionFlag = False #This is False the the string exception has not been read yet
 
-    while found == False:
-        text = gameData.readline()
-        #print("text: ", text)
-        #print("string: ", testStr)
-        if flag == True:
-            found = True
-        if text == testStr:
-            flag = True
-        if count > 1000:
-            found = True
-            text = "null"
-        count = count + 1
-        #print("found: ", found)
+    while multiple > 0:
+        while found == False:
+            text = gameData.readline()
+            #print("text: ", text)
+            #print("string: ", testStr)
+            if text == exception:            #checks current line for exception
+                exceptionFlag = True
+            if flag == True:
+                multiple = multiple - 1
+                found = True
+            if text == testStr:
+                if exceptionFlag == True:           #checks that the exception has been passed before allowing data to be written
+                    flag = True
+            if count > 999999:
+                found = True
+                text = "null"
+            count = count + 1
+            print("found: ", found)
+
 
     #print (testStr, text)
     gameData.close()

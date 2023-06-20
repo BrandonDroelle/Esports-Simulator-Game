@@ -101,5 +101,5 @@ def addPlayersToSchedule(gameState, teamObjects):
         #print('count:', count)
         roster = teamObjects[count].getRosterString()
         #print('teamName:', teamName, 'roster:', roster)
-        saveData.write(gameState, teamName, roster, 20, exception)
+        saveData.write(gameState, teamName, roster, 21, exception)
         count = count + 1
