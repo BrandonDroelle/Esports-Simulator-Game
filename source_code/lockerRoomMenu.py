@@ -1,9 +1,10 @@
 import pygame, sys
 import buttonClassObj
 import saveGame
+import createCache
 
 # #display locker room menu
-def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teams):
+def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames):
 
     print('in locker room - ', gameState)
 
@@ -14,10 +15,10 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     #get team logo from list
     teamLogoIndex = 99
     count = 0
-    for i in teams:
+    for i in teamNames:
         #print("team name: ", teamName)
         #print("teams[count]: ", teams[count])
-        if teamName == teams[count]:
+        if teamName == teamNames[count]:
             #print("match")
             teamLogoIndex = count
         count = count + 1
@@ -40,6 +41,9 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     btn6H = buttonClassObj.buttonClass(button2img, (win.get_width() - 400), (win.get_height() / 2) - 0, basicFont, 'Standings', 35, 15)
     btn7 = buttonClassObj.buttonClass(buttonimg, (win.get_width() - 400), (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
     btn7H = buttonClassObj.buttonClass(button2img, (win.get_width() - 400), (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
+
+    print('load caches from save file')
+    createCache.loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames)
 
     #Menu Loop
     while gameState[1] == 'lockerRoom':

@@ -79,27 +79,27 @@ def create(gameState, newData):
 
 #read specific line from file after set string
 #input string, will read the data in the row below
-def read(gameState, testStr, multiple = 1, exception = "RLCS Save Data\n"):
+def read(gameState, dataType, multiple = 1, exception = "RLCS Save Data\n"):
     print("in saveData.read String")
     path = getSaveFilePath(gameState)
     gameData = open(path, 'r')
     found = False
     text = "null"
     count = 0
-    flag = False          #this flag marks when the testStr is read so the loop goes one more time to read the data in the line below
+    flag = False          #this flag marks when the dataType is read so the loop goes one more time to read the data in the line below
     exceptionFlag = False #This is False the the string exception has not been read yet
 
     while multiple > 0:
         while found == False:
             text = gameData.readline()
-            #print("text: ", text)
-            #print("string: ", testStr)
+            print("text: ", text)
+            print("string: ", dataType)
             if text == exception:            #checks current line for exception
                 exceptionFlag = True
             if flag == True:
                 multiple = multiple - 1
                 found = True
-            if text == testStr:
+            if text == dataType:
                 if exceptionFlag == True:           #checks that the exception has been passed before allowing data to be written
                     flag = True
             if count > 999999:

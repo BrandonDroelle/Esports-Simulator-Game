@@ -1,6 +1,7 @@
 from sqlite3 import TimestampFromTicks
 import playerClass
 import saveGame
+import saveData
 import teamClass
 import generateSchedule
 
@@ -26,8 +27,45 @@ def createPlayerObjects(gameState, playerNames):
     return players
 
 #creates list of player objects from data on save file
-#def loadPlayerAndTeamsFromCache(gameState, teamNames):
+def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
+    print("loading player and team objects into cache")
+    teamObjects = createTeamObjects(teamNames)
+    lenTeams = len(teamObjects)
+    playerObjects = createPlayerObjects(gameState, playerNames)
+    lenPlayers = len(playerObjects)
+    currentSeason = saveGame.getSeason(gameState) + "\n"
+    currentSeason = "Season " + currentSeason + "\n"
+    print("current season", currentSeason)
 
+    count = 0
+    for i in range(lenTeams):
+        teamName = teamObjects[i].getTeamName() + "\n"
+        while count < 3:
+            p1Name = saveData.read(gameState, teamName, 1)
+            print("p1 Name: ", p1Name)
+            count = count + 1
+            for j in range(lenPlayers):
+                tempPlayerName = playerObjects[j].getName() + "\n"
+                print("temp Name: ", tempPlayerName)
+                if p1Name == tempPlayerName:
+                    if count == 1:
+                        print("add P1")
+                        print(playerObjects[j].getName())
+                        teamObjects[i].setP1(playerObjects[j])
+                        break
+                    if count == 2:
+                        print("add P2")
+                        print(playerObjects[j].getName())
+                        teamObjects[i].setP2(playerObjects[j])
+                        break
+                    if count == 3:
+                        print("add P3")
+                        print(playerObjects[j].getName())
+                        teamObjects[i].setP3(playerObjects[j])
+                        break
+                    
+        teamObjects[i].printRoster()
+    print("loaded player and team objects into cache")
 
 #creates list of team objects from list of team name strings
 def createTeamObjects(teamNames):

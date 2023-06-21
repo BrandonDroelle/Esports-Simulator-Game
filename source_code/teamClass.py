@@ -5,11 +5,8 @@ class TeamClass:
     def __init__(self, name):
         self.name = name
         self.p1 = playerClass.PlayerClass('rookie1')
-        self.p1Name = 'rookie1'
         self.p2 = playerClass.PlayerClass('rookie2')
-        self.p2Name = 'rookie2'
         self.p3 = playerClass.PlayerClass('rookie3')
-        self.p3Name = 'rookie3'
 
     #Setters
     def setName(self, name):
@@ -39,10 +36,6 @@ class TeamClass:
 
     def getP3(self):
         return self.p3
-
-    #def getP1Name(self):
-        #p1Name = self.p1.getName()
-        #return p1Name
 
     #Print out team roster
     def printRoster(self):

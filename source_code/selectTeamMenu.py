@@ -7,20 +7,13 @@ import createCache
 import teamClass
 
 #select team menu
-def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames):
+def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames):
 
     print('in select team menu - ', gameState)
 
     #Create Variables
     length = len(teamLogos)
     length2 = len(teamNames)
-
-    #list of players
-    playerNames = ['marley', 'casper', 'myrtle', 'samara', 'storm', 'fury', 'rainmaker', 'squall', 'hound', 'viper', 'imp', 'mountain', 'tusk', 'sabretooth',
-               'beast', 'roundhouse', 'gerwin', 'c-block', 'centice', 'junker', 'foamer', 'sticks', 'boomer', 'caveman', 'rex', 'khan', 'Raja', 'sultan',
-               'saltie', 'scout', 'swabbie', 'middy', 'bandit', 'outlaw', 'poncho', 'dude', 'buzz', 'armstrong', 'shepard', 'yuri', 'maverick', 'iceman',
-               'goose', 'cougar', 'tex', 'merlin', 'stinger', 'hollywood', 'sundown', 'jester', 'heater', 'slider', 'chipper', 'wolfman', 'stig', 'clu',
-               'fulcrum', 'alleycat', 'soap', 'echo', 'heavy', 'fives']
 
     #print("teamLogos length: ", length)
     #print("teams length: ", length2)

@@ -159,9 +159,14 @@ for i in range(len(teamLogosRaw)):
 
 #list of teams (list of players found in selectTeamMenu)
 teamNames = ['barracudas', 'bears', 'bombers', 'crusadors', 'cyclones', 'destroyers', 'dragons', 'express', 'guardians', 'mammoths', 'monarchs', 'pharos',
-         'predators', 'ravagers', 'reapers', 'rebels', 'rovers', 'scorpians', 'seekers', 'skyhawks', 'wolves']
+             'predators', 'ravagers', 'reapers', 'rebels', 'rovers', 'scorpians', 'seekers', 'skyhawks', 'wolves']
 
-
+#list of players
+playerNames = ['marley', 'casper', 'myrtle', 'samara', 'storm', 'fury', 'rainmaker', 'squall', 'hound', 'viper', 'imp', 'mountain', 'tusk', 'sabretooth',
+               'beast', 'roundhouse', 'gerwin', 'c-block', 'centice', 'junker', 'foamer', 'sticks', 'boomer', 'caveman', 'rex', 'khan', 'Raja', 'sultan',
+               'saltie', 'scout', 'swabbie', 'middy', 'bandit', 'outlaw', 'poncho', 'dude', 'buzz', 'armstrong', 'shepard', 'yuri', 'maverick', 'iceman',
+               'goose', 'cougar', 'tex', 'merlin', 'stinger', 'hollywood', 'sundown', 'jester', 'heater', 'slider', 'chipper', 'wolfman', 'stig', 'clu',
+               'fulcrum', 'alleycat', 'soap', 'echo', 'heavy', 'fives']
 
 #Create gamestate
 gameState = ['gameData1.txt', 'start'] #[current save, current menu]
@@ -192,7 +197,7 @@ def main(gameState):
         #Displays current menu
         if gameState[1] == 'start':
             print('run start menu')
-            startMenu.startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img, xButtonUIimg)
+            startMenu.startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img, xButtonUIimg, teamNames, playerNames)
             print('exit start menu')
         if gameState[1] == 'exit':
             print('exit game')
@@ -215,11 +220,11 @@ def main(gameState):
             print('exit create profile menu')
         if gameState[1] == 'selectTeam':
             print('run select team menu')
-            selectTeamMenu.selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames)
+            selectTeamMenu.selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames)
             print('exit select team menu')
         if gameState[1] == 'lockerRoom':
             print('run locker room menu')
-            lockerRoomMenu.lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames)
+            lockerRoomMenu.lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames)
             print('exit locker room menu')
         if gameState[1] == 'inGameSettings':
             print('run in game settings menu')

@@ -1,6 +1,7 @@
 import pygame, sys
 import buttonClassObj
 import saveData
+import createCache
 
 #check if new save by checking if second row in corrosponding game data file is 0 (new save) or 1 (old save)
 def checkNewSave(gameState):
@@ -21,7 +22,7 @@ def checkNewSave(gameState):
     return newSave
 
 #display start menu
-def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img, xButtonUIimg):
+def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg, button2img, xButtonUIimg, teamNames, playerNames):
 
     print('in start menu func')
 
@@ -157,8 +158,6 @@ def startMenuFunc(gameState, win, basicFont, backgroundimg, trophyimg, buttonimg
                         print('run new game menu')
                         gameState[1] = 'createProfile'
                     else:
-                        print('load caches from save file')
-
                         print('run locker room menu')
                         gameState[1] = 'lockerRoom'
                 if btn2Hov == True:
