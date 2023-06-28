@@ -34,29 +34,32 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
     playerObjects = createPlayerObjects(gameState, playerNames)
     lenPlayers = len(playerObjects)
     currentSeason = saveGame.getSeason(gameState) + "\n"
-    currentSeason = "Season " + currentSeason + "\n"
-    print("current season", currentSeason)
+    currentSeason = "Season " + currentSeason
 
-    count = 0
     for i in range(lenTeams):
+        extraRows = 0
+        count = 0
         teamName = teamObjects[i].getTeamName() + "\n"
+        print("Current Team: ", teamName)
         while count < 3:
-            p1Name = saveData.read(gameState, teamName, 1)
-            print("p1 Name: ", p1Name)
+            currentName = saveData.read(gameState, teamName, 1, currentSeason, extraRows)
+            print("p1 Name: ", currentName)
             count = count + 1
             for j in range(lenPlayers):
                 tempPlayerName = playerObjects[j].getName() + "\n"
                 print("temp Name: ", tempPlayerName)
-                if p1Name == tempPlayerName:
+                if currentName == tempPlayerName:
                     if count == 1:
                         print("add P1")
                         print(playerObjects[j].getName())
                         teamObjects[i].setP1(playerObjects[j])
+                        extraRows = 9
                         break
                     if count == 2:
                         print("add P2")
                         print(playerObjects[j].getName())
                         teamObjects[i].setP2(playerObjects[j])
+                        extraRows = 18
                         break
                     if count == 3:
                         print("add P3")
@@ -64,6 +67,7 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
                         teamObjects[i].setP3(playerObjects[j])
                         break
                     
+    for i in range(lenTeams):       
         teamObjects[i].printRoster()
     print("loaded player and team objects into cache")
 
