@@ -7,6 +7,7 @@ import createCache
 def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames):
 
     print('in locker room - ', gameState)
+    print('player Names: ', playerNames)
 
     #Create Variables
     teamName = saveGame.getTeamName(gameState)
@@ -44,6 +45,7 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
 
     print('load caches from save file')
     createCache.loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames)
+    print('player Names: ', playerNames)
 
     #Menu Loop
     while gameState[1] == 'lockerRoom':

@@ -1,0 +1,108 @@
+Save 1 Data Condensed
+Player Team: skyhawks
+Player Name: 5
+
+ravagers	1
+merlin
+slider
+couger
+
+skyhawks	2
+5
+rex
+chipper
+
+barracudas	3
+sundown
+hound
+clu
+
+rovers		4
+viper
+wolfman
+roundhouse
+
+monarchs	5
+foamer
+saltie
+echo
+
+mammoths	6
+maverick
+c-block
+marley
+
+crusadors	7
+mountain
+sabretooth
+centice
+
+pharos		8
+bandit
+jester
+fives
+
+bombers		9
+stig
+tex
+yuri
+
+predators	10
+khan
+myrtle
+samara
+
+express		11
+heater
+swabbie
+iceman
+
+guardians	12
+storm
+raja
+armstrong
+
+seekers		13
+scout
+hollywood
+fury
+
+scorpians	14
+buzz
+sultan
+caveman
+
+dragons		15
+poncho
+outlaw
+beast
+
+cyclones	16
+sticks
+soap
+shepard
+
+bears		17
+casper
+fulcrum
+dude
+
+reapers		18
+goose
+squall
+heavy
+
+destroyers	19
+stinger
+alleycat
+imp
+
+wolves		20
+rainmaker
+boomer
+gerwin
+
+rebels		21
+tusk
+junker
+middy

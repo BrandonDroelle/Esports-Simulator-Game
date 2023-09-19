@@ -1,8 +1,9 @@
 import pygame, sys
 import buttonClassObj
+import createCache
 
 # #display settings menu
-def inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img):
+def inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, playerNames):
 
     print('in in game settings - ', gameState)
 
@@ -52,6 +53,7 @@ def inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, 
                     gameState[1] = 'lockerRoom'
                 if btn2Hov == True:
                     print("mouse click return to main manu btn")
+                    createCache.rmvPlayerName(gameState, playerNames)
                     gameState[1] = 'start'
 
         pygame.display.update()

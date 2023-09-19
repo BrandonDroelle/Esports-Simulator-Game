@@ -228,7 +228,7 @@ def main(gameState):
             print('exit locker room menu')
         if gameState[1] == 'inGameSettings':
             print('run in game settings menu')
-            inGameSettingsMenu.inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            inGameSettingsMenu.inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, playerNames)
             print('exit in game settings menu')
         if gameState[1] == 'standings':
             print('run standings menu')

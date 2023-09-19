@@ -10,10 +10,21 @@ def createPlayerObjects(gameState, playerNames):
     #add user to list of players
     userName = saveGame.getPlayerName(gameState)
     #print("userName:", userName)
-    playerNames.append(userName)
-    #print("players:", players)
+    #check is username is already on list so it doesn't get added multiple times
     l = len(playerNames)
-    #print("len:", l)
+    nameOnList = False
+    for i in range(l):
+        if userName == playerNames[i]:
+            nameOnList = True
+            break
+
+    if nameOnList == False:
+        playerNames.append(userName)
+        l = len(playerNames)
+
+    print("User Name On List: ", nameOnList)
+    print("players:", playerNames)
+    print("len:", l)
 
     #create list of player objects
     players = []
@@ -23,8 +34,18 @@ def createPlayerObjects(gameState, playerNames):
         players.append(playerTemp)                           #add player object to list of player objects
         name = players[i].getName()
         #print("Player Name:", name)
-    #print("Player Objects: ", players)
+    print("Player Objects: ", players)
     return players
+
+#remove player from playerNames list
+def rmvPlayerName (gameState, playerNames):
+    print("In remove player names")
+    print("PlayerNames: ")
+    userName = saveGame.getPlayerName(gameState)
+    playerNames.remove(userName)
+    print("PlayerNames: ")
+    return playerNames
+
 
 #creates list of player objects from data on save file
 def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
@@ -106,6 +127,7 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
     playersShuffle = generateSchedule.randomizeList(playersShuffle)
     tcount = 0 #plus one every loop to change team
     pcount = 0 #plus one every assignment to change player
+    #pcount = len(playersShuffle)
     #print("Number of Players:", len(playersShuffle))
     #print("Number of teams:", len(teamObjects))
     #randomly assigns three players to each team
@@ -115,9 +137,11 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
         #print("players", n)
         c = c + 1
 
+    print("playerShuffleLen: ", len(playersShuffle))
     
 
     while pcount < len(playersShuffle):
+        print("pcount: ", pcount)
         teamObjects[tcount].setP1(playersShuffle[pcount])
         pcount = pcount + 1
         teamObjects[tcount].setP2(playersShuffle[pcount])
@@ -125,6 +149,12 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
         teamObjects[tcount].setP3(playersShuffle[pcount])
         pcount = pcount + 1
         tcount = tcount + 1
+
+    #for i in pcount:
+    #    teamObjects[tcount].setP1(playersShuffle[pcount])
+    #    teamObjects[tcount].setP2(playersShuffle[pcount])
+    #    teamObjects[tcount].setP3(playersShuffle[pcount])
+    #    tcount = tcount + 1
 
     count = 0
     for i in teamObjects:
