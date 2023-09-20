@@ -7,7 +7,7 @@ import createCache
 def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, playerNames):
 
     print('in locker room - ', gameState)
-    print('player Names: ', playerNames)
+    #print('player Names: ', playerNames)
 
     #Create Variables
     teamName = saveGame.getTeamName(gameState)
@@ -43,9 +43,18 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     btn7 = buttonClassObj.buttonClass(buttonimg, (win.get_width() - 400), (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
     btn7H = buttonClassObj.buttonClass(button2img, (win.get_width() - 400), (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
 
-    print('load caches from save file')
-    createCache.loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames)
-    print('player Names: ', playerNames)
+    print("gameState2PlayerObjects: ", gameState[2])
+    if gameState[2] == [0]:
+        print('load caches from save file')
+        playersAndTeamsMatrix = createCache.loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames)
+        gameState[2] = playersAndTeamsMatrix[0]
+        gameState[3] = playersAndTeamsMatrix[1]
+        #print("lengthOfPlayerObjects: ", len(playerObjects))
+        #print("lengthOfTeamObjects: ", len(teamObjects))
+        #for i in range(len(teamObjects)):       
+            #teamObjects[i].printRoster()
+        #print('player Names: ', playerNames)
+
 
     #Menu Loop
     while gameState[1] == 'lockerRoom':

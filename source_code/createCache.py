@@ -91,6 +91,10 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
     for i in range(lenTeams):       
         teamObjects[i].printRoster()
     print("loaded player and team objects into cache")
+    #create a list containing the list of playerObjects and teamObjects and return it
+    playersAndTeamsMatrix = [playerObjects, teamObjects]
+    return playersAndTeamsMatrix
+
 
 #creates list of team objects from list of team name strings
 def createTeamObjects(teamNames):
