@@ -147,8 +147,20 @@ for i in range(len(keyBoardKeysRaw)):
     #print("i: ", i)
     keyBoardKeysRaw[i] = pygame.transform.scale(keyBoardKeysRaw[i], (keySize, keySize))
     keyBoardKeys.append(keyBoardKeysRaw[i])
-#add space to end of list
+#add extra keys to end of list
 keyBoardKeys.append(butSpace)
+
+#resize arrow keys
+arrowSize = 75
+upArrowUIimg = pygame.transform.scale(upArrowUIimg, (arrowSize, arrowSize))
+downArrowUIimg = pygame.transform.scale(downArrowUIimg, (arrowSize, arrowSize))
+leftArrowUIimg = pygame.transform.scale(leftArrowUIimg, (arrowSize, arrowSize))
+rightArrowUIimg = pygame.transform.scale(rightArrowUIimg, (arrowSize, arrowSize))
+keyBoardKeys.append(upArrowUIimg)
+keyBoardKeys.append(downArrowUIimg)
+keyBoardKeys.append(leftArrowUIimg)
+keyBoardKeys.append(rightArrowUIimg)
+
 
 #resize list of team logos
 logoSize = 250
@@ -240,11 +252,11 @@ def main(gameState):
             print('exit standings menu')
         if gameState[1] == 'teamStats':
             print('run Team Stats menu')
-            teamStatsMenu.teamStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            teamStatsMenu.teamStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, keyBoardKeys)
             print('exit team stats menu')
         if gameState[1] == 'playerStats':
             print('run player Stats menu')
-            playerStatsMenu.playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            playerStatsMenu.playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, keyBoardKeys)
             print('exit player stats menu')
         if gameState[1] == 'schedule':
             print('run schedule menu')

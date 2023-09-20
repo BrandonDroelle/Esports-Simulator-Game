@@ -43,6 +43,24 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     btn7 = buttonClassObj.buttonClass(buttonimg, (win.get_width() - 400), (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
     btn7H = buttonClassObj.buttonClass(button2img, (win.get_width() - 400), (win.get_height() / 2) + 200, basicFont, 'Settings', 50, 15)
 
+    #add users names to play name list if not already on there
+    userName = saveGame.getPlayerName(gameState)
+    print("players:", playerNames)
+    l = len(playerNames)
+    nameOnList = False
+    for i in range(l):
+        if userName == playerNames[i]:
+            nameOnList = True
+            break
+
+    if nameOnList == False:
+        playerNames.append(userName)
+        l = len(playerNames)
+
+    print("User Name On List: ", nameOnList)
+    print("players:", playerNames)
+    print("len:", l)
+
     print("gameState2PlayerObjects: ", gameState[2])
     if gameState[2] == [0]:
         print('load caches from save file')

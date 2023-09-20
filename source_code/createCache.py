@@ -11,6 +11,7 @@ def createPlayerObjects(gameState, playerNames):
     userName = saveGame.getPlayerName(gameState)
     #print("userName:", userName)
     #check is username is already on list so it doesn't get added multiple times
+    print("players:", playerNames)
     l = len(playerNames)
     nameOnList = False
     for i in range(l):
@@ -40,7 +41,7 @@ def createPlayerObjects(gameState, playerNames):
 #remove player from playerNames list
 def rmvPlayerName (gameState, playerNames):
     print("In remove player names")
-    print("PlayerNames: ")
+    print("PlayerNames: ", playerNames)
     userName = saveGame.getPlayerName(gameState)
     playerNames.remove(userName)
     print("PlayerNames: ")
@@ -358,3 +359,6 @@ def swapUserWithNPC(gameState, playerObjects, teamObjects):
     #print("npcs Player Index:", npcIndex)
     #print("npcs Team Name:", tempTeamName)
     #print("npcs Team Index:", tempTeamIndex)
+
+    def getPlayerSeasonGoals (gameState, player):
+        playerSeasonGoals = saveData.read
