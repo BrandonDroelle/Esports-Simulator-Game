@@ -62,7 +62,7 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     print("len:", l)
 
     print("gameState2PlayerObjects: ", gameState[2])
-    if gameState[2] == [0]:
+    if gameState[2] == [0] and gameState[3] == [0]:
         print('load caches from save file')
         playersAndTeamsMatrix = createCache.loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames)
         gameState[2] = playersAndTeamsMatrix[0]

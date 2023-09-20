@@ -44,7 +44,7 @@ def rmvPlayerName (gameState, playerNames):
     print("PlayerNames: ", playerNames)
     userName = saveGame.getPlayerName(gameState)
     playerNames.remove(userName)
-    print("PlayerNames: ")
+    print("PlayerNames: ", playerNames)
     return playerNames
 
 

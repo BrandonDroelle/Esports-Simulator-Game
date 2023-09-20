@@ -54,6 +54,8 @@ def inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, 
                 if btn2Hov == True:
                     print("mouse click return to main manu btn")
                     createCache.rmvPlayerName(gameState, playerNames)
+                    gameState[2] = [0]
+                    gameState[3] = [0]
                     gameState[1] = 'start'
 
         pygame.display.update()
