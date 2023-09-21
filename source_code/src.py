@@ -174,9 +174,9 @@ teamNames = ['barracudas', 'bears', 'bombers', 'crusadors', 'cyclones', 'destroy
              'predators', 'ravagers', 'reapers', 'rebels', 'rovers', 'scorpians', 'seekers', 'skyhawks', 'wolves']
 
 #list of players
-playerNames = ['marley', 'casper', 'myrtle', 'samara', 'storm', 'fury', 'rainmaker', 'squall', 'hound', 'viper', 'imp', 'mountain', 'tusk', 'sabretooth',
+playerNames = ['saltie', 'casper', 'myrtle', 'samara', 'storm', 'fury', 'rainmaker', 'squall', 'hound', 'viper', 'imp', 'mountain', 'tusk', 'sabretooth',
                'beast', 'roundhouse', 'gerwin', 'c-block', 'centice', 'junker', 'foamer', 'sticks', 'boomer', 'caveman', 'rex', 'khan', 'Raja', 'sultan',
-               'saltie', 'scout', 'swabbie', 'middy', 'bandit', 'outlaw', 'poncho', 'dude', 'buzz', 'armstrong', 'shepard', 'yuri', 'maverick', 'iceman',
+               'marley', 'scout', 'swabbie', 'middy', 'bandit', 'outlaw', 'poncho', 'dude', 'buzz', 'armstrong', 'shepard', 'yuri', 'maverick', 'iceman',
                'goose', 'cougar', 'tex', 'merlin', 'stinger', 'hollywood', 'sundown', 'jester', 'heater', 'slider', 'chipper', 'wolfman', 'stig', 'clu',
                'fulcrum', 'alleycat', 'soap', 'echo', 'heavy', 'fives']
 

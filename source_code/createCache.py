@@ -55,8 +55,7 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
     lenTeams = len(teamObjects)
     playerObjects = createPlayerObjects(gameState, playerNames)
     lenPlayers = len(playerObjects)
-    currentSeason = saveGame.getSeason(gameState) + "\n"
-    currentSeason = "Season " + currentSeason
+    currentSeason = "Season " + saveGame.getSeason(gameState) + "\n"
 
     #this loop reads the save file line by line. After the current season is read it compares every
     #line with the current team name it is searching for. Then when there is a match, it reads
@@ -103,11 +102,39 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
                     
     for i in range(lenTeams):       
         teamObjects[i].printRoster()
+    #add player goals to player objects
+    addPlayerGoalsToObject(gameState, playerObjects)
     print("loaded player and team objects into cache")
     #create a list containing the list of playerObjects and teamObjects and return it
     playersAndTeamsMatrix = [playerObjects, teamObjects]
     return playersAndTeamsMatrix
 
+def addPlayerGoalsToObject(gameState, playerObjects):
+    print("In addPlayerGoalsToObject")
+    currentSeason = "Season " + saveGame.getSeason(gameState) + "\n"
+    numWeeksPerSeason = 21
+    extraRows = 1
+    seasonGoals = 0
+
+    for i in range(len(playerObjects)):
+        for j in range(numWeeksPerSeason):
+            currentWeek = j + 1
+            print("playName: ", playerObjects[i].getName() + "\n")
+            print("current week: ", currentWeek)
+            print("current season: ", currentSeason)
+            print("extraRows: ", extraRows)
+            gameGoals = saveData.read(gameState, playerObjects[i].getName() + "\n", currentWeek, currentSeason, extraRows)
+            gameGoals = int(gameGoals)
+            seasonGoals = seasonGoals + gameGoals
+            print("gameGoals: ", gameGoals)
+            print("seasonGoals: ", seasonGoals)
+            print("done")
+            #seasonGoals = 
+
+
+
+    print("Leave addPlayerGoalsToObject")
+    return playerObjects
 
 #creates list of team objects from list of team name strings
 def createTeamObjects(teamNames):

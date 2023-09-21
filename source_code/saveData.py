@@ -79,11 +79,18 @@ def create(gameState, newData):
 
 #read specific line from file after set string
 #input string, will read the data in the row below
+#gameState = to know which save file to read
+#dataType = to know what kind of data you are searching for
+#multiple = number of times you want to skip the dataType you are looking for before you read the data
+    #For instance when set to 1 it reads the first instance of the DataType,
+    #but when set to 3 it reads the 3rd instance of the dataType skipping over the first 2
+#exception = dont start searching for dataType until the exception is read
+#extraRows = once dataType is found this is how many extra rows to read over before sending that specific line of data
 def read(gameState, dataType, multiple = 1, exception = "RLCS Save Data\n", extraRows = 0):
     print("in saveData.read String")
     path = getSaveFilePath(gameState)
     gameData = open(path, 'r')
-    found = False
+    found = False        #This represents if the data has been found so the loop can stop
     text = "null"
     count = 0
     flag = False          #this flag marks when the dataType is read so the loop goes one more time to read the data in the line below
@@ -95,16 +102,22 @@ def read(gameState, dataType, multiple = 1, exception = "RLCS Save Data\n", extr
             text = gameData.readline()
             print("Looking at: ", text)
             print("Searching for: ", dataType)
-            print("Exception: ", exceptionFlag)
-            print("Multiple flag: ", flag)
-            print("Found Flag: ", found)
+            print("Exception String: ", exception)
+            print("Exception Flag: ", exceptionFlag)
+            print("Multiple: ", multiple)
+            print("Found Flag: ", flag)
+            print("Found Variable: ", found)
             if text == exception:            #checks current line for exception
                 exceptionFlag = True
             if flag == True:
-                multiple = multiple - 1
-                found = True
+                if multiple == 1:
+                    found = True
+                    multiple = multiple - 1
+                if multiple > 1:
+                    multiple = multiple - 1
+                    flag = False
             if text == dataType:
-                if exceptionFlag == True:           #checks that the exception has been passed before allowing data to be written
+                if exceptionFlag == True:    #checks that the exception has been passed before allowing data to be read
                     flag = True
             if count > 999999:
                 found = True
