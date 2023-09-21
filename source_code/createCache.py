@@ -58,6 +58,11 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
     currentSeason = saveGame.getSeason(gameState) + "\n"
     currentSeason = "Season " + currentSeason
 
+    #this loop reads the save file line by line. After the current season is read it compares every
+    #line with the current team name it is searching for. Then when there is a match, it reads
+    #all 3 player names in the team, skipping over the stat lines
+    #it adds those players to the team objects. Then it starts again 
+    #with the next team name in the list
     for i in range(lenTeams):
         extraRows = 0
         count = 0
@@ -73,20 +78,27 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
                 if currentName == tempPlayerName:
                     if count == 1:
                         print("add P1")
-                        print(playerObjects[j].getName())
-                        teamObjects[i].setP1(playerObjects[j])
+                        print("Player: ", playerObjects[j].getName(), " | Team: ", teamObjects[i].getTeamName())
+                        teamObjects[i].setP1(playerObjects[j])                  #adds player 1 to current team
+                        playerObjects[j].setTeam(teamObjects[i].getTeamName())    #adds team name to player class
+                        print("Current Team Roster: ", teamObjects[i].printRoster())
+                        print("Player 1's Current Team: ", playerObjects[j].getCurrentTeam())
                         extraRows = 9
                         break
                     if count == 2:
                         print("add P2")
                         print(playerObjects[j].getName())
-                        teamObjects[i].setP2(playerObjects[j])
+                        teamObjects[i].setP2(playerObjects[j])                  #adds player 2 to current team
+                        playerObjects[j].setTeam(teamObjects[i].getTeamName())    #adds team name to player class
+                        print("Player: ", playerObjects[j].getName(), " | Team: ", teamObjects[i].getTeamName())
                         extraRows = 18
                         break
                     if count == 3:
                         print("add P3")
                         print(playerObjects[j].getName())
-                        teamObjects[i].setP3(playerObjects[j])
+                        teamObjects[i].setP3(playerObjects[j])                  #adds player 3 to current team
+                        playerObjects[j].setTeam(teamObjects[i].getTeamName())    #adds team name to player class
+                        print("Player: ", playerObjects[j].getName(), " | Team: ", teamObjects[i].getTeamName())
                         break
                     
     for i in range(lenTeams):       

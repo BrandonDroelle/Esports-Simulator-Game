@@ -23,26 +23,35 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     baseSpacer = 120
 
     #Variables to set stat strings to
-    baseXStat = 275
-    baseYStat = 140
-    baseXSpacerStat = 60
-    baseYSpacerStat = 50
     startPos = 0
+    baseYStat = 140
+    baseYSpacerStat = 50
 
+    baseXRank = 215
+    baseXName = 265
+    baseXTeam = 400
+    
+    
+
+    #######################################################
     #get stats from save file and add them to a list
-    playerNames = []
-    playerTeams = []
-    playerGoals = []
-    playerAssists = []
-    playerSaves = []
-    playerShots = []
+    #playerNames = []
+    #playerTeams = []
+    #playerGoals = []
+    #playerAssists = []
+    #playerSaves = []
+    #playerShots = []
 
     #add player names to list
-    for i in (gameState[2]):
-        playerName = i.getName()
-        playerNames.append(playerName)
-    print("playerNames: ", playerNames)
-    lenPlayers = len(playerNames)
+    #for i in (gameState[2]):
+        #playerName = i.getName()
+        #playerNames.append(playerName)
+    #print("playerNames: ", playerNames)
+    ########################################################
+
+    #print("length of player objects: ", len(gameState[2]))
+    lenPlayers = len(gameState[2])
+    #print("Player 0 Name: ", gameState[2][0].getName())
     extraSpaces = 8 - (lenPlayers % 8)   #Get mod to avoid out of bounds errors when bottom of list is not mod 0
     spacesNeeded = 0
     #print("mod lenPlayers: ", extraSpaces)
@@ -67,8 +76,6 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 250, basicFont, 'Locker Room', 10, 15)
     btnUpArrow = buttonClassObj.buttonClass(keyBoardKeys[49], 1000, 150, basicFont, '',0, 0)
     btnDownArrow = buttonClassObj.buttonClass(keyBoardKeys[50], 1000, 500, basicFont, '',0, 0)
-    
-    print("Player Names List: ", playerNames)
 
     #Menu Loop
     while gameState[1] == 'playerStats':
@@ -93,33 +100,42 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             pos6 = pos5 + 1
             pos7 = pos6 + 1
 
+            #print("name: ", gameState[2][pos0].getName())
+            #print("current team: ", gameState[2][pos0].getCurrentTeam())
 
             #Create Dynamic Strings
             if spacesNeeded < 8:
                 num0 = smallFont.render(str(pos0 + 1), False, (255, 255, 255))
-                name0 = smallFont.render(playerNames[pos0], False, (255, 255, 255))
+                name0 = smallFont.render(gameState[2][pos0].getName(), False, (255, 255, 255))
+                team0 = smallFont.render(gameState[2][pos0].getCurrentTeam(), False, (255, 255, 255))
             if spacesNeeded < 7:
                 num1 = smallFont.render(str(pos1 + 1), False, (255, 255, 255))
-                name1 = smallFont.render(playerNames[pos1], False, (255, 255, 255))
+                name1 = smallFont.render(gameState[2][pos1].getName(), False, (255, 255, 255))
+                team1 = smallFont.render(gameState[2][pos1].getCurrentTeam(), False, (255, 255, 255))
             if spacesNeeded < 6:
                 num2 = smallFont.render(str(pos2 + 1), False, (255, 255, 255))
-                name2 = smallFont.render(playerNames[pos2], False, (255, 255, 255))
+                name2 = smallFont.render(gameState[2][pos2].getName(), False, (255, 255, 255))
+                team2 = smallFont.render(gameState[2][pos2].getCurrentTeam(), False, (255, 255, 255))
             if spacesNeeded < 5:
                 num3 = smallFont.render(str(pos3 + 1), False, (255, 255, 255))
-                name3 = smallFont.render(playerNames[pos3], False, (255, 255, 255))
+                name3 = smallFont.render(gameState[2][pos3].getName(), False, (255, 255, 255))
+                team3 = smallFont.render(gameState[2][pos3].getCurrentTeam(), False, (255, 255, 255))
             if spacesNeeded < 4:
                 num4 = smallFont.render(str(pos4 + 1), False, (255, 255, 255))
-                name4 = smallFont.render(playerNames[pos4], False, (255, 255, 255))
+                name4 = smallFont.render(gameState[2][pos4].getName(), False, (255, 255, 255))
+                team4 = smallFont.render(gameState[2][pos4].getCurrentTeam(), False, (255, 255, 255))
             if spacesNeeded < 3:
                 num5 = smallFont.render(str(pos5 + 1), False, (255, 255, 255))
-                name5 = smallFont.render(playerNames[pos5], False, (255, 255, 255))
+                name5 = smallFont.render(gameState[2][pos5].getName(), False, (255, 255, 255))
+                team5 = smallFont.render(gameState[2][pos5].getCurrentTeam(), False, (255, 255, 255))
             if spacesNeeded < 2:
                 num6 = smallFont.render(str(pos6 + 1), False, (255, 255, 255))
-                name6 = smallFont.render(playerNames[pos6], False, (255, 255, 255))
+                name6 = smallFont.render(gameState[2][pos6].getName(), False, (255, 255, 255))
+                team6 = smallFont.render(gameState[2][pos6].getCurrentTeam(), False, (255, 255, 255))
             if spacesNeeded < 1:
                 num7 = smallFont.render(str(pos7 + 1), False, (255, 255, 255))
-                name7 = smallFont.render(playerNames[pos7], False, (255, 255, 255))
-
+                name7 = smallFont.render(gameState[2][pos7].getName(), False, (255, 255, 255))
+                team7 = smallFont.render(gameState[2][pos7].getCurrentTeam(), False, (255, 255, 255))
 
 
             #Draw Background
@@ -146,30 +162,37 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
 
             #Draw Dynamic Strings
             if spacesNeeded < 8:
-                win.blit(num0, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 1)))
-                win.blit(name0, (baseXStat, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(num0, (baseXRank, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(name0, (baseXName, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(team0, (baseXTeam, baseYStat + (baseYSpacerStat * 1)))
             if spacesNeeded < 7:
-                win.blit(num1, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 2)))
-                win.blit(name1, (baseXStat, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(num1, (baseXRank, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(name1, (baseXName, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(team1, (baseXTeam, baseYStat + (baseYSpacerStat * 2)))
             if spacesNeeded < 6:
-                win.blit(num2, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 3)))
-                win.blit(name2, (baseXStat, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(num2, (baseXRank, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(name2, (baseXName, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(team2, (baseXTeam, baseYStat + (baseYSpacerStat * 3)))
             if spacesNeeded < 5:
-                win.blit(num3, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 4)))
-                win.blit(name3, (baseXStat, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(num3, (baseXRank, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(name3, (baseXName, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(team3, (baseXTeam, baseYStat + (baseYSpacerStat * 4)))
             if spacesNeeded < 4:
-                win.blit(num4, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 5)))
-                win.blit(name4, (baseXStat, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(num4, (baseXRank, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(name4, (baseXName, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(team4, (baseXTeam, baseYStat + (baseYSpacerStat * 5)))
             if spacesNeeded < 3:
-                win.blit(num5, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 6)))
-                win.blit(name5, (baseXStat, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(num5, (baseXRank, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(name5, (baseXName, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(team5, (baseXTeam, baseYStat + (baseYSpacerStat * 6)))
             if spacesNeeded < 2:
-                win.blit(num6, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 7)))
-                win.blit(name6, (baseXStat, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(num6, (baseXRank, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(name6, (baseXName, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(team6, (baseXTeam, baseYStat + (baseYSpacerStat * 7)))
             if spacesNeeded < 1:
-                win.blit(num7, (baseXStat - baseXSpacerStat, baseYStat + (baseYSpacerStat * 8)))
-                win.blit(name7, (baseXStat, baseYStat + (baseYSpacerStat * 8)))
-            
+                win.blit(num7, (baseXRank, baseYStat + (baseYSpacerStat * 8)))
+                win.blit(name7, (baseXName, baseYStat + (baseYSpacerStat * 8)))
+                win.blit(team7, (baseXTeam, baseYStat + (baseYSpacerStat * 8)))
             
 
             #Draw Images

@@ -2,7 +2,7 @@ import pygame, sys
 import buttonClassObj
 
 # #display settings menu
-def teamStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img):
+def teamStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, keyBoardKeys):
 
     print('in team Stats - ', gameState)
 

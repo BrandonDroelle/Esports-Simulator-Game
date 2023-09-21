@@ -67,6 +67,8 @@
 
 class PlayerClass:
     def __init__(self, name):
+
+    #Attributes
         self.name = name
         self.currentTeam = "none"
         self.goalsCareer = 0
@@ -78,26 +80,67 @@ class PlayerClass:
         self.savesSeason = 0
         self.shotsSeason = 0
 
+    #Methods
     #Setters
     def setName(self, name):
         self.name = name
 
+    def setTeam(self, currentTeam):
+        self.currentTeam = currentTeam
+
     def setGoalsCareer(self, goalsCareer):
         self.goalsCareer = goalsCareer
+
+    def setAssistsCareer(self, assistsCareer):
+        self.assistsCareer = assistsCareer
+
+    def setSavesCareer(self, goalsCareer):
+        self.goalsCareer = goalsCareer
+
+    def setShotsCareer(self, shotsCareer):
+        self.shotsCareer = shotsCareer
+
+    def setGoalsSeason(self, goalsSeason):
+        self.goalsSeason = goalsSeason
+
+    def setAssistsSeason(self, assistsSeason):
+        self.assistsSeason = assistsSeason
+
+    def setSavesSeason(self, savesSeason):
+        self.savesSeason = savesSeason
+
+    def setShotsSeason(self, shotsSeason):
+        self.shotsSeason = shotsSeason
 
     #Getters
     def getName(self):
         return self.name
 
+    def getCurrentTeam(self):
+        return self.currentTeam
+
+    def getGoalsCareer(self):
+        return self.savesCareer
+
+    def getSavesCareer(self):
+        return self.savesCareer
+
+    def getAssistsCareer(self):
+        return self.assistsCareer
+
+    def getShotsCareer(self):
+        return self.shotsCareer
+
+    def getGoalsSeason(self):
+        return self.goalsSeason
+
+    def getSavesSeason(self):
+        return self.savesSeason
+
+    def getAssistsSeason(self):
+        return self.assistsSeason
+
+    def getShotsSeason(self):
+        return self.shotsSeason
 
 
-
-#testPlayerClassObject = PlayerClass("Brandon")
-
-#print(testPlayerClassObject.name)
-
-#testPlayerClassObject.setName("Bill")
-
-#name = testPlayerClassObject.getName()
-
-#print("Name:", name)
