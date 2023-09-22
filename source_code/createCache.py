@@ -48,100 +48,44 @@ def rmvPlayerName (gameState, playerNames):
     print("PlayerNames: ", playerNames)
     return playerNames
 
-#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-#creates list of player objects from data on save file
-def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
-    print("loading player and team objects into cache")
-    teamObjects = createTeamObjects(teamNames)
-    lenTeams = len(teamObjects)
-    playerObjects = createPlayerObjects(gameState, playerNames)
-    lenPlayers = len(playerObjects)
-    currentSeason = "Season " + saveGame.getSeason(gameState) + "\n"
-
-    #this loop reads the save file line by line. After the current season is read it compares every
-    #line with the current team name it is searching for. Then when there is a match, it reads
-    #all 3 player names in the team, skipping over the stat lines
-    #it adds those players to the team objects. Then it starts again 
-    #with the next team name in the list
-    for i in range(lenTeams):
-        extraRows = 0
-        count = 0
-        teamName = teamObjects[i].getTeamName() + "\n"
-        print("Current Team: ", teamName)
-        while count < 3:
-            currentName = saveData.read(gameState, teamName, 1, currentSeason, extraRows)
-            print("p1 Name: ", currentName)
-            count = count + 1
-            for j in range(lenPlayers):
-                tempPlayerName = playerObjects[j].getName() + "\n"
-                print("temp Name: ", tempPlayerName)
-                if currentName == tempPlayerName:
-                    if count == 1:
-                        print("add P1")
-                        print("Player: ", playerObjects[j].getName(), " | Team: ", teamObjects[i].getTeamName())
-                        teamObjects[i].setP1(playerObjects[j])                  #adds player 1 to current team
-                        playerObjects[j].setTeam(teamObjects[i].getTeamName())    #adds team name to player class
-                        print("Current Team Roster: ", teamObjects[i].printRoster())
-                        print("Player 1's Current Team: ", playerObjects[j].getCurrentTeam())
-                        extraRows = 9
-                        break
-                    if count == 2:
-                        print("add P2")
-                        print(playerObjects[j].getName())
-                        teamObjects[i].setP2(playerObjects[j])                  #adds player 2 to current team
-                        playerObjects[j].setTeam(teamObjects[i].getTeamName())    #adds team name to player class
-                        print("Player: ", playerObjects[j].getName(), " | Team: ", teamObjects[i].getTeamName())
-                        extraRows = 18
-                        break
-                    if count == 3:
-                        print("add P3")
-                        print(playerObjects[j].getName())
-                        teamObjects[i].setP3(playerObjects[j])                  #adds player 3 to current team
-                        playerObjects[j].setTeam(teamObjects[i].getTeamName())    #adds team name to player class
-                        print("Player: ", playerObjects[j].getName(), " | Team: ", teamObjects[i].getTeamName())
-                        break
-                    
-    for i in range(lenTeams):       
-        teamObjects[i].printRoster()
-    #add player goals to player objects
-    addPlayerGoalsToObject(gameState, playerObjects)
-    print("loaded player and team objects into cache")
-    #create a list containing the list of playerObjects and teamObjects and return it
-    playersAndTeamsMatrix = [playerObjects, teamObjects]
-    return playersAndTeamsMatrix
-#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 #Load player data from save file to cache
-def loadPlayerObjects(gameState, playerNames):
+def loadPlayerObjects(gameState):
     print("In loadPlayerObjects")
-    gameState[2] = createPlayerObjects(gameState, playerNames)
+    #gameState[2] = createPlayerObjects(gameState, playerNames)
     extraRows = -1
-    numOfStats = 9
+    statList = []
+    statIndex = 0
+    end = False
     
-    for j in range(9):
-        extraRows = extraRows + 2 #teamName = 1 | + 2 for eveyother stat | with 9 different stats total
-        for i in gameState[2]:
-            stat = saveData.read(gameState, i.getName() + "\n", 1, "player objects\n", extraRows)
-            print("stat: ", stat)
-            print("extra rows: ", extraRows)
-            if extraRows == 1:
-                i.setTeam(stat)
-            if extraRows == 3:
-                i.setGoalsCareer(int(stat))
-            elif extraRows == 5:
-                i.setAssistsCareer(int(stat))
-            elif extraRows == 7:
-                i.setSavesCareer(int(stat))
-            elif extraRows == 9:
-                i.setShotsCareer(int(stat))
-            elif extraRows == 11:
-                i.setGoalsSeason(int(stat))
-            elif extraRows == 13:
-                i.setAssistsSeason(int(stat))
-            elif extraRows == 15:
-                i.setSavesSeason(int(stat))
-            elif extraRows == 17:
-                i.setShotsSeason(int(stat))
+    while end == False:
+        extraRows = extraRows + 1 #determines how many rows will be skipped when after reading playerObjects in save file
+        playerStats = saveData.read(gameState, "player objects\n", 1, "RLCS Save Data\n", extraRows)
+        print("stats: ", playerStats)
+        print("extra rows: ", extraRows)
+        #split the data string into a list
+        statList = playerStats.split(" ")
+        print("stats list: ", statList)
+
+        #check if there is player data 
+        if playerStats == "\n":
+            end = True
+            break
+
+        #create player object, and set all attributes
+        i = playerClass.PlayerClass(statList[0])
+        i.setTeam(statList[1])
+        i.setGoalsCareer(int(statList[2]))
+        i.setAssistsCareer(int(statList[3]))
+        i.setSavesCareer(int(statList[4]))
+        i.setShotsCareer(int(statList[5]))
+        i.setGoalsSeason(int(statList[6]))
+        i.setAssistsSeason(int(statList[7]))
+        i.setSavesSeason(int(statList[8]))
+        i.setShotsSeason(int(statList[9]))
+
+        #add player object to list of player objects
+        gameState[2].append(i)
 
     print("Leave loadPlayerObjects")
     return gameState

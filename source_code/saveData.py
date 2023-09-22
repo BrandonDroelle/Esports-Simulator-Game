@@ -41,7 +41,7 @@ def write(gameState, dataType, newData, multiple = 1, exception = "RLCS Save Dat
     while multiple > 0:
         #print ("multiple: ", multiple)
         while found == False:                       #checks each line from txt file to see if it matches the data type thats being searched for
-            #print("line", count, ":", lines[count])
+            print("line", count, ":", lines[count])
             currentLine = lines[count]
             if currentLine == exception:            #checks current line for exception
                 exceptionFlag = True

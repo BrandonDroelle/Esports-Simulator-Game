@@ -81,7 +81,7 @@ def getWeek(gameState):
 
 #update player object data to save file
 def updatePlayers(gameState):
-
+    exceptionString = "player objects\n"
     for i in gameState[2]:
         playerName = i.getName()
         playerTeam = i.getCurrentTeam()
@@ -93,12 +93,13 @@ def updatePlayers(gameState):
         playerSeasonAssists = str(i.getAssistsSeason())
         playerSeasonSaves = str(i.getSavesSeason())
         playerSeasonShots = str(i.getShotsSeason())
-        playerStatsString = ("player name\n" + playerName + "\nplayer team\n" + playerTeam +
-                             "\ncareer goals\n" + playerCareerGoals + "\ncareer assists\n" + playerCareerAssists +
-                             "\ncareer saves\n" + playerCareerSaves + "\ncareer shots\n"+ playerCareerShots +
-                             "\nseason goals\n" + playerSeasonGoals + "\nseason assists\n" + playerSeasonAssists +
-                             "\nseason saves\n" + playerSeasonSaves + "\nseason shots\n" + playerSeasonShots + "\n")
-        saveData.append(gameState, playerStatsString)
+        playerStatsString = (playerName + " " + playerTeam + " " + 
+                             playerCareerGoals + " " + playerCareerAssists + " " + 
+                             playerCareerSaves + " "+ playerCareerShots + " " + 
+                             playerSeasonGoals + " " + playerSeasonAssists + " " + 
+                             playerSeasonSaves + " " + playerSeasonShots + "\n")
+        saveData.write(gameState, exceptionString, playerStatsString)
+        exceptionString = playerStatsString
 
 
 #update schedule to save file
