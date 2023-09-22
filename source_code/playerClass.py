@@ -94,8 +94,8 @@ class PlayerClass:
     def setAssistsCareer(self, assistsCareer):
         self.assistsCareer = assistsCareer
 
-    def setSavesCareer(self, goalsCareer):
-        self.goalsCareer = goalsCareer
+    def setSavesCareer(self, savesCareer):
+        self.savesCareer = savesCareer
 
     def setShotsCareer(self, shotsCareer):
         self.shotsCareer = shotsCareer

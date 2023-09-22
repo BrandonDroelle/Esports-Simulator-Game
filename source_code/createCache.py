@@ -1,3 +1,4 @@
+from math import gamma
 from sqlite3 import TimestampFromTicks
 import playerClass
 import saveGame
@@ -47,7 +48,7 @@ def rmvPlayerName (gameState, playerNames):
     print("PlayerNames: ", playerNames)
     return playerNames
 
-
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #creates list of player objects from data on save file
 def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
     print("loading player and team objects into cache")
@@ -108,6 +109,42 @@ def loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames):
     #create a list containing the list of playerObjects and teamObjects and return it
     playersAndTeamsMatrix = [playerObjects, teamObjects]
     return playersAndTeamsMatrix
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+#Load player data from save file to cache
+def loadPlayerObjects(gameState, playerNames):
+    print("In loadPlayerObjects")
+    gameState[2] = createPlayerObjects(gameState, playerNames)
+    extraRows = -1
+    numOfStats = 9
+    
+    for j in range(9):
+        extraRows = extraRows + 2 #teamName = 1 | + 2 for eveyother stat | with 9 different stats total
+        for i in gameState[2]:
+            stat = saveData.read(gameState, i.getName() + "\n", 1, "player objects\n", extraRows)
+            print("stat: ", stat)
+            print("extra rows: ", extraRows)
+            if extraRows == 1:
+                i.setTeam(stat)
+            if extraRows == 3:
+                i.setGoalsCareer(int(stat))
+            elif extraRows == 5:
+                i.setAssistsCareer(int(stat))
+            elif extraRows == 7:
+                i.setSavesCareer(int(stat))
+            elif extraRows == 9:
+                i.setShotsCareer(int(stat))
+            elif extraRows == 11:
+                i.setGoalsSeason(int(stat))
+            elif extraRows == 13:
+                i.setAssistsSeason(int(stat))
+            elif extraRows == 15:
+                i.setSavesSeason(int(stat))
+            elif extraRows == 17:
+                i.setShotsSeason(int(stat))
+
+    print("Leave loadPlayerObjects")
+    return gameState
 
 def addPlayerGoalsToObject(gameState, playerObjects):
     print("In addPlayerGoalsToObject")
@@ -146,9 +183,9 @@ def createTeamObjects(teamNames):
     teams = []
     for i in range(l):
         #print("i:", i)
-        teamTemp = teamClass.TeamClass(teamNames[i])
-        teams.append(teamTemp)
-        name = teams[i].getTeamName()
+        teamTemp = teamClass.TeamClass(teamNames[i])    #creates team object with name from teamNames list
+        teams.append(teamTemp)                          #adds new team to list of team objects
+        #name = teams[i].getTeamName()
         #print("Team Name:", name)
     #print("Team Objects: ", teams)
     return teams
@@ -162,13 +199,22 @@ def loadPlayerObjectData(gameState, playerNames):
     for i in range(l):
         playerObjects[i]
 
+#Sets the player objects teamName to the teamName of the team object
+def updatePlayersTeam(teamObject, playerObject):
+    teamName = teamObject.getTeamName()
+    playerObject.setTeam(teamName)
+    return playerObject
+#Returns the player object with the updated teamName attribute
+    
 
 #randomly fill each team with three players
-def fillTeamRosters(gameState, playerObjects, teamObjects):
+def fillTeamRosters(gameState):
 
     #Randomly assigns 3 players from playerObjects to each teamObject
-    playersShuffle = playerObjects.copy() #makes a copy of the playerObject list so the playerObject list stays in the original order
-    playersShuffle = generateSchedule.randomizeList(playersShuffle)
+    playerObjects = gameState[2]
+    teamObjects = gameState[3]
+    #playersShuffle = playerObjects.copy() #makes a copy of the playerObject list so the playerObject list stays in the original order
+    playersShuffle = generateSchedule.randomizeList(playerObjects)
     tcount = 0 #plus one every loop to change team
     pcount = 0 #plus one every assignment to change player
     #pcount = len(playersShuffle)
@@ -182,15 +228,17 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
         c = c + 1
 
     print("playerShuffleLen: ", len(playersShuffle))
-    
 
     while pcount < len(playersShuffle):
         print("pcount: ", pcount)
-        teamObjects[tcount].setP1(playersShuffle[pcount])
+        teamObjects[tcount].setP1(playersShuffle[pcount])   #adds random player object to P1 on current team
+        playersShuffle[pcount] = updatePlayersTeam(teamObjects[tcount], playersShuffle[pcount]) #updates player object with new team name
         pcount = pcount + 1
-        teamObjects[tcount].setP2(playersShuffle[pcount])
+        teamObjects[tcount].setP2(playersShuffle[pcount])   #adds random player object to P2 on current team
+        playersShuffle[pcount] = updatePlayersTeam(teamObjects[tcount], playersShuffle[pcount]) #updates player object with new team name
         pcount = pcount + 1
-        teamObjects[tcount].setP3(playersShuffle[pcount])
+        teamObjects[tcount].setP3(playersShuffle[pcount])   #adds random player object to P3 on current team
+        playersShuffle[pcount] = updatePlayersTeam(teamObjects[tcount], playersShuffle[pcount]) #updates player object with new team name
         pcount = pcount + 1
         tcount = tcount + 1
 
@@ -205,7 +253,11 @@ def fillTeamRosters(gameState, playerObjects, teamObjects):
         teamObjects[count].printRoster()
         count = count + 1
 
-    return teamObjects
+    #update gameState with updated team and player objects
+    gameState[2] = playersShuffle
+    gameState[3] = teamObjects
+
+    return gameState
 
 #finds the users player index
 def getUserPLayerIndex(gameState, playerObjects):
@@ -281,7 +333,9 @@ def getPlayerIndex (gameState, name, playerObjects):
 #create
 
 #after teams are randomly filled with players the users player object will be swapped to the team they picked
-def swapUserWithNPC(gameState, playerObjects, teamObjects):
+def swapUserWithNPC(gameState):
+    playerObjects = gameState[2]
+    teamObjects = gameState[3]
     userName = saveGame.getPlayerName(gameState)                    #gets users playerName from save file
     userPlayerIndex = getUserPLayerIndex(gameState, playerObjects)  #gets users current player index
     userTeam = saveGame.getTeamName(gameState)                      #gets users teamName from save file
@@ -363,14 +417,18 @@ def swapUserWithNPC(gameState, playerObjects, teamObjects):
     if pos == 1:
         #print("set npc to p1")
         teamObjects[tempTeamIndex].setP1(playerObjects[npcIndex]) #sets NPC player object to team that User was on
+        playerObjects[npcIndex] = updatePlayersTeam(teamObjects[tempTeamIndex], playerObjects[npcIndex])    #updates the player objects teamName attribute to the new teamName
     if pos == 2:
         #print("set npc to p2")
         teamObjects[tempTeamIndex].setP2(playerObjects[npcIndex]) #sets NPC player object to team that User was on
+        playerObjects[npcIndex] = updatePlayersTeam(teamObjects[tempTeamIndex], playerObjects[npcIndex])    #updates the player objects teamName attribute to the new teamName
     if pos == 3:
         #print("set npc to p3")
         teamObjects[tempTeamIndex].setP3(playerObjects[npcIndex]) #sets NPC player object to team that User was on
+        playerObjects[npcIndex] = updatePlayersTeam(teamObjects[tempTeamIndex], playerObjects[npcIndex])    #updates the player objects teamName attribute to the new teamName
     
     teamObjects[userTeamIndex].setP1(playerObjects[userPlayerIndex]) #sets User player object to team that NPC was on
+    playerObjects[userPlayerIndex] = updatePlayersTeam(teamObjects[userTeamIndex], playerObjects[userPlayerIndex])    #updates the player objects teamName attribute to the new teamName
 
     userName = playerObjects[userPlayerIndex].getName()
     #print("Users Name from player object:", userName)
@@ -398,6 +456,10 @@ def swapUserWithNPC(gameState, playerObjects, teamObjects):
     #print("npcs Player Index:", npcIndex)
     #print("npcs Team Name:", tempTeamName)
     #print("npcs Team Index:", tempTeamIndex)
+
+    gameState[2] = playerObjects
+    gameState[3] = teamObjects
+    return gameState
 
     def getPlayerSeasonGoals (gameState, player):
         playerSeasonGoals = saveData.read

@@ -137,10 +137,12 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
 
                         #generate players
                         playerObjects = createCache.createPlayerObjects(gameState, playerNames) #here is when the player name is added to the list of player names
-                        #print("player objects generated")
+                        gameState[2] = playerObjects
+                        print("player objects generated")
                         #generate teams
                         teamObjects = createCache.createTeamObjects(teamNames)
-                        #print("team objects generated")
+                        print("team objects generated")
+                        gameState[3] = teamObjects
                         #call function to generate season schedule
                         schedule = generateSchedule.generateRoundRobin(gameState, teamNames)
                         #generateSchedule.printSchedule(schedule)
@@ -158,16 +160,21 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         saveGame.updateTeam(gameState, team)
                         #call function to update save file with current week
                         saveGame.updateWeek(gameState, 1)
+                        
+                        #fill team rosters, each team gets three players (Have to update save file with team name before filling team rosters)
+                        teamObjects = createCache.fillTeamRosters(gameState)
+                        #assign user to the team they picked instead of a random team
+                        gameState = createCache.swapUserWithNPC(gameState)
+                        #add players to schedule in save file
+                        #saveGame.addPlayersToSchedule(gameState, teamObjects)
+
+                        #call function to add player object data to save file
+                        saveGame.updatePlayers(gameState)
                         #save season schedule to save file
                         saveGame.updateSchedule(gameState, scheduleString)
 
 
-                        #fill team rosters, each team gets three players (Have to update save file with team name before filling team rosters)
-                        teamObjects = createCache.fillTeamRosters(gameState, playerObjects, teamObjects)
-                        #assign user to the team they picked instead of a random team
-                        createCache.swapUserWithNPC(gameState, playerObjects, teamObjects)
-                        #add players to schedule in save file
-                        saveGame.addPlayersToSchedule(gameState, teamObjects)
+                        
                         
                         
 

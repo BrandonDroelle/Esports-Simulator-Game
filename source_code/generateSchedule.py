@@ -88,10 +88,11 @@ def getScheduleString(gameState, schedule, teamObjects):
             awayTeam = str(schedule[i][j][1])
             #print("home team:", homeTeam, "\naway team:", awayTeam)
             #reformat schedule list to fit save data file
-            scheduleSaveFormat = scheduleSaveFormat + homeTeam + '\n\n' + awayTeam + '\n\n'
+            scheduleSaveFormat = scheduleSaveFormat + homeTeam + '\n' + awayTeam + '\n'
             #print('scheduleSaveFormat:', scheduleSaveFormat)
             count = count + 1
       
-    scheduleSaveFormat = scheduleSaveFormat + 'Season ' + currentSeason + ' End\n'
+    #scheduleSaveFormat = scheduleSaveFormat + 'Season ' + currentSeason + ' End\n'
+    scheduleSaveFormat = scheduleSaveFormat
     
     return scheduleSaveFormat

@@ -79,6 +79,28 @@ def getWeek(gameState):
     x = x.replace(" ", "")
     return x
 
+#update player object data to save file
+def updatePlayers(gameState):
+
+    for i in gameState[2]:
+        playerName = i.getName()
+        playerTeam = i.getCurrentTeam()
+        playerCareerGoals = str(i.getGoalsCareer())
+        playerCareerAssists = str(i.getAssistsCareer())
+        playerCareerSaves = str(i.getSavesCareer())
+        playerCareerShots = str(i.getShotsCareer())
+        playerSeasonGoals = str(i.getGoalsSeason())
+        playerSeasonAssists = str(i.getAssistsSeason())
+        playerSeasonSaves = str(i.getSavesSeason())
+        playerSeasonShots = str(i.getShotsSeason())
+        playerStatsString = ("player name\n" + playerName + "\nplayer team\n" + playerTeam +
+                             "\ncareer goals\n" + playerCareerGoals + "\ncareer assists\n" + playerCareerAssists +
+                             "\ncareer saves\n" + playerCareerSaves + "\ncareer shots\n"+ playerCareerShots +
+                             "\nseason goals\n" + playerSeasonGoals + "\nseason assists\n" + playerSeasonAssists +
+                             "\nseason saves\n" + playerSeasonSaves + "\nseason shots\n" + playerSeasonShots + "\n")
+        saveData.append(gameState, playerStatsString)
+
+
 #update schedule to save file
 def updateSchedule(gameState, schedule):
     print('Add schedule to save file')

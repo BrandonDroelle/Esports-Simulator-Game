@@ -61,12 +61,15 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
     print("players:", playerNames)
     print("len:", l)
 
-    print("gameState2PlayerObjects: ", gameState[2])
+    print("gameState2 PlayerObjects: ", gameState[2])
     if gameState[2] == [0] and gameState[3] == [0]:
         print('load caches from save file')
-        playersAndTeamsMatrix = createCache.loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames)
-        gameState[2] = playersAndTeamsMatrix[0]
-        gameState[3] = playersAndTeamsMatrix[1]
+        gameState[2] = createCache.loadPlayerObjects(gameState, playerNames)
+        #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+        #playersAndTeamsMatrix = createCache.loadPlayerAndTeamsIntoCache(gameState, teamNames, playerNames)
+        #gameState[2] = playersAndTeamsMatrix[0]
+        #gameState[3] = playersAndTeamsMatrix[1]
+        #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
         #print("lengthOfPlayerObjects: ", len(playerObjects))
         #print("lengthOfTeamObjects: ", len(teamObjects))
         #for i in range(len(teamObjects)):       
