@@ -6,7 +6,7 @@ import saveData
 import teamClass
 import generateSchedule
 
-#creates list of player objects from list of player name strings
+#creates list of player objects from list of default player name strings when creating a new save
 def createPlayerObjects(gameState, playerNames):
     #add user to list of players
     userName = saveGame.getPlayerName(gameState)
@@ -52,7 +52,6 @@ def rmvPlayerName (gameState, playerNames):
 #Load player data from save file to cache
 def loadPlayerObjects(gameState):
     print("In loadPlayerObjects")
-    #gameState[2] = createPlayerObjects(gameState, playerNames)
     extraRows = -1
     statList = []
     statIndex = 0
@@ -88,7 +87,7 @@ def loadPlayerObjects(gameState):
         gameState[2].append(i)
 
     print("Leave loadPlayerObjects")
-    return gameState
+    return gameState[2]
 
 def addPlayerGoalsToObject(gameState, playerObjects):
     print("In addPlayerGoalsToObject")
@@ -117,7 +116,7 @@ def addPlayerGoalsToObject(gameState, playerObjects):
     print("Leave addPlayerGoalsToObject")
     return playerObjects
 
-#creates list of team objects from list of team name strings
+#creates list of team objects from list of default team name strings when creating a new save
 def createTeamObjects(teamNames):
     
     l = len(teamNames)
@@ -134,14 +133,65 @@ def createTeamObjects(teamNames):
     #print("Team Objects: ", teams)
     return teams
 
-#load saved data from file to cache for each player
-def loadPlayerObjectData(gameState, playerNames):
-    #create player objects
-    playerObjects = createPlayerObjects(gameState, playerNames) #here is when the player name is added to the list of player names
+#Load team data cache from player objects
+def loadTeamObjects(gameState):
+    print("In load team objects")
+    count = 0
+    teamNames = []
+    teamName = ""
 
-    l = len(playerNames)
-    for i in range(l):
-        playerObjects[i]
+    for i in gameState[2]:
+        teamName = i.getCurrentTeam()
+        #check if team name is on list of teams
+        #if the team name is not on the list then add it
+        #and create a new teamClass object
+
+        #set add team to true
+        addTeam = True
+
+        #check if teamNames list is empty. If it is create a teamobject with that player and add the object to gameState
+        #if len(teamNames) == 0:
+            #addTeam = True
+
+        for j in teamNames:
+            if teamName == j:         #check if teamName is on list of team names
+                addTeam = False
+                for x in range (len(gameState[3])):
+                    permTeamName = gameState[3][x].getTeamName()
+                    if permTeamName == teamName:            #x is the index for the team to add this player to
+                        p2Object = gameState[3][x].getP2()    #get the P2 object from the current team
+                        p2Name = p2Object.getName()         #get the name for P2
+                        if p2Name == 'rookie2':             #there is no player 2 for this team
+                            gameState[3][x].setP2(i)  #set current player to P2 for their team
+                        else:
+                            gameState[3][x].setP3(i)  #set current player to P3 for their team
+
+        if addTeam == True:
+            #add team name to list of team names
+            teamNames.append(teamName)
+            #create team object from the new team name
+            tempTeam = teamClass.TeamClass(teamName)
+            #set P1 on the new team with the current player
+            tempTeam.setP1(i)
+            #add new team object to list
+            gameState[3].append(tempTeam)
+
+        
+                
+    print("leave load team objects")
+    return gameState[3]
+        
+
+
+
+#load saved data from file to cache for each player
+#def loadPlayerObjectData(gameState, playerNames):
+#    #create player objects
+#    playerObjects = createPlayerObjects(gameState, playerNames) #here is when the player name is added to the list of player names
+
+#    l = len(playerNames)
+#    for i in range(l):
+#        playerObjects[i]
 
 #Sets the player objects teamName to the teamName of the team object
 def updatePlayersTeam(teamObject, playerObject):

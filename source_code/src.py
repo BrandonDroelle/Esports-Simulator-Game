@@ -181,8 +181,8 @@ playerNames = ['saltie', 'casper', 'myrtle', 'samara', 'storm', 'fury', 'rainmak
                'fulcrum', 'alleycat', 'soap', 'echo', 'heavy', 'fives']
 
 #create empty lists of team and player objects
-playerObjects = [0]
-teamObjects = [0]
+playerObjects = []
+teamObjects = []
 
 #Create gamestate
 gameState = ['gameData1.txt', 'start', playerObjects, teamObjects] #[current save, current menu, playersObjects, teamObjects]
