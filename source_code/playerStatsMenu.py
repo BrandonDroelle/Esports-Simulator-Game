@@ -8,6 +8,9 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
 
     print('in player stats - ', gameState)
 
+    #Variable to determine which stats to display
+    seasonStats = True
+
     #Variables to set background shapes to
     baseX = 250
     baseY = 175
@@ -30,24 +33,8 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     baseXRank = 215
     baseXName = 265
     baseXTeam = 400
+    baseXGoalsS = 575
     
-    
-
-    #######################################################
-    #get stats from save file and add them to a list
-    #playerNames = []
-    #playerTeams = []
-    #playerGoals = []
-    #playerAssists = []
-    #playerSaves = []
-    #playerShots = []
-
-    #add player names to list
-    #for i in (gameState[2]):
-        #playerName = i.getName()
-        #playerNames.append(playerName)
-    #print("playerNames: ", playerNames)
-    ########################################################
 
     #print("length of player objects: ", len(gameState[2]))
     lenPlayers = len(gameState[2])
@@ -55,12 +42,7 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     extraSpaces = 8 - (lenPlayers % 8)   #Get mod to avoid out of bounds errors when bottom of list is not mod 0
     spacesNeeded = 0
     #print("mod lenPlayers: ", extraSpaces)
-
-    #add player goals to list
-    for i in (gameState[2]):
-        print("Player: ", i.getName())
-        #playerSeasonGoals = createCache.getPlayerSeasonGoals(gameState, i)
-        #playerGoals.append(playerSeasonGoals)
+ 
 
     #Create Strings
     title = basicFont.render('Player Stats', False, (255, 255, 255))
@@ -76,6 +58,10 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 250, basicFont, 'Locker Room', 10, 15)
     btnUpArrow = buttonClassObj.buttonClass(keyBoardKeys[49], 1000, 150, basicFont, '',0, 0)
     btnDownArrow = buttonClassObj.buttonClass(keyBoardKeys[50], 1000, 500, basicFont, '',0, 0)
+    btnSeasonStats = buttonClassObj.buttonClass(buttonimg, 100, (win.get_height() / 2) + 250, basicFont, 'Season Stats',10, 15)
+    btnSeasonStatsH = buttonClassObj.buttonClass(button2img, 100, (win.get_height() / 2) + 250, basicFont, 'Season Stats',10, 15)
+    btnCareerStats = buttonClassObj.buttonClass(buttonimg, (win.get_width() - 400), (win.get_height() / 2) + 250, basicFont, 'Career Stats',10, 15)
+    btnCareerStatsH = buttonClassObj.buttonClass(button2img, (win.get_width() - 400), (win.get_height() / 2) + 250, basicFont, 'Career Stats',10, 15)
 
     #Menu Loop
     while gameState[1] == 'playerStats':
@@ -108,35 +94,66 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 num0 = smallFont.render(str(pos0 + 1), False, (255, 255, 255))
                 name0 = smallFont.render(gameState[2][pos0].getName(), False, (255, 255, 255))
                 team0 = smallFont.render(gameState[2][pos0].getCurrentTeam(), False, (255, 255, 255))
+                if seasonStats == True:
+                    goals0 = smallFont.render(str(gameState[2][pos0].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals0 = smallFont.render(str(gameState[2][pos0].getGoalsCareer()), False, (255, 255, 255))
             if spacesNeeded < 7:
                 num1 = smallFont.render(str(pos1 + 1), False, (255, 255, 255))
                 name1 = smallFont.render(gameState[2][pos1].getName(), False, (255, 255, 255))
                 team1 = smallFont.render(gameState[2][pos1].getCurrentTeam(), False, (255, 255, 255))
+                if seasonStats == True:
+                    goals1 = smallFont.render(str(gameState[2][pos1].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals1 = smallFont.render(str(gameState[2][pos1].getGoalsCareer()), False, (255, 255, 255))
             if spacesNeeded < 6:
                 num2 = smallFont.render(str(pos2 + 1), False, (255, 255, 255))
                 name2 = smallFont.render(gameState[2][pos2].getName(), False, (255, 255, 255))
                 team2 = smallFont.render(gameState[2][pos2].getCurrentTeam(), False, (255, 255, 255))
+                if seasonStats == True:
+                    goals2 = smallFont.render(str(gameState[2][pos2].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals2 = smallFont.render(str(gameState[2][pos2].getGoalsCareer()), False, (255, 255, 255))
             if spacesNeeded < 5:
                 num3 = smallFont.render(str(pos3 + 1), False, (255, 255, 255))
                 name3 = smallFont.render(gameState[2][pos3].getName(), False, (255, 255, 255))
                 team3 = smallFont.render(gameState[2][pos3].getCurrentTeam(), False, (255, 255, 255))
+                if seasonStats == True:
+                    goals3 = smallFont.render(str(gameState[2][pos3].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals3 = smallFont.render(str(gameState[2][pos3].getGoalsCareer()), False, (255, 255, 255))
             if spacesNeeded < 4:
                 num4 = smallFont.render(str(pos4 + 1), False, (255, 255, 255))
                 name4 = smallFont.render(gameState[2][pos4].getName(), False, (255, 255, 255))
                 team4 = smallFont.render(gameState[2][pos4].getCurrentTeam(), False, (255, 255, 255))
+                if seasonStats == True:
+                    goals4 = smallFont.render(str(gameState[2][pos4].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals4 = smallFont.render(str(gameState[2][pos4].getGoalsCareer()), False, (255, 255, 255))
             if spacesNeeded < 3:
                 num5 = smallFont.render(str(pos5 + 1), False, (255, 255, 255))
                 name5 = smallFont.render(gameState[2][pos5].getName(), False, (255, 255, 255))
                 team5 = smallFont.render(gameState[2][pos5].getCurrentTeam(), False, (255, 255, 255))
+                if seasonStats == True:
+                    goals5 = smallFont.render(str(gameState[2][pos5].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals5 = smallFont.render(str(gameState[2][pos5].getGoalsCareer()), False, (255, 255, 255))
             if spacesNeeded < 2:
                 num6 = smallFont.render(str(pos6 + 1), False, (255, 255, 255))
                 name6 = smallFont.render(gameState[2][pos6].getName(), False, (255, 255, 255))
                 team6 = smallFont.render(gameState[2][pos6].getCurrentTeam(), False, (255, 255, 255))
+                if seasonStats == True:
+                    goals6 = smallFont.render(str(gameState[2][pos6].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals6 = smallFont.render(str(gameState[2][pos6].getGoalsCareer()), False, (255, 255, 255))
             if spacesNeeded < 1:
                 num7 = smallFont.render(str(pos7 + 1), False, (255, 255, 255))
                 name7 = smallFont.render(gameState[2][pos7].getName(), False, (255, 255, 255))
                 team7 = smallFont.render(gameState[2][pos7].getCurrentTeam(), False, (255, 255, 255))
-
+                if seasonStats == True:
+                    goals7 = smallFont.render(str(gameState[2][pos7].getGoalsSeason()), False, (255, 255, 255))
+                else:
+                    goals7 = smallFont.render(str(gameState[2][pos7].getGoalsCareer()), False, (255, 255, 255))
 
             #Draw Background
             win.blit(backgroundimg, (0, 0))
@@ -165,48 +182,58 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 win.blit(num0, (baseXRank, baseYStat + (baseYSpacerStat * 1)))
                 win.blit(name0, (baseXName, baseYStat + (baseYSpacerStat * 1)))
                 win.blit(team0, (baseXTeam, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(goals0, (baseXGoalsS, baseYStat + (baseYSpacerStat * 1)))
             if spacesNeeded < 7:
                 win.blit(num1, (baseXRank, baseYStat + (baseYSpacerStat * 2)))
                 win.blit(name1, (baseXName, baseYStat + (baseYSpacerStat * 2)))
                 win.blit(team1, (baseXTeam, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(goals1, (baseXGoalsS, baseYStat + (baseYSpacerStat * 2)))
             if spacesNeeded < 6:
                 win.blit(num2, (baseXRank, baseYStat + (baseYSpacerStat * 3)))
                 win.blit(name2, (baseXName, baseYStat + (baseYSpacerStat * 3)))
                 win.blit(team2, (baseXTeam, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(goals2, (baseXGoalsS, baseYStat + (baseYSpacerStat * 3)))
             if spacesNeeded < 5:
                 win.blit(num3, (baseXRank, baseYStat + (baseYSpacerStat * 4)))
                 win.blit(name3, (baseXName, baseYStat + (baseYSpacerStat * 4)))
                 win.blit(team3, (baseXTeam, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(goals3, (baseXGoalsS, baseYStat + (baseYSpacerStat * 4)))
             if spacesNeeded < 4:
                 win.blit(num4, (baseXRank, baseYStat + (baseYSpacerStat * 5)))
                 win.blit(name4, (baseXName, baseYStat + (baseYSpacerStat * 5)))
                 win.blit(team4, (baseXTeam, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(goals4, (baseXGoalsS, baseYStat + (baseYSpacerStat * 5)))
             if spacesNeeded < 3:
                 win.blit(num5, (baseXRank, baseYStat + (baseYSpacerStat * 6)))
                 win.blit(name5, (baseXName, baseYStat + (baseYSpacerStat * 6)))
                 win.blit(team5, (baseXTeam, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(goals5, (baseXGoalsS, baseYStat + (baseYSpacerStat * 6)))
             if spacesNeeded < 2:
                 win.blit(num6, (baseXRank, baseYStat + (baseYSpacerStat * 7)))
                 win.blit(name6, (baseXName, baseYStat + (baseYSpacerStat * 7)))
                 win.blit(team6, (baseXTeam, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(goals6, (baseXGoalsS, baseYStat + (baseYSpacerStat * 7)))
             if spacesNeeded < 1:
                 win.blit(num7, (baseXRank, baseYStat + (baseYSpacerStat * 8)))
                 win.blit(name7, (baseXName, baseYStat + (baseYSpacerStat * 8)))
                 win.blit(team7, (baseXTeam, baseYStat + (baseYSpacerStat * 8)))
+                win.blit(goals7, (baseXGoalsS, baseYStat + (baseYSpacerStat * 8)))
             
-
-            #Draw Images
-            btnUpArrow.draw(win)
-            btnDownArrow.draw(win)
 
             
             #check for mouse hover
             btn1Hov = buttonClassObj.imgHover(btn1)
             btnUpArrowHov = buttonClassObj.imgHover(btnUpArrow)
             btnDownArrowHov = buttonClassObj.imgHover(btnDownArrow)
+            seasonStatsHov  = buttonClassObj.imgHover(btnSeasonStats)
+            careerStatsHov  = buttonClassObj.imgHover(btnCareerStats)
 
             #Draw Buttons
             #if button hovered change img to hovered image
+
+            btnUpArrow.draw(win)
+            btnDownArrow.draw(win)
+
             if btn1Hov == True:
                 btn1H.draw(win)
             else:
@@ -223,6 +250,16 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 btnDownArrow.draw(win)
             else:
                 btnDownArrow.draw(win)
+
+            if seasonStatsHov == True:
+                btnSeasonStatsH.draw(win)
+            else:
+                btnSeasonStats.draw(win)
+
+            if careerStatsHov == True:
+                btnCareerStatsH.draw(win)
+            else:
+                btnCareerStats.draw(win)
 
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -243,6 +280,13 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                     print("pos0: ", startPos)
                     print("spaces needed:", spacesNeeded)
                     print("extra spaces: ", extraSpaces)
+                if seasonStatsHov == True:
+                    print("mouse click season stats btn")
+                    seasonStats = True
+                if careerStatsHov == True:
+                    print("mouse click career stats btn")
+                    seasonStats = False
+                    
 
         pygame.display.update()
         buttonClassObj.mainClock.tick(60)

@@ -120,7 +120,7 @@ class PlayerClass:
         return self.currentTeam
 
     def getGoalsCareer(self):
-        return self.savesCareer
+        return self.goalsCareer
 
     def getSavesCareer(self):
         return self.savesCareer
