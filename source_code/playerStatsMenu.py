@@ -33,7 +33,10 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     baseXRank = 215
     baseXName = 265
     baseXTeam = 400
-    baseXGoalsS = 575
+    baseXGoals = 575
+    baseXAssists = 690
+    baseXSaves = 805
+    baseXShots = 920
     
 
     #print("length of player objects: ", len(gameState[2]))
@@ -46,6 +49,8 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
 
     #Create Strings
     title = basicFont.render('Player Stats', False, (255, 255, 255))
+    subTitle1 = basicFont.render('Season', False, (255, 255, 255))
+    subTitle2 = basicFont.render('Career', False, (255, 255, 255))
     header1 = smallFont.render('Player', False, (255, 255, 255))
     header2 = smallFont.render('Team', False, (255, 255, 255))
     header3 = smallFont.render('Goals', False, (255, 255, 255))
@@ -96,64 +101,112 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 team0 = smallFont.render(gameState[2][pos0].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals0 = smallFont.render(str(gameState[2][pos0].getGoalsSeason()), False, (255, 255, 255))
+                    assists0 = smallFont.render(str(gameState[2][pos0].getAssistsSeason()), False, (255, 255, 255))
+                    saves0 = smallFont.render(str(gameState[2][pos0].getSavesSeason()), False, (255, 255, 255))
+                    shots0 = smallFont.render(str(gameState[2][pos0].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals0 = smallFont.render(str(gameState[2][pos0].getGoalsCareer()), False, (255, 255, 255))
+                    assists0 = smallFont.render(str(gameState[2][pos0].getAssistsCareer()), False, (255, 255, 255))
+                    saves0 = smallFont.render(str(gameState[2][pos0].getSavesCareer()), False, (255, 255, 255))
+                    shots0 = smallFont.render(str(gameState[2][pos0].getShotsCareer()), False, (255, 255, 255))
             if spacesNeeded < 7:
                 num1 = smallFont.render(str(pos1 + 1), False, (255, 255, 255))
                 name1 = smallFont.render(gameState[2][pos1].getName(), False, (255, 255, 255))
                 team1 = smallFont.render(gameState[2][pos1].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals1 = smallFont.render(str(gameState[2][pos1].getGoalsSeason()), False, (255, 255, 255))
+                    assists1 = smallFont.render(str(gameState[2][pos1].getAssistsSeason()), False, (255, 255, 255))
+                    saves1 = smallFont.render(str(gameState[2][pos1].getSavesSeason()), False, (255, 255, 255))
+                    shots1 = smallFont.render(str(gameState[2][pos1].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals1 = smallFont.render(str(gameState[2][pos1].getGoalsCareer()), False, (255, 255, 255))
+                    assists1 = smallFont.render(str(gameState[2][pos1].getAssistsCareer()), False, (255, 255, 255))
+                    saves1 = smallFont.render(str(gameState[2][pos1].getSavesCareer()), False, (255, 255, 255))
+                    shots1 = smallFont.render(str(gameState[2][pos1].getShotsCareer()), False, (255, 255, 255))
             if spacesNeeded < 6:
                 num2 = smallFont.render(str(pos2 + 1), False, (255, 255, 255))
                 name2 = smallFont.render(gameState[2][pos2].getName(), False, (255, 255, 255))
                 team2 = smallFont.render(gameState[2][pos2].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals2 = smallFont.render(str(gameState[2][pos2].getGoalsSeason()), False, (255, 255, 255))
+                    assists2 = smallFont.render(str(gameState[2][pos2].getAssistsSeason()), False, (255, 255, 255))
+                    saves2 = smallFont.render(str(gameState[2][pos2].getSavesSeason()), False, (255, 255, 255))
+                    shots2 = smallFont.render(str(gameState[2][pos2].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals2 = smallFont.render(str(gameState[2][pos2].getGoalsCareer()), False, (255, 255, 255))
+                    assists2 = smallFont.render(str(gameState[2][pos2].getAssistsCareer()), False, (255, 255, 255))
+                    saves2 = smallFont.render(str(gameState[2][pos2].getSavesCareer()), False, (255, 255, 255))
+                    shots2 = smallFont.render(str(gameState[2][pos2].getShotsCareer()), False, (255, 255, 255))
             if spacesNeeded < 5:
                 num3 = smallFont.render(str(pos3 + 1), False, (255, 255, 255))
                 name3 = smallFont.render(gameState[2][pos3].getName(), False, (255, 255, 255))
                 team3 = smallFont.render(gameState[2][pos3].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals3 = smallFont.render(str(gameState[2][pos3].getGoalsSeason()), False, (255, 255, 255))
+                    assists3 = smallFont.render(str(gameState[2][pos3].getAssistsSeason()), False, (255, 255, 255))
+                    saves3 = smallFont.render(str(gameState[2][pos3].getSavesSeason()), False, (255, 255, 255))
+                    shots3 = smallFont.render(str(gameState[2][pos3].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals3 = smallFont.render(str(gameState[2][pos3].getGoalsCareer()), False, (255, 255, 255))
+                    assists3 = smallFont.render(str(gameState[2][pos3].getAssistsCareer()), False, (255, 255, 255))
+                    saves3 = smallFont.render(str(gameState[2][pos3].getSavesCareer()), False, (255, 255, 255))
+                    shots3 = smallFont.render(str(gameState[2][pos3].getShotsCareer()), False, (255, 255, 255))
             if spacesNeeded < 4:
                 num4 = smallFont.render(str(pos4 + 1), False, (255, 255, 255))
                 name4 = smallFont.render(gameState[2][pos4].getName(), False, (255, 255, 255))
                 team4 = smallFont.render(gameState[2][pos4].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals4 = smallFont.render(str(gameState[2][pos4].getGoalsSeason()), False, (255, 255, 255))
+                    assists4 = smallFont.render(str(gameState[2][pos4].getAssistsSeason()), False, (255, 255, 255))
+                    saves4 = smallFont.render(str(gameState[2][pos4].getSavesSeason()), False, (255, 255, 255))
+                    shots4 = smallFont.render(str(gameState[2][pos4].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals4 = smallFont.render(str(gameState[2][pos4].getGoalsCareer()), False, (255, 255, 255))
+                    assists4 = smallFont.render(str(gameState[2][pos4].getAssistsCareer()), False, (255, 255, 255))
+                    saves4 = smallFont.render(str(gameState[2][pos4].getSavesCareer()), False, (255, 255, 255))
+                    shots4 = smallFont.render(str(gameState[2][pos4].getShotsCareer()), False, (255, 255, 255))
             if spacesNeeded < 3:
                 num5 = smallFont.render(str(pos5 + 1), False, (255, 255, 255))
                 name5 = smallFont.render(gameState[2][pos5].getName(), False, (255, 255, 255))
                 team5 = smallFont.render(gameState[2][pos5].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals5 = smallFont.render(str(gameState[2][pos5].getGoalsSeason()), False, (255, 255, 255))
+                    assists5 = smallFont.render(str(gameState[2][pos5].getAssistsSeason()), False, (255, 255, 255))
+                    saves5 = smallFont.render(str(gameState[2][pos5].getSavesSeason()), False, (255, 255, 255))
+                    shots5 = smallFont.render(str(gameState[2][pos5].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals5 = smallFont.render(str(gameState[2][pos5].getGoalsCareer()), False, (255, 255, 255))
+                    assists5 = smallFont.render(str(gameState[2][pos5].getAssistsCareer()), False, (255, 255, 255))
+                    saves5 = smallFont.render(str(gameState[2][pos5].getSavesCareer()), False, (255, 255, 255))
+                    shots5 = smallFont.render(str(gameState[2][pos5].getShotsCareer()), False, (255, 255, 255))
             if spacesNeeded < 2:
                 num6 = smallFont.render(str(pos6 + 1), False, (255, 255, 255))
                 name6 = smallFont.render(gameState[2][pos6].getName(), False, (255, 255, 255))
                 team6 = smallFont.render(gameState[2][pos6].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals6 = smallFont.render(str(gameState[2][pos6].getGoalsSeason()), False, (255, 255, 255))
+                    assists6 = smallFont.render(str(gameState[2][pos6].getAssistsSeason()), False, (255, 255, 255))
+                    saves6 = smallFont.render(str(gameState[2][pos6].getSavesSeason()), False, (255, 255, 255))
+                    shots6 = smallFont.render(str(gameState[2][pos6].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals6 = smallFont.render(str(gameState[2][pos6].getGoalsCareer()), False, (255, 255, 255))
+                    assists6 = smallFont.render(str(gameState[2][pos6].getAssistsCareer()), False, (255, 255, 255))
+                    saves6 = smallFont.render(str(gameState[2][pos6].getSavesCareer()), False, (255, 255, 255))
+                    shots6 = smallFont.render(str(gameState[2][pos6].getShotsCareer()), False, (255, 255, 255))
             if spacesNeeded < 1:
                 num7 = smallFont.render(str(pos7 + 1), False, (255, 255, 255))
                 name7 = smallFont.render(gameState[2][pos7].getName(), False, (255, 255, 255))
                 team7 = smallFont.render(gameState[2][pos7].getCurrentTeam(), False, (255, 255, 255))
                 if seasonStats == True:
                     goals7 = smallFont.render(str(gameState[2][pos7].getGoalsSeason()), False, (255, 255, 255))
+                    assists7 = smallFont.render(str(gameState[2][pos7].getAssistsSeason()), False, (255, 255, 255))
+                    saves7 = smallFont.render(str(gameState[2][pos7].getSavesSeason()), False, (255, 255, 255))
+                    shots7 = smallFont.render(str(gameState[2][pos7].getShotsSeason()), False, (255, 255, 255))
                 else:
                     goals7 = smallFont.render(str(gameState[2][pos7].getGoalsCareer()), False, (255, 255, 255))
+                    assists7 = smallFont.render(str(gameState[2][pos7].getAssistsCareer()), False, (255, 255, 255))
+                    saves7 = smallFont.render(str(gameState[2][pos7].getSavesCareer()), False, (255, 255, 255))
+                    shots7 = smallFont.render(str(gameState[2][pos7].getShotsCareer()), False, (255, 255, 255))
 
             #Draw Background
             win.blit(backgroundimg, (0, 0))
@@ -167,7 +220,11 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             pygame.draw.rect(win, darkGrey, pygame.Rect(baseX,baseY + 300,width,height)) #rect(x,y,length,height) #Slot 7
             pygame.draw.rect(win, lightGrey, pygame.Rect(baseX,baseY + 350,width,height)) #rect(x,y,length,height) #Slot 8
             #Draw Strings
-            win.blit(title, (520,70))
+            win.blit(title, (400,70))
+            if seasonStats == True:
+                win.blit(subTitle1, (675,70))
+            else:
+                win.blit(subTitle2, (675,70))
 
             #Draw headers
             win.blit(header1, (baseXHead + baseSpacer, baseYHead))
@@ -182,42 +239,66 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 win.blit(num0, (baseXRank, baseYStat + (baseYSpacerStat * 1)))
                 win.blit(name0, (baseXName, baseYStat + (baseYSpacerStat * 1)))
                 win.blit(team0, (baseXTeam, baseYStat + (baseYSpacerStat * 1)))
-                win.blit(goals0, (baseXGoalsS, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(goals0, (baseXGoals, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(assists0, (baseXAssists, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(saves0, (baseXSaves, baseYStat + (baseYSpacerStat * 1)))
+                win.blit(shots0, (baseXShots, baseYStat + (baseYSpacerStat * 1)))
             if spacesNeeded < 7:
                 win.blit(num1, (baseXRank, baseYStat + (baseYSpacerStat * 2)))
                 win.blit(name1, (baseXName, baseYStat + (baseYSpacerStat * 2)))
                 win.blit(team1, (baseXTeam, baseYStat + (baseYSpacerStat * 2)))
-                win.blit(goals1, (baseXGoalsS, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(goals1, (baseXGoals, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(assists1, (baseXAssists, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(saves1, (baseXSaves, baseYStat + (baseYSpacerStat * 2)))
+                win.blit(shots1, (baseXShots, baseYStat + (baseYSpacerStat * 2)))
             if spacesNeeded < 6:
                 win.blit(num2, (baseXRank, baseYStat + (baseYSpacerStat * 3)))
                 win.blit(name2, (baseXName, baseYStat + (baseYSpacerStat * 3)))
                 win.blit(team2, (baseXTeam, baseYStat + (baseYSpacerStat * 3)))
-                win.blit(goals2, (baseXGoalsS, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(goals2, (baseXGoals, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(assists2, (baseXAssists, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(saves2, (baseXSaves, baseYStat + (baseYSpacerStat * 3)))
+                win.blit(shots2, (baseXShots, baseYStat + (baseYSpacerStat * 3)))
             if spacesNeeded < 5:
                 win.blit(num3, (baseXRank, baseYStat + (baseYSpacerStat * 4)))
                 win.blit(name3, (baseXName, baseYStat + (baseYSpacerStat * 4)))
                 win.blit(team3, (baseXTeam, baseYStat + (baseYSpacerStat * 4)))
-                win.blit(goals3, (baseXGoalsS, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(goals3, (baseXGoals, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(assists3, (baseXAssists, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(saves3, (baseXSaves, baseYStat + (baseYSpacerStat * 4)))
+                win.blit(shots3, (baseXShots, baseYStat + (baseYSpacerStat * 4)))
             if spacesNeeded < 4:
                 win.blit(num4, (baseXRank, baseYStat + (baseYSpacerStat * 5)))
                 win.blit(name4, (baseXName, baseYStat + (baseYSpacerStat * 5)))
                 win.blit(team4, (baseXTeam, baseYStat + (baseYSpacerStat * 5)))
-                win.blit(goals4, (baseXGoalsS, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(goals4, (baseXGoals, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(assists4, (baseXAssists, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(saves4, (baseXSaves, baseYStat + (baseYSpacerStat * 5)))
+                win.blit(shots4, (baseXShots, baseYStat + (baseYSpacerStat * 5)))
             if spacesNeeded < 3:
                 win.blit(num5, (baseXRank, baseYStat + (baseYSpacerStat * 6)))
                 win.blit(name5, (baseXName, baseYStat + (baseYSpacerStat * 6)))
                 win.blit(team5, (baseXTeam, baseYStat + (baseYSpacerStat * 6)))
-                win.blit(goals5, (baseXGoalsS, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(goals5, (baseXGoals, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(assists5, (baseXAssists, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(saves5, (baseXSaves, baseYStat + (baseYSpacerStat * 6)))
+                win.blit(shots5, (baseXShots, baseYStat + (baseYSpacerStat * 6)))
             if spacesNeeded < 2:
                 win.blit(num6, (baseXRank, baseYStat + (baseYSpacerStat * 7)))
                 win.blit(name6, (baseXName, baseYStat + (baseYSpacerStat * 7)))
                 win.blit(team6, (baseXTeam, baseYStat + (baseYSpacerStat * 7)))
-                win.blit(goals6, (baseXGoalsS, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(goals6, (baseXGoals, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(assists6, (baseXAssists, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(saves6, (baseXSaves, baseYStat + (baseYSpacerStat * 7)))
+                win.blit(shots6, (baseXShots, baseYStat + (baseYSpacerStat * 7)))
             if spacesNeeded < 1:
                 win.blit(num7, (baseXRank, baseYStat + (baseYSpacerStat * 8)))
                 win.blit(name7, (baseXName, baseYStat + (baseYSpacerStat * 8)))
                 win.blit(team7, (baseXTeam, baseYStat + (baseYSpacerStat * 8)))
-                win.blit(goals7, (baseXGoalsS, baseYStat + (baseYSpacerStat * 8)))
+                win.blit(goals7, (baseXGoals, baseYStat + (baseYSpacerStat * 8)))
+                win.blit(assists7, (baseXAssists, baseYStat + (baseYSpacerStat * 8)))
+                win.blit(saves7, (baseXSaves, baseYStat + (baseYSpacerStat * 8)))
+                win.blit(shots7, (baseXShots, baseYStat + (baseYSpacerStat * 8)))
             
 
             
