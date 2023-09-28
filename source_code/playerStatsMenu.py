@@ -22,7 +22,7 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     #Variables to set headers to
     smallFont = pygame.font.SysFont(None,32)
     baseXHead = 175
-    baseYHead = 150
+    baseYHead = 140
     baseSpacer = 120
 
     #Variables to set stat strings to
@@ -33,11 +33,20 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     baseXRank = 215
     baseXName = 265
     baseXTeam = 400
-    baseXGoals = 575
+    baseXGoals = 585
     baseXAssists = 690
     baseXSaves = 805
     baseXShots = 920
     
+    #resize asc/des arrow buttons
+    smallArrowSize = 15
+    ascArrow = keyBoardKeys[49]
+    ascArrow = pygame.transform.scale(ascArrow, (smallArrowSize, smallArrowSize))
+    desArrow = keyBoardKeys[50]
+    desArrow = pygame.transform.scale(desArrow, (smallArrowSize, smallArrowSize))
+
+    ascArrowY = 135
+    desArrowy = 150
 
     #print("length of player objects: ", len(gameState[2]))
     lenPlayers = len(gameState[2])
@@ -61,12 +70,24 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     #Create Buttons
     btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) + 250, basicFont, 'Locker Room', 10, 15)
     btn1H = buttonClassObj.buttonClass(button2img, (win.get_width() / 2) - 150, (win.get_height() / 2) + 250, basicFont, 'Locker Room', 10, 15)
-    btnUpArrow = buttonClassObj.buttonClass(keyBoardKeys[49], 1000, 150, basicFont, '',0, 0)
+    btnUpArrow = buttonClassObj.buttonClass(keyBoardKeys[49], 1000, 170, basicFont, '',0, 0)
     btnDownArrow = buttonClassObj.buttonClass(keyBoardKeys[50], 1000, 500, basicFont, '',0, 0)
     btnSeasonStats = buttonClassObj.buttonClass(buttonimg, 100, (win.get_height() / 2) + 250, basicFont, 'Season Stats',10, 15)
     btnSeasonStatsH = buttonClassObj.buttonClass(button2img, 100, (win.get_height() / 2) + 250, basicFont, 'Season Stats',10, 15)
     btnCareerStats = buttonClassObj.buttonClass(buttonimg, (win.get_width() - 400), (win.get_height() / 2) + 250, basicFont, 'Career Stats',10, 15)
     btnCareerStatsH = buttonClassObj.buttonClass(button2img, (win.get_width() - 400), (win.get_height() / 2) + 250, basicFont, 'Career Stats',10, 15)
+    btnPlayerAsc = buttonClassObj.buttonClass(ascArrow, 340, ascArrowY, basicFont, '',0, 0)
+    btnTeamAsc = buttonClassObj.buttonClass(ascArrow, 455, ascArrowY, basicFont, '',0, 0)
+    btnGoalsAsc = buttonClassObj.buttonClass(ascArrow, 620, ascArrowY, basicFont, '',0, 0)
+    btnAssistsAsc = buttonClassObj.buttonClass(ascArrow, 740, ascArrowY, basicFont, '',0, 0)
+    btnSavesAsc = buttonClassObj.buttonClass(ascArrow, 845, ascArrowY, basicFont, '',0, 0)
+    btnShotsAsc = buttonClassObj.buttonClass(ascArrow, 960, ascArrowY, basicFont, '',0, 0)
+    btnPlayerDes = buttonClassObj.buttonClass(desArrow, 340, desArrowy, basicFont, '',0, 0)
+    btnTeamDes = buttonClassObj.buttonClass(desArrow, 455, desArrowy, basicFont, '',0, 0)
+    btnGoalsDes = buttonClassObj.buttonClass(desArrow, 620, desArrowy, basicFont, '',0, 0)
+    btnAssistsDes = buttonClassObj.buttonClass(desArrow, 740, desArrowy, basicFont, '',0, 0)
+    btnSavesDes = buttonClassObj.buttonClass(desArrow, 845, desArrowy, basicFont, '',0, 0)
+    btnShotsDes = buttonClassObj.buttonClass(desArrow, 960, desArrowy, basicFont, '',0, 0)
 
     #Menu Loop
     while gameState[1] == 'playerStats':
@@ -91,8 +112,6 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             pos6 = pos5 + 1
             pos7 = pos6 + 1
 
-            #print("name: ", gameState[2][pos0].getName())
-            #print("current team: ", gameState[2][pos0].getCurrentTeam())
 
             #Create Dynamic Strings
             if spacesNeeded < 8:
@@ -220,16 +239,16 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             pygame.draw.rect(win, darkGrey, pygame.Rect(baseX,baseY + 300,width,height)) #rect(x,y,length,height) #Slot 7
             pygame.draw.rect(win, lightGrey, pygame.Rect(baseX,baseY + 350,width,height)) #rect(x,y,length,height) #Slot 8
             #Draw Strings
-            win.blit(title, (400,70))
+            win.blit(title, (400,50))
             if seasonStats == True:
-                win.blit(subTitle1, (675,70))
+                win.blit(subTitle1, (675,50))
             else:
-                win.blit(subTitle2, (675,70))
+                win.blit(subTitle2, (675,50))
 
             #Draw headers
-            win.blit(header1, (baseXHead + baseSpacer, baseYHead))
-            win.blit(header2, (baseXHead + (baseSpacer * 2), baseYHead))
-            win.blit(header3, (baseXHead + (baseSpacer * 3), baseYHead))
+            win.blit(header1, (baseXHead + (baseSpacer - 30), baseYHead))
+            win.blit(header2, (baseXHead + (baseSpacer * 2) - 20, baseYHead))
+            win.blit(header3, (baseXHead + (baseSpacer * 3) + 20, baseYHead))
             win.blit(header4, (baseXHead + (baseSpacer * 4), baseYHead))
             win.blit(header5, (baseXHead + (baseSpacer * 5), baseYHead))
             win.blit(header6, (baseXHead + (baseSpacer * 6), baseYHead))
@@ -308,12 +327,21 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             btnDownArrowHov = buttonClassObj.imgHover(btnDownArrow)
             seasonStatsHov  = buttonClassObj.imgHover(btnSeasonStats)
             careerStatsHov  = buttonClassObj.imgHover(btnCareerStats)
+            btnPlayerAscHov = buttonClassObj.imgHover(btnPlayerAsc)
+            btnTeamAscHov = buttonClassObj.imgHover(btnTeamAsc)
+            btnGoalsAscHov = buttonClassObj.imgHover(btnGoalsAsc)
+            btnSavesAscHov = buttonClassObj.imgHover(btnSavesAsc)
+            btnAssistsAscHov = buttonClassObj.imgHover(btnAssistsAsc)
+            btnShotsAscHov = buttonClassObj.imgHover(btnShotsAsc)
+            btnPlayerDesHov = buttonClassObj.imgHover(btnPlayerDes)
+            btnTeamDesHov = buttonClassObj.imgHover(btnTeamDes)
+            btnGoalsDesHov = buttonClassObj.imgHover(btnGoalsDes)
+            btnSavesDesHov = buttonClassObj.imgHover(btnSavesDes)
+            btnAssistsDesHov = buttonClassObj.imgHover(btnAssistsDes)
+            btnShotsDesHov = buttonClassObj.imgHover(btnShotsDes)
 
             #Draw Buttons
             #if button hovered change img to hovered image
-
-            btnUpArrow.draw(win)
-            btnDownArrow.draw(win)
 
             if btn1Hov == True:
                 btn1H.draw(win)
@@ -321,7 +349,7 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 btn1.draw(win)
 
             if btnUpArrowHov == True:
-                pygame.draw.rect(win, darkGrey, pygame.Rect(1000,150,75,75)) #rect(x,y,length,height) #Slot 1
+                pygame.draw.rect(win, darkGrey, pygame.Rect(1000,170,75,75)) #rect(x,y,length,height) #Slot 1
                 btnUpArrow.draw(win)
             else:
                 btnUpArrow.draw(win)
@@ -341,6 +369,69 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 btnCareerStatsH.draw(win)
             else:
                 btnCareerStats.draw(win)
+            #Ascending Arrows
+            if btnPlayerAscHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(340, ascArrowY, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnPlayerAsc.draw(win)
+            else:
+                btnPlayerAsc.draw(win)
+            if btnTeamAscHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(455, ascArrowY, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnTeamAsc.draw(win)
+            else:
+                btnTeamAsc.draw(win)
+            if btnGoalsAscHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(620, ascArrowY, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnGoalsAsc.draw(win)
+            else:
+                btnGoalsAsc.draw(win)
+            if btnAssistsAscHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(740, ascArrowY, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnAssistsAsc.draw(win)
+            else:
+                btnAssistsAsc.draw(win)
+            if btnSavesAscHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(845, ascArrowY, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnSavesAsc.draw(win)
+            else:
+                btnSavesAsc.draw(win)
+            if btnShotsAscHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(960, ascArrowY, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnShotsAsc.draw(win)
+            else:
+                btnShotsAsc.draw(win)
+            #Descending Arrows
+            if btnPlayerDesHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(340, desArrowy, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnPlayerDes.draw(win)
+            else:
+                btnPlayerDes.draw(win)
+            if btnTeamDesHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(455, desArrowy, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnTeamDes.draw(win)
+            else:
+                btnTeamDes.draw(win)
+            if btnGoalsDesHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(620, desArrowy, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnGoalsDes.draw(win)
+            else:
+                btnGoalsDes.draw(win)
+            if btnAssistsDesHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(740, desArrowy, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnAssistsDes.draw(win)
+            else:
+                btnAssistsDes.draw(win)
+            if btnSavesDesHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(845, desArrowy, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnSavesDes.draw(win)
+            else:
+                btnSavesDes.draw(win)
+            if btnShotsDesHov == True:
+                pygame.draw.rect(win, darkGrey, pygame.Rect(960, desArrowy, smallArrowSize, smallArrowSize)) #rect(x,y,length,height) #Slot 1
+                btnShotsDes.draw(win)
+            else:
+                btnShotsDes.draw(win)
+
 
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -367,6 +458,32 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                 if careerStatsHov == True:
                     print("mouse click career stats btn")
                     seasonStats = False
+                if btnPlayerAscHov == True:
+                    print("mouse click player asc btn")
+                if btnTeamAscHov == True:
+                    print("mouse click team asc btn")
+                if btnGoalsAscHov == True:
+                    print("mouse click goals asc btn")
+                if btnAssistsAscHov == True:
+                    print("mouse click assists asc btn")
+                if btnSavesAscHov == True:
+                    print("mouse click saves asc btn")
+                if btnShotsAscHov == True:
+                    print("mouse click shots asc btn")
+
+                if btnPlayerDesHov == True:
+                    print("mouse click player des btn")
+                if btnTeamDesHov == True:
+                    print("mouse click team des btn")
+                if btnGoalsDesHov == True:
+                    print("mouse click goals des btn")
+                if btnAssistsDesHov == True:
+                    print("mouse click assists des btn")
+                if btnSavesDesHov == True:
+                    print("mouse click saves des btn")
+                if btnShotsDesHov == True:
+                    print("mouse click shots des btn")
+
                     
 
         pygame.display.update()
