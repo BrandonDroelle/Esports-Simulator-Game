@@ -1,7 +1,6 @@
 from tracemalloc import start
 import pygame, sys
 import buttonClassObj
-import createCache
 import sortFunctions
 
 # #display player stats menu

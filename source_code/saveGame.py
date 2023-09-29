@@ -101,6 +101,18 @@ def updatePlayers(gameState):
         saveData.write(gameState, exceptionString, playerStatsString)
         exceptionString = playerStatsString
 
+#update team object data to save file
+def updateTeams(gameState):
+    exceptionString = "team objects\n"
+    for i in gameState[3]:
+        teamName = str(i.getTeamName())
+        teamWinsCareer = str(i.getWinsCareer())
+        teamLossesCareer = str(i.getLossesCareer())
+        teamWLSeason = str(i.getWLSeason())
+        teamStatsString = (teamName + " " + teamWinsCareer + " " +
+                          teamLossesCareer + " " + teamWLSeason + "\n")
+        saveData.write(gameState, exceptionString, teamStatsString)
+        exceptionString = teamStatsString
 
 #update schedule to save file
 def updateSchedule(gameState, schedule):

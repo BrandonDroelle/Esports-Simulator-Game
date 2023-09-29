@@ -7,6 +7,9 @@ class TeamClass:
         self.p1 = playerClass.PlayerClass('rookie1')
         self.p2 = playerClass.PlayerClass('rookie2')
         self.p3 = playerClass.PlayerClass('rookie3')
+        self.winsCareer = 0
+        self.lossesCareer = 0
+        self.WLSeason = ""
 
     #Setters
     def setName(self, name):
@@ -14,15 +17,21 @@ class TeamClass:
 
     def setP1(self, p1):
         self.p1 = p1
-        #self.p1Name = p1.getName()
 
     def setP2(self, p2):
         self.p2 = p2
-        #self.p2Name = p2.getName()
 
     def setP3(self, p3):
         self.p3 = p3
-        #self.p3Name = p3.getName()
+
+    def setWinsCareer(self, winsCareer):
+        self.winsCareer = winsCareer
+
+    def setLossesCareer(self, lossesCareer):
+        self.lossesCareer = lossesCareer
+
+    def setWLSeason(self, WLSeason):
+        self.WLSeason = WLSeason
 
     #Getters
     def getTeamName(self):
@@ -36,6 +45,33 @@ class TeamClass:
 
     def getP3(self):
         return self.p3
+
+    def getWinsCareer(self):
+        return self.winsCareer
+
+    def getLossesCareer(self):
+        return self.lossesCareer
+
+    def getWLSeason(self):
+        return self.WLSeason
+
+    def getWinsSeason(self):
+        WL = self.WLSeason
+        statList = WL.split(" ")
+        W = 0
+        for i in range(len(statList)):
+            if statList[i] == 1:
+                w = w + 1
+        return W
+
+    def getLossesSeason(self):
+        WL = self.WLSeason
+        statList = WL.split(" ")
+        L = 0
+        for i in range(len(statList)):
+            if statList[i] == 0:
+                w = w + 1
+        return L
 
     #Print out team roster
     def printRoster(self):

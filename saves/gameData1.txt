@@ -2,559 +2,582 @@ RLCS Save Data
 save 1
 1
 player name
-Brandon
+t2
 player team
-pharos
+seekers
 current season
 1
 current week
 1
 player objects
-alleycat barracudas 1 2 3 4 5 6 7 8
-imp barracudas 8 7 6 5 4 3 2 1
-Brandon pharos 1 2 3 4 5 6 7 8
-Raja bears 8 7 6 5 4 3 2 1
-saltie bears 1 2 3 4 5 6 7 8
-echo bears 8 7 6 5 4 3 2 1
-stinger bombers 1 2 3 4 5 6 7 8
-stig bombers 8 7 6 5 4 3 2 1
-chipper bombers 1 2 3 4 5 6 7 8
-outlaw crusadors 8 7 6 5 4 3 2 1
-heavy crusadors 1 2 3 4 5 6 7 8
-squall crusadors 8 7 6 5 4 3 2 1
-scout cyclones 1 2 3 4 5 6 7 8
-swabbie cyclones 8 7 6 5 4 3 2 1
-caveman cyclones 1 2 3 4 5 6 7 8
-roundhouse destroyers 8 7 6 5 4 3 2 1
-goose destroyers 1 2 3 4 5 6 7 8
-gerwin destroyers 8 7 6 5 4 3 2 1
-fury dragons 4 0 0 0 0 0 0 0
-clu dragons 2 0 0 0 0 0 0 0
-marley dragons 3 0 0 0 0 0 0 0
-soap express 6 0 0 0 0 0 0 0
-merlin express 2 0 0 0 0 0 0 0
-bandit express 1 0 0 0 0 0 0 0
-rex guardians 1 0 0 0 0 0 0 0
-samara guardians 3 0 0 0 0 0 0 0
-sticks guardians 2 0 0 0 0 0 0 0
-viper mammoths 0 0 0 0 0 0 0 0
-dude mammoths 1 0 0 0 0 0 0 0
-cougar mammoths 1 0 0 0 0 0 0 0
-khan monarchs 2 0 0 0 0 0 0 0
-maverick monarchs 3 0 0 0 0 0 0 0
-hollywood monarchs 4 0 0 0 0 0 0 0
-casper barracudas 4 0 0 0 0 0 0 0
-beast pharos 1 0 0 0 0 0 0 0
-poncho pharos 1 0 0 0 0 0 0 0
-c-block predators 2 0 0 0 0 0 0 0
-slider predators 3 0 0 0 0 0 0 0
-junker predators 4 0 0 0 0 0 0 0
-yuri ravagers 4 0 0 0 0 0 0 0
-myrtle ravagers 3 0 0 0 0 0 0 0
-wolfman ravagers 2 0 0 0 0 0 0 0
-foamer reapers 1 0 0 0 0 0 0 0
-jester reapers 3 0 0 0 0 0 0 0
-tex reapers 2 0 0 0 0 0 0 0
-sundown rebels 5 0 0 0 0 0 0 0
-fives rebels 5 0 0 0 0 0 0 0
-armstrong rebels 1 0 0 0 0 0 0 0
-iceman rovers 2 0 0 0 0 0 0 0
-heater rovers 0 0 0 0 0 0 0 0
-shepard rovers 2 0 0 0 0 0 0 0
-fulcrum scorpians 3 0 0 0 0 0 0 0
-boomer scorpians 2 0 0 0 0 0 0 0
-sultan scorpians 1 0 0 0 0 0 0 0
-centice seekers 0 0 0 0 0 0 0 0
-mountain seekers 2 0 0 0 0 0 0 0
-buzz seekers 4 0 0 0 0 0 0 0
-middy skyhawks 2 0 0 0 0 0 0 0
-hound skyhawks 3 0 0 0 0 0 0 0
-rainmaker skyhawks 3 0 0 0 0 0 0 0
-tusk wolves 1 0 0 0 0 0 0 0
-storm wolves 1 0 0 0 0 0 0 0
-sabretooth wolves 1 0 0 0 0 0 0 0
+fulcrum barracudas 0 0 0 0 0 0 0 0
+Raja barracudas 0 0 0 0 0 0 0 0
+shepard barracudas 0 0 0 0 0 0 0 0
+middy bears 0 0 0 0 0 0 0 0
+buzz bears 0 0 0 0 0 0 0 0
+yuri bears 0 0 0 0 0 0 0 0
+hound bombers 0 0 0 0 0 0 0 0
+clu bombers 0 0 0 0 0 0 0 0
+imp bombers 0 0 0 0 0 0 0 0
+rainmaker crusadors 0 0 0 0 0 0 0 0
+beast crusadors 0 0 0 0 0 0 0 0
+dude crusadors 0 0 0 0 0 0 0 0
+jester cyclones 0 0 0 0 0 0 0 0
+centice cyclones 0 0 0 0 0 0 0 0
+hollywood cyclones 0 0 0 0 0 0 0 0
+boomer destroyers 0 0 0 0 0 0 0 0
+alleycat destroyers 0 0 0 0 0 0 0 0
+poncho destroyers 0 0 0 0 0 0 0 0
+armstrong dragons 0 0 0 0 0 0 0 0
+mountain dragons 0 0 0 0 0 0 0 0
+chipper dragons 0 0 0 0 0 0 0 0
+rex express 0 0 0 0 0 0 0 0
+viper express 0 0 0 0 0 0 0 0
+roundhouse express 0 0 0 0 0 0 0 0
+merlin guardians 0 0 0 0 0 0 0 0
+cougar guardians 0 0 0 0 0 0 0 0
+heavy guardians 0 0 0 0 0 0 0 0
+swabbie mammoths 0 0 0 0 0 0 0 0
+squall mammoths 0 0 0 0 0 0 0 0
+caveman mammoths 0 0 0 0 0 0 0 0
+stig monarchs 0 0 0 0 0 0 0 0
+junker monarchs 0 0 0 0 0 0 0 0
+foamer monarchs 0 0 0 0 0 0 0 0
+iceman pharos 0 0 0 0 0 0 0 0
+c-block pharos 0 0 0 0 0 0 0 0
+outlaw pharos 0 0 0 0 0 0 0 0
+bandit predators 0 0 0 0 0 0 0 0
+storm predators 0 0 0 0 0 0 0 0
+wolfman predators 0 0 0 0 0 0 0 0
+gerwin ravagers 0 0 0 0 0 0 0 0
+khan ravagers 0 0 0 0 0 0 0 0
+myrtle ravagers 0 0 0 0 0 0 0 0
+t2 seekers 0 0 0 0 0 0 0 0
+heater reapers 0 0 0 0 0 0 0 0
+fury reapers 0 0 0 0 0 0 0 0
+goose rebels 0 0 0 0 0 0 0 0
+tusk rebels 0 0 0 0 0 0 0 0
+slider rebels 0 0 0 0 0 0 0 0
+echo rovers 0 0 0 0 0 0 0 0
+sultan rovers 0 0 0 0 0 0 0 0
+scout rovers 0 0 0 0 0 0 0 0
+saltie scorpians 0 0 0 0 0 0 0 0
+marley scorpians 0 0 0 0 0 0 0 0
+sundown scorpians 0 0 0 0 0 0 0 0
+sticks reapers 0 0 0 0 0 0 0 0
+casper seekers 0 0 0 0 0 0 0 0
+stinger seekers 0 0 0 0 0 0 0 0
+soap skyhawks 0 0 0 0 0 0 0 0
+maverick skyhawks 0 0 0 0 0 0 0 0
+fives skyhawks 0 0 0 0 0 0 0 0
+tex wolves 0 0 0 0 0 0 0 0
+samara wolves 0 0 0 0 0 0 0 0
+sabretooth wolves 0 0 0 0 0 0 0 0
+
+team objects
+barracudas 0 0 
+bears 0 0 
+bombers 0 0 
+crusadors 0 0 
+cyclones 0 0 
+destroyers 0 0 
+dragons 0 0 
+express 0 0 
+guardians 0 0 
+mammoths 0 0 
+monarchs 0 0 
+pharos 0 0 
+predators 0 0 
+ravagers 0 0 
+reapers 0 0 
+rebels 0 0 
+rovers 0 0 
+scorpians 0 0 
+seekers 0 0 
+skyhawks 0 0 
+wolves 0 0 
 
 Season 1
 Week 1
-None
-guardians
-bears
-monarchs
-mammoths
-pharos
-predators
-skyhawks
-ravagers
-scorpians
-express
-crusadors
-rebels
-barracudas
-bombers
-destroyers
-rovers
 wolves
+None
+crusadors
 dragons
-seekers
+pharos
+rebels
+monarchs
+predators
 reapers
+seekers
+guardians
+destroyers
+ravagers
+rovers
+scorpians
 cyclones
+express
+bombers
+mammoths
+bears
+skyhawks
+barracudas
 Week 2
-ravagers
+pharos
 None
-express
-predators
-rebels
-mammoths
-bombers
-bears
-rovers
+monarchs
+crusadors
+reapers
+wolves
 guardians
 dragons
-monarchs
-reapers
-pharos
-cyclones
-skyhawks
-seekers
+ravagers
+rebels
 scorpians
-wolves
-crusadors
+predators
+express
+seekers
+mammoths
 destroyers
+skyhawks
+rovers
 barracudas
+cyclones
+bears
+bombers
 Week 3
-bombers
 None
-rovers
-rebels
-dragons
-express
-reapers
-ravagers
-cyclones
-predators
-seekers
-mammoths
-wolves
-bears
-destroyers
-guardians
-barracudas
-monarchs
-crusadors
-pharos
-scorpians
 skyhawks
+barracudas
+mammoths
+bears
+express
+bombers
+scorpians
+cyclones
+ravagers
+rovers
+guardians
+destroyers
+reapers
+seekers
+monarchs
+predators
+pharos
+rebels
+crusadors
+dragons
+wolves
 Week 4
+predators
 None
-monarchs
-guardians
+rebels
+seekers
+dragons
+destroyers
+wolves
+rovers
+crusadors
+cyclones
 pharos
+bombers
+monarchs
 bears
+reapers
+barracudas
+guardians
 skyhawks
+ravagers
 mammoths
 scorpians
-predators
-crusadors
-ravagers
-barracudas
 express
-destroyers
-rebels
-wolves
-bombers
-seekers
-rovers
-cyclones
-dragons
-reapers
 Week 5
-predators
+seekers
 None
-ravagers
-mammoths
-express
-bears
+predators
+destroyers
 rebels
-guardians
-bombers
-monarchs
 rovers
-pharos
 dragons
+cyclones
+wolves
+bombers
+crusadors
+bears
+pharos
+barracudas
+monarchs
 skyhawks
 reapers
+mammoths
+guardians
+express
+ravagers
 scorpians
-cyclones
-crusadors
-seekers
-barracudas
-wolves
-destroyers
 Week 6
-reapers
-None
 cyclones
-dragons
-seekers
+None
 rovers
-wolves
 bombers
 destroyers
-rebels
+bears
+seekers
 barracudas
-express
-crusadors
-ravagers
-scorpians
 predators
 skyhawks
+rebels
 mammoths
+dragons
+express
+wolves
+scorpians
+crusadors
+ravagers
 pharos
-bears
-monarchs
 guardians
+monarchs
+reapers
 Week 7
-rebels
 None
-bombers
-express
-rovers
-ravagers
-dragons
-predators
-reapers
-mammoths
-cyclones
-bears
-seekers
-guardians
-wolves
-monarchs
-destroyers
-pharos
-barracudas
-skyhawks
-crusadors
 scorpians
+express
+ravagers
+mammoths
+guardians
+skyhawks
+reapers
+barracudas
+monarchs
+bears
+pharos
+bombers
+crusadors
+cyclones
+wolves
+rovers
+dragons
+destroyers
+rebels
+seekers
+predators
 Week 8
+bombers
 None
-destroyers
-barracudas
-wolves
-crusadors
-seekers
-scorpians
 cyclones
+bears
+rovers
+barracudas
+destroyers
 skyhawks
+seekers
+mammoths
+predators
+express
+rebels
+scorpians
+dragons
+ravagers
+wolves
+guardians
+crusadors
 reapers
 pharos
-dragons
 monarchs
-rovers
-guardians
-bombers
-bears
-rebels
-mammoths
-express
-predators
-ravagers
 Week 9
-wolves
 None
-destroyers
-seekers
-barracudas
-cyclones
-crusadors
 reapers
+guardians
+monarchs
+ravagers
+pharos
 scorpians
+crusadors
+express
+wolves
+mammoths
 dragons
 skyhawks
-rovers
-pharos
-bombers
-monarchs
 rebels
-guardians
-express
-bears
-ravagers
-mammoths
+barracudas
 predators
+bears
+seekers
+bombers
+destroyers
+cyclones
+rovers
 Week 10
-dragons
 None
-reapers
-rovers
-cyclones
-bombers
-seekers
-rebels
-wolves
-express
-destroyers
-ravagers
 barracudas
-predators
-crusadors
-mammoths
-scorpians
 bears
 skyhawks
+bombers
+mammoths
+cyclones
+express
+rovers
+scorpians
+destroyers
+ravagers
+seekers
 guardians
-pharos
+predators
+reapers
+rebels
 monarchs
+dragons
+pharos
+wolves
+crusadors
 Week 11
 None
+bears
+bombers
+barracudas
+cyclones
 skyhawks
-pharos
+rovers
+mammoths
+destroyers
+express
+seekers
 scorpians
+predators
+ravagers
+rebels
+guardians
+dragons
+reapers
+wolves
 monarchs
 crusadors
-guardians
-barracudas
-bears
-destroyers
-mammoths
-wolves
-predators
-seekers
-ravagers
-cyclones
-express
-reapers
-rebels
-dragons
-bombers
-rovers
+pharos
 Week 12
-rovers
 None
-dragons
-bombers
-reapers
-rebels
-cyclones
-express
-seekers
 ravagers
-wolves
-predators
-destroyers
-mammoths
-barracudas
-bears
-crusadors
-guardians
 scorpians
+guardians
+express
+reapers
+mammoths
 monarchs
 skyhawks
 pharos
+barracudas
+crusadors
+bears
+wolves
+bombers
+dragons
+cyclones
+rebels
+rovers
+predators
+destroyers
+seekers
 Week 13
-None
-scorpians
-skyhawks
-crusadors
-pharos
-barracudas
-monarchs
-destroyers
-guardians
-wolves
-bears
-seekers
-mammoths
-cyclones
-predators
-reapers
-ravagers
-dragons
-express
 rovers
-rebels
+None
+destroyers
+cyclones
+seekers
 bombers
+predators
+bears
+rebels
+barracudas
+dragons
+skyhawks
+wolves
+mammoths
+crusadors
+express
+pharos
+scorpians
+monarchs
+ravagers
+reapers
+guardians
 Week 14
 None
-barracudas
-crusadors
-destroyers
-scorpians
-wolves
-skyhawks
-seekers
-pharos
-cyclones
 monarchs
 reapers
+pharos
 guardians
+crusadors
+ravagers
+wolves
+scorpians
 dragons
+express
+rebels
+mammoths
+predators
+skyhawks
+seekers
+barracudas
+destroyers
 bears
 rovers
-mammoths
 bombers
-predators
-rebels
-ravagers
-express
+cyclones
 Week 15
-cyclones
 None
-seekers
-reapers
-wolves
-dragons
-destroyers
-rovers
-barracudas
-bombers
-crusadors
-rebels
-scorpians
-express
-skyhawks
-ravagers
-pharos
-predators
-monarchs
-mammoths
 guardians
+ravagers
+reapers
+scorpians
+monarchs
+express
+pharos
+mammoths
+crusadors
+skyhawks
+wolves
+barracudas
+dragons
 bears
+rebels
+bombers
+predators
+cyclones
+seekers
+rovers
+destroyers
 Week 16
 None
-crusadors
-scorpians
-barracudas
-skyhawks
-destroyers
-pharos
-wolves
-monarchs
-seekers
-guardians
-cyclones
-bears
-reapers
 mammoths
-dragons
-predators
-rovers
+skyhawks
+express
+barracudas
+scorpians
+bears
 ravagers
 bombers
-express
+guardians
+cyclones
+reapers
+rovers
+monarchs
+destroyers
+pharos
+seekers
+crusadors
+predators
+wolves
 rebels
+dragons
 Week 17
 None
-pharos
-monarchs
-skyhawks
-guardians
-scorpians
-bears
-crusadors
-mammoths
-barracudas
-predators
-destroyers
-ravagers
-wolves
 express
-seekers
-rebels
-cyclones
-bombers
+mammoths
+scorpians
+skyhawks
+ravagers
+barracudas
+guardians
+bears
 reapers
+bombers
+monarchs
+cyclones
+pharos
 rovers
+crusadors
+destroyers
+wolves
+seekers
 dragons
+predators
+rebels
 Week 18
-None
-bears
-mammoths
-guardians
-predators
-monarchs
-ravagers
-pharos
-express
-skyhawks
-rebels
-scorpians
-bombers
-crusadors
-rovers
-barracudas
 dragons
+None
+wolves
+rebels
+crusadors
+predators
+pharos
+seekers
+monarchs
 destroyers
 reapers
-wolves
+rovers
+guardians
 cyclones
-seekers
+ravagers
+bombers
+scorpians
+bears
+express
+barracudas
+mammoths
+skyhawks
 Week 19
-None
-mammoths
-predators
-bears
-ravagers
-guardians
-express
-monarchs
-rebels
-pharos
-bombers
-skyhawks
-rovers
-scorpians
-dragons
 crusadors
-reapers
-barracudas
-cyclones
-destroyers
-seekers
+None
+pharos
 wolves
+monarchs
+dragons
+reapers
+rebels
+guardians
+predators
+ravagers
+seekers
+scorpians
+destroyers
+express
+rovers
+mammoths
+cyclones
+skyhawks
+bombers
+barracudas
+bears
 Week 20
-express
+destroyers
 None
-rebels
-ravagers
-bombers
-predators
+seekers
 rovers
+predators
+cyclones
+rebels
+bombers
+dragons
+bears
+wolves
+barracudas
+crusadors
+skyhawks
+pharos
 mammoths
-dragons
-bears
-reapers
-guardians
-cyclones
 monarchs
-seekers
-pharos
-wolves
-skyhawks
-destroyers
-scorpians
-barracudas
-crusadors
-Week 21
-seekers
-None
-wolves
-cyclones
-destroyers
-reapers
-barracudas
-dragons
-crusadors
-rovers
-scorpians
-bombers
-skyhawks
-rebels
-pharos
 express
-monarchs
-ravagers
+reapers
+scorpians
 guardians
+ravagers
+Week 21
+rebels
+None
+dragons
 predators
+wolves
+seekers
+crusadors
+destroyers
+pharos
+rovers
+monarchs
+cyclones
+reapers
+bombers
+guardians
 bears
+ravagers
+barracudas
+scorpians
+skyhawks
+express
 mammoths

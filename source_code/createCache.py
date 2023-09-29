@@ -136,6 +136,8 @@ def createTeamObjects(teamNames):
 #Load team data cache from player objects
 def loadTeamObjects(gameState):
     print("In load team objects")
+
+    #CREATE TEAM OBJECTS AND ADD PLAYERS TO THEM
     count = 0
     teamNames = []
     teamName = ""
@@ -176,7 +178,36 @@ def loadTeamObjects(gameState):
             #add new team object to list
             gameState[3].append(tempTeam)
 
+    #ADD TEAM STATS FROM SAVE FILE TO TEAM OBJECTS
+    extraRows = -1
+    statList = []
+    statIndex = 0
+    end = False
+    
+    for i in gameState[3]:
+        extraRows = extraRows + 1 #determines how many rows will be skipped when after reading playerObjects in save file
+        teamStats = saveData.read(gameState, "team objects\n", 1, "RLCS Save Data\n", extraRows)
+        print("stats: ", teamStats)
+        print("extra rows: ", extraRows)
+        #split the data string into a list
+        statList = teamStats.split(" ")
+
+        #create a new string without the first three items in statList to make the WLSeason
+        WLSeason = ""
+        num = ""
+        for x in range(len(statList)):
+            print("stat: ", statList[x])
+            if x > 2:
+                if statList[x] != "\n":
+                    num = statList(x)
+                    WLSeason.append(num)
+
+        #create player object, and set all attributes
+        i.setWinsCareer(int(statList[1]))
+        i.setLossesCareer(int(statList[2]))
+        i.setWLSeason(WLSeason)
         
+
                 
     print("leave load team objects")
     return gameState[3]
