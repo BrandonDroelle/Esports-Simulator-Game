@@ -181,11 +181,9 @@ def loadTeamObjects(gameState):
     #ADD TEAM STATS FROM SAVE FILE TO TEAM OBJECTS
     extraRows = -1
     statList = []
-    statIndex = 0
-    end = False
     
     for i in gameState[3]:
-        extraRows = extraRows + 1 #determines how many rows will be skipped when after reading playerObjects in save file
+        extraRows = extraRows + 1 #determines how many rows will be skipped after reading playerObjects in save file
         teamStats = saveData.read(gameState, "team objects\n", 1, "RLCS Save Data\n", extraRows)
         print("stats: ", teamStats)
         print("extra rows: ", extraRows)
@@ -197,14 +195,22 @@ def loadTeamObjects(gameState):
         num = ""
         for x in range(len(statList)):
             print("stat: ", statList[x])
-            if x > 2:
+            if x > 10:
                 if statList[x] != "\n":
-                    num = statList(x)
-                    WLSeason.append(num)
+                    num = statList[x]
+                    WLSeason = WLSeason + (num) + " "
 
         #create player object, and set all attributes
         i.setWinsCareer(int(statList[1]))
         i.setLossesCareer(int(statList[2]))
+        i.setGoalsCareer(int(statList[3]))
+        i.setAssistsCareer(int(statList[4]))
+        i.setSavesCareer(int(statList[5]))
+        i.setShotsCareer(int(statList[6]))
+        i.setGoalsSeason(int(statList[7]))
+        i.setAssistsSeason(int(statList[8]))
+        i.setSavesSeason(int(statList[9]))
+        i.setShotsSeason(int(statList[10]))
         i.setWLSeason(WLSeason)
         
 

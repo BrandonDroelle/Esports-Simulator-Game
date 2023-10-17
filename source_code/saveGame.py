@@ -108,9 +108,24 @@ def updateTeams(gameState):
         teamName = str(i.getTeamName())
         teamWinsCareer = str(i.getWinsCareer())
         teamLossesCareer = str(i.getLossesCareer())
+        teamGoalsCareer = str(i.getGoalsCareer())
+        teamAssistsCareer = str(i.getAssistsCareer())
+        teamSavesCareer = str(i.getSavesCareer())
+        teamShotsCareer = str(i.getShotsCareer())
+
+        teamGoalsSeason = str(i.getGoalsSeason())
+        teamAssistsSeason = str(i.getAssistsSeason())
+        teamSavesSeason = str(i.getSavesSeason())
+        teamShotsSeason = str(i.getShotsSeason())
+
         teamWLSeason = str(i.getWLSeason())
         teamStatsString = (teamName + " " + teamWinsCareer + " " +
-                          teamLossesCareer + " " + teamWLSeason + "\n")
+                          teamLossesCareer + " " + teamGoalsCareer + " " +
+                          teamAssistsCareer + " " + teamSavesCareer + " " +
+                          teamShotsCareer + " " + teamGoalsSeason + " " +
+                          teamAssistsSeason + " " + teamSavesSeason + " " +
+                          teamShotsSeason + " " + teamWLSeason + "\n")
+
         saveData.write(gameState, exceptionString, teamStatsString)
         exceptionString = teamStatsString
 

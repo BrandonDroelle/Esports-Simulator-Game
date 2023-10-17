@@ -476,41 +476,41 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                     print("mouse click goals asc btn")
                     if seasonStats == True:
                         if sortType != "player goals season":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player goals season")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "goals season")
                             sortType = "player goals season"
                     else:
                         if sortType != "player goals career":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player goals career")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "goals career")
                             sortType = "player goals career"
                 if btnAssistsAscHov == True:
                     print("mouse click assists asc btn")
                     if seasonStats == True:
                         if sortType != "player assists season":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player assists season")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "assists season")
                             sortType = "player assists season"
                     else:
                         if sortType != "player assists career":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player assists career")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "assists career")
                             sortType = "player assists career"
                 if btnSavesAscHov == True:
                     print("mouse click saves asc btn")
                     if seasonStats == True:
                         if sortType != "player saves season":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player saves season")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "saves season")
                             sortType = "player saves season"
                     else:
                         if sortType != "player saves career":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player saves career")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "saves career")
                             sortType = "player saves career"
                 if btnShotsAscHov == True:
                     print("mouse click shots asc btn")
                     if seasonStats == True:
                         if sortType != "player shots season":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player shots season")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "shots season")
                             sortType = "player shots season"
                     else:
                         if sortType != "player shots career":
-                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "player shots career")
+                            gameState[2] = sortFunctions.sortAscendingObjectList(gameState[2], "shots career")
                             sortType = "player shots career"
 
                 if btnPlayerDesHov == True:
@@ -525,41 +525,41 @@ def playerStatsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                     print("mouse click goals des btn")
                     if seasonStats == True:
                         if sortType != "player goals season des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player goals season")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "goals season")
                             sortType = "player goals season des"
                     else:
                         if sortType != "player goals career des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player goals career")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "goals career")
                             sortType = "player goals career des"
                 if btnAssistsDesHov == True:
                     print("mouse click assists des btn")
                     if seasonStats == True:
                         if sortType != "player assists season des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player assists season")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "assists season")
                             sortType = "player assists season des"
                     else:
                         if sortType != "player assists career des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player assists career")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "assists career")
                             sortType = "player assists career des"
                 if btnSavesDesHov == True:
                     print("mouse click saves des btn")
                     if seasonStats == True:
                         if sortType != "player saves season des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player saves season")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "saves season")
                             sortType = "player saves season des"
                     else:
                         if sortType != "player saves career des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player saves career")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "saves career")
                             sortType = "player saves career des"
                 if btnShotsDesHov == True:
                     print("mouse click shots des btn")
                     if seasonStats == True:
                         if sortType != "player shots season des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player shots season")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "shots season")
                             sortType = "player shots season des"
                     else:
                         if sortType != "player shots career des":
-                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "player shots career")
+                            gameState[2] = sortFunctions.sortDescendingObjectList(gameState[2], "shots career")
                             sortType = "player shots career des"
 
                     

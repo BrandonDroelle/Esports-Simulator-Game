@@ -23,7 +23,56 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player goals career":
+    if dataType == "team name":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getTeamName().lower() < objectList[x].getTeamName().lower():
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "wlr career":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if str(objectList[i].getWLRCareer()) <= str(objectList[x].getWLRCareer()):
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "wins career":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getWinsCareer() <= objectList[x].getWinsCareer():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "losses career":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getLossesCareer() <= objectList[x].getLossesCareer():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "goals career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -36,7 +85,7 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player assists career":
+    if dataType == "assists career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -48,7 +97,7 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player saves career":
+    if dataType == "saves career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -60,7 +109,7 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player shots career":
+    if dataType == "shots career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -72,7 +121,46 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player goals season":
+    if dataType == "wlr season":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if str(objectList[i].getWLRSeason()) <= str(objectList[x].getWLRSeason()):
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "wins season":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getWinsSeason() <= objectList[x].getWinsSeason():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "losses season":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getLossesSeason() <= objectList[x].getLossesSeason():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "goals season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -84,7 +172,7 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player assists season":
+    if dataType == "assists season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -96,7 +184,7 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player saves season":
+    if dataType == "saves season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -108,7 +196,7 @@ def sortAscendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player shots season":
+    if dataType == "shots season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -148,7 +236,56 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player goals career":
+    if dataType == "team name":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getTeamName().lower() > objectList[x].getTeamName().lower():
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "wlr career":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if str(objectList[i].getWLRCareer()) >= str(objectList[x].getWLRCareer()):
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "wins career":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getWinsCareer() >= objectList[x].getWinsCareer():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "losses career":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getLossessCareer() >= objectList[x].getLossessCareer():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "goals career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -161,7 +298,7 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player assists career":
+    if dataType == "assists career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -173,7 +310,7 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player saves career":
+    if dataType == "saves career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -185,7 +322,7 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player shots career":
+    if dataType == "shots career":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -197,7 +334,46 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player goals season":
+    if dataType == "wlr season":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if str(objectList[i].getWLRSeason()) >= str(objectList[x].getWLRSeason()):
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "wins season":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getWinsSeason() >= objectList[x].getWinsSeason():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "losses season":
+        for i in range(len(objectList)):
+            print("i: ", i)
+            for x in range(len(objectList)):
+                print("x: ", x)
+                if objectList[i].getLossesSeason() >= objectList[x].getLossesSeason():
+                    print("dont swap")
+                else:
+                    print("swap")
+                    tempObj = objectList[i]
+                    objectList[i] = objectList[x]
+                    objectList[x] = tempObj
+
+    if dataType == "goals season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -209,7 +385,7 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player assists season":
+    if dataType == "assists season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -221,7 +397,7 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player saves season":
+    if dataType == "saves season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
@@ -233,7 +409,7 @@ def sortDescendingObjectList(objectList, dataType):
                     objectList[i] = objectList[x]
                     objectList[x] = tempObj
 
-    if dataType == "player shots season":
+    if dataType == "shots season":
         for i in range(len(objectList)):
             print("i: ", i)
             for x in range(len(objectList)):
