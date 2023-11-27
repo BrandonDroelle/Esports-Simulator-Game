@@ -57,18 +57,20 @@ def lockerRoomMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, butt
         playerNames.append(userName)
         l = len(playerNames)
 
-    print("User Name On List: ", nameOnList)
-    print("players:", playerNames)
-    print("len:", l)
+    #print("User Name On List: ", nameOnList)
+    #print("players:", playerNames)
+    #print("len:", l)
 
     #load cache with player objects and team objects
-    print("gameState2 PlayerObjects: ", gameState[2])
-    if gameState[2] == [] and gameState[3] == []:
+    #print("gameState2 PlayerObjects: ", gameState[2])
+    if gameState[2] == [] and gameState[3] == [] and gameState[4] == 'empty schedule':
         print('load caches from save file')
         #generates player profile objects
         gameState[2] = createCache.loadPlayerObjects(gameState)
         #generates team objects
         gameState[3] = createCache.loadTeamObjects(gameState)
+        #generate schedule strring
+        gameState[4] = createCache.loadSchedule(gameState)
 
 
     #Menu Loop

@@ -6,6 +6,16 @@ import saveData
 import teamClass
 import generateSchedule
 
+def loadSchedule(gameState):
+    schedule = 'empty schedule'
+    currentSeason = saveGame.getSeason(gameState)
+    currentSeason = "Season " + str(currentSeason) + "\n"
+    extraRows = 0
+
+    schedule = saveData.read(gameState, currentSeason, 1, "RLCS Save Data\n", extraRows)
+    return schedule
+
+
 #creates list of player objects from list of default player name strings when creating a new save
 def createPlayerObjects(gameState, playerNames):
     #add user to list of players
@@ -492,5 +502,4 @@ def swapUserWithNPC(gameState):
     gameState[3] = teamObjects
     return gameState
 
-    def getPlayerSeasonGoals (gameState, player):
-        playerSeasonGoals = saveData.read
+    

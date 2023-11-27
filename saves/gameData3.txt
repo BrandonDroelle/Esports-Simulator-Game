@@ -11,3 +11,5 @@ current week
 
 player objects
 
+team objects
+

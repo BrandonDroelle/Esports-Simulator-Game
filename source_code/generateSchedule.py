@@ -77,7 +77,7 @@ def getScheduleString(gameState, schedule, teamObjects):
         #add the current week to the schedule string
         print("$$$$$$Week:", i + 1,"$$$$$$$$")
         weekCountStr = str(i + 1)
-        scheduleSaveFormat = scheduleSaveFormat + "Week " + weekCountStr + "\n"
+        #scheduleSaveFormat = scheduleSaveFormat + "Week " + weekCountStr + " "
         count = 0
         for j in range(rLength):
             #add each team in order every week to the schedule string
@@ -88,7 +88,7 @@ def getScheduleString(gameState, schedule, teamObjects):
             awayTeam = str(schedule[i][j][1])
             #print("home team:", homeTeam, "\naway team:", awayTeam)
             #reformat schedule list to fit save data file
-            scheduleSaveFormat = scheduleSaveFormat + homeTeam + '\n' + awayTeam + '\n'
+            scheduleSaveFormat = scheduleSaveFormat + homeTeam + " " + awayTeam + " "
             #print('scheduleSaveFormat:', scheduleSaveFormat)
             count = count + 1
       
@@ -96,3 +96,24 @@ def getScheduleString(gameState, schedule, teamObjects):
     scheduleSaveFormat = scheduleSaveFormat
     
     return scheduleSaveFormat
+
+def getMatchup(gameState, week, game):
+    schedule = gameState[4]
+    team1 = "team 1"
+    team2 = "team 2"
+    matchup = "team1   W   -   L   team2"
+    scheduleList = list(schedule.split(" "))
+    numOfTeamsPlayingWeekly = 22
+    game = (game * 2) - 1
+
+    scheduleListlength = len(scheduleList)
+
+    index = ((week * numOfTeamsPlayingWeekly) - numOfTeamsPlayingWeekly) + (game) - 1
+    #print("team1: ", scheduleList[index])
+    team1 = scheduleList[index]
+    #print("team2: ", scheduleList[index])
+    team2 = scheduleList[index + 1]
+
+    matchup = team1 + "   W   -   L   " + team2
+
+    return matchup

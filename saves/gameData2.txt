@@ -1,15 +1,101 @@
 RLCS Save Data
 save 2
-0
+1
 player name
-
+t2
 player team
-
+dragons
 current season
-
+1
 current week
-
+1
 player objects
+Raja barracudas 0 0 0 0 0 0 0 0
+saltie barracudas 0 0 0 0 0 0 0 0
+centice barracudas 0 0 0 0 0 0 0 0
+junker bears 0 0 0 0 0 0 0 0
+fives bears 0 0 0 0 0 0 0 0
+marley bears 0 0 0 0 0 0 0 0
+foamer bombers 0 0 0 0 0 0 0 0
+jester bombers 0 0 0 0 0 0 0 0
+scout bombers 0 0 0 0 0 0 0 0
+sundown crusadors 0 0 0 0 0 0 0 0
+beast crusadors 0 0 0 0 0 0 0 0
+hound crusadors 0 0 0 0 0 0 0 0
+goose cyclones 0 0 0 0 0 0 0 0
+roundhouse cyclones 0 0 0 0 0 0 0 0
+cougar cyclones 0 0 0 0 0 0 0 0
+bandit destroyers 0 0 0 0 0 0 0 0
+shepard destroyers 0 0 0 0 0 0 0 0
+mountain destroyers 0 0 0 0 0 0 0 0
+poncho rovers 0 0 0 0 0 0 0 0
+sabretooth dragons 0 0 0 0 0 0 0 0
+gerwin dragons 0 0 0 0 0 0 0 0
+echo express 0 0 0 0 0 0 0 0
+rainmaker express 0 0 0 0 0 0 0 0
+fury express 0 0 0 0 0 0 0 0
+boomer guardians 0 0 0 0 0 0 0 0
+myrtle guardians 0 0 0 0 0 0 0 0
+fulcrum guardians 0 0 0 0 0 0 0 0
+iceman mammoths 0 0 0 0 0 0 0 0
+clu mammoths 0 0 0 0 0 0 0 0
+viper mammoths 0 0 0 0 0 0 0 0
+heater monarchs 0 0 0 0 0 0 0 0
+imp monarchs 0 0 0 0 0 0 0 0
+outlaw monarchs 0 0 0 0 0 0 0 0
+wolfman pharos 0 0 0 0 0 0 0 0
+casper pharos 0 0 0 0 0 0 0 0
+buzz pharos 0 0 0 0 0 0 0 0
+slider predators 0 0 0 0 0 0 0 0
+tex predators 0 0 0 0 0 0 0 0
+chipper predators 0 0 0 0 0 0 0 0
+caveman ravagers 0 0 0 0 0 0 0 0
+khan ravagers 0 0 0 0 0 0 0 0
+heavy ravagers 0 0 0 0 0 0 0 0
+stinger reapers 0 0 0 0 0 0 0 0
+yuri reapers 0 0 0 0 0 0 0 0
+alleycat reapers 0 0 0 0 0 0 0 0
+maverick rebels 0 0 0 0 0 0 0 0
+tusk rebels 0 0 0 0 0 0 0 0
+hollywood rebels 0 0 0 0 0 0 0 0
+t2 dragons 0 0 0 0 0 0 0 0
+middy rovers 0 0 0 0 0 0 0 0
+stig rovers 0 0 0 0 0 0 0 0
+sultan scorpians 0 0 0 0 0 0 0 0
+dude scorpians 0 0 0 0 0 0 0 0
+merlin scorpians 0 0 0 0 0 0 0 0
+rex seekers 0 0 0 0 0 0 0 0
+samara seekers 0 0 0 0 0 0 0 0
+storm seekers 0 0 0 0 0 0 0 0
+squall skyhawks 0 0 0 0 0 0 0 0
+sticks skyhawks 0 0 0 0 0 0 0 0
+soap skyhawks 0 0 0 0 0 0 0 0
+swabbie wolves 0 0 0 0 0 0 0 0
+c-block wolves 0 0 0 0 0 0 0 0
+armstrong wolves 0 0 0 0 0 0 0 0
 
 team objects
+barracudas 0 0 0 0 0 0 0 0 0 0 
+bears 0 0 0 0 0 0 0 0 0 0 
+bombers 0 0 0 0 0 0 0 0 0 0 
+crusadors 0 0 0 0 0 0 0 0 0 0 
+cyclones 0 0 0 0 0 0 0 0 0 0 
+destroyers 0 0 0 0 0 0 0 0 0 0 
+dragons 0 0 0 0 0 0 0 0 0 0 
+express 0 0 0 0 0 0 0 0 0 0 
+guardians 0 0 0 0 0 0 0 0 0 0 
+mammoths 0 0 0 0 0 0 0 0 0 0 
+monarchs 0 0 0 0 0 0 0 0 0 0 
+pharos 0 0 0 0 0 0 0 0 0 0 
+predators 0 0 0 0 0 0 0 0 0 0 
+ravagers 0 0 0 0 0 0 0 0 0 0 
+reapers 0 0 0 0 0 0 0 0 0 0 
+rebels 0 0 0 0 0 0 0 0 0 0 
+rovers 0 0 0 0 0 0 0 0 0 0 
+scorpians 0 0 0 0 0 0 0 0 0 0 
+seekers 0 0 0 0 0 0 0 0 0 0 
+skyhawks 0 0 0 0 0 0 0 0 0 0 
+wolves 0 0 0 0 0 0 0 0 0 0 
 
+Season 1
+cyclones None rebels bombers dragons ravagers wolves mammoths scorpians crusadors predators reapers skyhawks bears express monarchs barracudas pharos seekers destroyers rovers guardians None rebels dragons cyclones wolves bombers scorpians ravagers predators mammoths skyhawks crusadors express reapers barracudas bears seekers monarchs rovers pharos guardians destroyers None skyhawks express predators barracudas scorpians seekers wolves rovers dragons guardians rebels destroyers cyclones pharos bombers monarchs ravagers bears mammoths reapers crusadors mammoths None ravagers crusadors bombers reapers cyclones bears rebels monarchs dragons pharos wolves destroyers scorpians guardians predators rovers skyhawks seekers express barracudas destroyers None pharos guardians monarchs rovers bears seekers reapers barracudas crusadors express mammoths skyhawks ravagers predators bombers scorpians cyclones wolves rebels dragons None rovers guardians seekers destroyers barracudas pharos express monarchs skyhawks bears predators reapers scorpians crusadors wolves mammoths dragons ravagers rebels bombers cyclones None express barracudas skyhawks seekers predators rovers scorpians guardians wolves destroyers dragons pharos rebels monarchs cyclones bears bombers reapers ravagers crusadors mammoths pharos None monarchs destroyers bears guardians reapers rovers crusadors seekers mammoths barracudas ravagers express bombers skyhawks cyclones predators rebels scorpians dragons wolves None seekers rovers barracudas guardians express destroyers skyhawks pharos predators monarchs scorpians bears wolves reapers dragons crusadors rebels mammoths cyclones ravagers bombers bears None reapers monarchs crusadors pharos mammoths destroyers ravagers guardians bombers rovers cyclones seekers rebels barracudas dragons express wolves skyhawks scorpians predators None barracudas seekers express rovers skyhawks guardians predators destroyers scorpians pharos wolves monarchs dragons bears rebels reapers cyclones crusadors bombers mammoths ravagers bombers None cyclones ravagers rebels mammoths dragons crusadors wolves reapers scorpians bears predators monarchs skyhawks pharos express destroyers barracudas guardians seekers rovers ravagers None bombers mammoths cyclones crusadors rebels reapers dragons bears wolves monarchs scorpians pharos predators destroyers skyhawks guardians express rovers barracudas seekers None dragons wolves rebels scorpians cyclones predators bombers skyhawks ravagers express mammoths barracudas crusadors seekers reapers rovers bears guardians monarchs destroyers pharos reapers None crusadors bears mammoths monarchs ravagers pharos bombers destroyers cyclones guardians rebels rovers dragons seekers wolves barracudas scorpians express predators skyhawks guardians None destroyers rovers pharos seekers monarchs barracudas bears express reapers skyhawks crusadors predators mammoths scorpians ravagers wolves bombers dragons cyclones rebels None predators skyhawks scorpians express wolves barracudas dragons seekers rebels rovers cyclones guardians bombers destroyers ravagers pharos mammoths monarchs crusadors bears reapers None wolves scorpians dragons predators rebels skyhawks cyclones express bombers barracudas ravagers seekers mammoths rovers crusadors guardians reapers destroyers bears pharos monarchs None scorpians predators wolves skyhawks dragons express rebels barracudas cyclones seekers bombers rovers ravagers guardians mammoths destroyers crusadors pharos reapers monarchs bears crusadors None mammoths reapers ravagers bears bombers monarchs cyclones pharos rebels destroyers dragons guardians wolves rovers scorpians seekers predators barracudas skyhawks express monarchs None bears pharos reapers destroyers crusadors guardians mammoths rovers ravagers seekers bombers barracudas cyclones express rebels skyhawks dragons predators wolves scorpians 

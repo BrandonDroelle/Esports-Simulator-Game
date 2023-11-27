@@ -185,7 +185,7 @@ playerObjects = []
 teamObjects = []
 
 #Create gamestate
-gameState = ['gameData1.txt', 'start', playerObjects, teamObjects] #[current save, current menu, playersObjects, teamObjects]
+gameState = ['gameData1.txt', 'start', playerObjects, teamObjects, 'empty schedule'] #[current save, current menu, playersObjects, teamObjects, schedule string]
 
 #####################
 # F U N C T I O N S #
@@ -260,7 +260,7 @@ def main(gameState):
             print('exit player stats menu')
         if gameState[1] == 'schedule':
             print('run schedule menu')
-            scheduleMenu.scheduleMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            scheduleMenu.scheduleMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, keyBoardKeys)
             print('exit schedule menu')
         if gameState[1] == 'hallOfFame':
             print('run hall of fame menu')

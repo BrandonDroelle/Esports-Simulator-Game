@@ -149,6 +149,7 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         #generateSchedule.printTeams(teamNames)
                         scheduleString = generateSchedule.getScheduleString(gameState, schedule, teamObjects)
                         #print("schedule string: ", scheduleString)
+                        gameState[4] = scheduleString
                         
 
                         
@@ -165,8 +166,6 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         teamObjects = createCache.fillTeamRosters(gameState)
                         #assign user to the team they picked instead of a random team
                         gameState = createCache.swapUserWithNPC(gameState)
-                        #add players to schedule in save file
-                        #saveGame.addPlayersToSchedule(gameState, teamObjects)
 
                         #call function to add player object data to save file
                         saveGame.updatePlayers(gameState)

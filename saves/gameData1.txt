@@ -74,8 +74,10 @@ rainmaker wolves 0 0 0 0 0 0 0 0
 gerwin wolves 0 0 0 0 0 0 0 0
 c-block wolves 0 0 0 0 0 0 0 0
 
+Career W L G A S S Season G A S S Season Record
+
 team objects
-barracudas 3 17 59 40 103 99 1 0 8 5 1 0 0 
+barracudas 8 12 48 60 103 99 1 0 8 5 1 0 0 
 bears 10 10 79 60 102 109 6 6 12 13 1 0 1 
 bombers 0 0 0 0 0 0 0 0 0 0 
 crusadors 0 0 0 0 0 0 0 0 0 0 
