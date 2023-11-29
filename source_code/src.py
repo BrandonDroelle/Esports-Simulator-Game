@@ -18,6 +18,7 @@ import gamePreviewMenu
 import recordResultsMenu
 import weeklyResultsMenu
 import saveData
+import buttonClassObj
 
 #check directory
 saveData.printSaveFilePath()
@@ -272,7 +273,7 @@ def main(gameState):
             print('exit player awards menu')
         if gameState[1] == 'gamePreview':
             print('run game preview menu')
-            gamePreviewMenu.gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img)
+            gamePreviewMenu.gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames)
             print('exit game preview menu')
         if gameState[1] == 'recordResults':
             print('run record results menu')
@@ -284,8 +285,8 @@ def main(gameState):
             print('exit weekly results menu')
 
 
-        #pygame.display.update()
-        #mainClock.tick(60)
+        pygame.display.update()
+        buttonClassObj.mainClock.tick(60)
 
 main(gameState)
 

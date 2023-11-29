@@ -54,9 +54,10 @@ def inGameSettingsMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, 
                 if btn2Hov == True:
                     print("mouse click return to main manu btn")
                     createCache.rmvPlayerName(gameState, playerNames)
+                    gameState[1] = 'start'
                     gameState[2] = []
                     gameState[3] = []
-                    gameState[1] = 'start'
+                    gameState[4] = 'empty schedule'
 
         pygame.display.update()
         buttonClassObj.mainClock.tick(60)

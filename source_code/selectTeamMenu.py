@@ -149,7 +149,6 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         #generateSchedule.printTeams(teamNames)
                         scheduleString = generateSchedule.getScheduleString(gameState, schedule, teamObjects)
                         #print("schedule string: ", scheduleString)
-                        gameState[4] = scheduleString
                         
 
                         
@@ -173,6 +172,7 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         saveGame.updateTeams(gameState)
                         #save season schedule to save file
                         saveGame.updateSchedule(gameState, scheduleString)
+                        gameState[4] = createCache.loadSchedule(gameState)
 
 
                         
@@ -200,3 +200,4 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
 
         pygame.display.update()
         buttonClassObj.mainClock.tick(60)
+        

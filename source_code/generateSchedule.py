@@ -97,6 +97,8 @@ def getScheduleString(gameState, schedule, teamObjects):
     
     return scheduleSaveFormat
 
+    
+
 def getMatchup(gameState, week, game):
     schedule = gameState[4]
     team1 = "team 1"
@@ -117,3 +119,20 @@ def getMatchup(gameState, week, game):
     matchup = team1 + "   W   -   L   " + team2
 
     return matchup
+
+#in this function you send in a week number and a team name and get the opposing team for the team sent that week
+def getmatchupSpecific(gameState, week, team):
+    schedule = gameState[4]
+    team1 = "team 1"
+    team2 = "team 2"
+    scheduleList = list(schedule.split(" "))
+    numOfTeamsPlayingWeekly = 22
+    
+    for i in range(numOfTeamsPlayingWeekly):
+        if scheduleList[i] == team:         #searches list for index of players team
+            if i%2 == 0:                    #checks if players team is an odd or even integer. If even their opponent is the next index, or vice versa
+                team2 = scheduleList[i + 1]
+            else:
+                team2 = scheduleList[i - 1]
+    
+    return team2
