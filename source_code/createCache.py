@@ -453,7 +453,6 @@ def swapUserWithNPC(gameState):
     userName2 = playerObjects[userPlayerIndex].getName()
     #print("player being swapped:", userName2)
 
-    #print("initiate player and NPC swap")
     #Swap the users player object to the team they picked with the npc player object on that team
     if pos == 1:
         #print("set npc to p1")
@@ -472,34 +471,25 @@ def swapUserWithNPC(gameState):
     playerObjects[userPlayerIndex] = updatePlayersTeam(teamObjects[userTeamIndex], playerObjects[userPlayerIndex])    #updates the player objects teamName attribute to the new teamName
 
     userName = playerObjects[userPlayerIndex].getName()
-    #print("Users Name from player object:", userName)
+
     npcName = playerObjects[npcIndex].getName()
-    #print("npcs Name from player object:", npcName)
 
-    #print team the player got randomly assigned after swap
-    #print("Team user got randomly assigned after swap\n")
     teamObjects[tempTeamIndex].printRoster()
-    #print team the player picked after swap
-    #print("Team user picked after swap\n")
+
     teamObjects[userTeamIndex].printRoster()
-    
-
-    #print("Users team after swap")
-    #print("Users Player Name:", userName)
-    #print("Users Player Index:", userPlayerIndex)
-    #print("Users Team Name:", userTeam)
-    #print("Users Team Index:", userTeamIndex)
-
-    
-
-    #print("npcs team after swap")
-    #print("npcs Player Name:", npcName)
-    #print("npcs Player Index:", npcIndex)
-    #print("npcs Team Name:", tempTeamName)
-    #print("npcs Team Index:", tempTeamIndex)
 
     gameState[2] = playerObjects
     gameState[3] = teamObjects
     return gameState
 
-    
+def getTeamObject(gameState, teamName):
+    teamObjects = gameState[3]
+    count = 0
+    for i in teamObjects:
+        name = teamObjects[count].getTeamName()
+        if teamName == name:
+            teamObject = teamObjects[count]
+            return teamObject
+        count = count + 1
+        
+    return "team object not found"

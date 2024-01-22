@@ -273,7 +273,7 @@ def main(gameState):
             print('exit player awards menu')
         if gameState[1] == 'gamePreview':
             print('run game preview menu')
-            gamePreviewMenu.gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames)
+            gamePreviewMenu.gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, keyBoardKeys)
             print('exit game preview menu')
         if gameState[1] == 'recordResults':
             print('run record results menu')

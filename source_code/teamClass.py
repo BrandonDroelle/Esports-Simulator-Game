@@ -20,7 +20,7 @@ class TeamClass:
         self.savesSeason = 0
         self.shotsSeason = 0
 
-        self.WLSeason = ""
+        self.WLSeason = "0 - 0 "
         
 
     #Setters
