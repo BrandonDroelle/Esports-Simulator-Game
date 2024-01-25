@@ -227,18 +227,7 @@ def loadTeamObjects(gameState):
                 
     print("leave load team objects")
     return gameState[3]
-        
 
-
-
-#load saved data from file to cache for each player
-#def loadPlayerObjectData(gameState, playerNames):
-#    #create player objects
-#    playerObjects = createPlayerObjects(gameState, playerNames) #here is when the player name is added to the list of player names
-
-#    l = len(playerNames)
-#    for i in range(l):
-#        playerObjects[i]
 
 #Sets the player objects teamName to the teamName of the team object
 def updatePlayersTeam(teamObject, playerObject):

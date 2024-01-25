@@ -20,7 +20,8 @@ class TeamClass:
         self.savesSeason = 0
         self.shotsSeason = 0
 
-        self.WLSeason = "0 - 0 "
+        self.WLSeason = ""          #string of 1's and 0's with spaces in between
+                                    #1's = wins 0's = losses
         
 
     #Setters
@@ -103,7 +104,7 @@ class TeamClass:
         W = int(W)
         L = int(L)
         if (W + L) == 0:
-            return 0.0
+            return "0:0"
         WLR = (W/(W+L))
         WLR = "{:.3f}".format(WLR)
         return WLR
