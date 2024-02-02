@@ -4,6 +4,8 @@ import buttonClassObj
 import saveGame
 import generateSchedule
 import createCache
+import updateStats
+import saveData
 
 # #display settings menu
 def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, keyBoardKeys):
@@ -16,6 +18,10 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     #get team objects from name strings
     playersTeamObject = createCache.getTeamObject(gameState, playersTeamName)
     opposingTeamObject = createCache.getTeamObject(gameState, opposingTeamName)
+    
+    #get current save data from cache for each team class object
+    playerTeamObjectSaveDataOld = playersTeamObject.getCacheString()
+    opposingTeamObjectSaveDataOld = opposingTeamObject.getCacheString()
 
     #get playernames
     p1L = playersTeamObject.getP1()
@@ -39,6 +45,9 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     baseYHead = 475
     baseSpacer = 100
     
+    #Variables to set scoreboard to
+    bigFont = pygame.font.SysFont(None,128)
+
     #Variables to set stat strings to
     baseYStat = 475         #sets the top row height
     baseYSpacerStat = 50    #adjusts the spaces in between each row
@@ -125,6 +134,8 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
     assistsRight = smallFont.render('Assists', False, (255, 255, 255))
     savesRight = smallFont.render('Saves', False, (255, 255, 255))
     shotsRight = smallFont.render('Shots', False, (255, 255, 255))
+    
+    scoreBoardDivide = bigFont.render('-', False, (255, 255, 255))
 
     #Create Buttons
     btn1 = buttonClassObj.buttonClass(buttonimg, (win.get_width() / 2) - 150, (win.get_height() / 2) - 100, basicFont, 'Confirm', 60, 15)
@@ -228,7 +239,14 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             pygame.draw.rect(win, lightGrey, pygame.Rect(baseXR,baseY + 50,width,height)) #rect(x,y,length,height) #Slot 2R
             pygame.draw.rect(win, darkGrey, pygame.Rect(baseXR,baseY + 100,width,height)) #rect(x,y,length,height) #Slot 3R
 
+            #create dynamic vairables
+            leftTeamScore = goalsL1 + goalsL2 + goalsL3
+            rightTeamScore = goalsR1 + goalsR2 + goalsR3
+
             #Create Dynamic Strings
+            leftTeamScoreStr = bigFont.render(str(leftTeamScore), False, (255, 255, 255))
+            rightTeamScoreStr = bigFont.render(str(rightTeamScore), False, (255, 255, 255))
+
             goalsL1Str = smallFont.render(str(goalsL1), False, (255, 255, 255))
             assistsL1Str = smallFont.render(str(assistsL1), False, (255, 255, 255))
             savesL1Str = smallFont.render(str(savesL1), False, (255, 255, 255))
@@ -266,6 +284,9 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             win.blit(teamNameRight, (950,50))
             win.blit(teamRecordLeft, (200,400))
             win.blit(teamRecordRight, (1000,400))
+            win.blit(leftTeamScoreStr, (560,545))
+            win.blit(scoreBoardDivide, (630, 550))
+            win.blit(rightTeamScoreStr, (680,545))
             
             #Draw Stats
             win.blit(goalsL1Str, (baseXLeft + baseXStatLeft + (0 * baseXSpacerStat), baseYStat + (1 * baseYSpacerStat)))
@@ -601,9 +622,32 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
             #check for mouse click
             if event.type == pygame.MOUSEBUTTONDOWN:
                 print("mouse click")
-                if btn1Hov == True:
-                    print("mouse click confirm btn")
-                    gameState[1] = 'weeklyResults'
+                if leftTeamScore != rightTeamScore:
+                    if leftTeamScore > rightTeamScore:
+                        resultL = "1-"
+                        resultR = "0-"
+                    else:
+                        resultL = "0-"
+                        resultR = "1-"
+                    if btn1Hov == True:
+                        print("mouse click confirm btn")
+                        #update player stats
+                        gameState = updateStats.updateStatsPlayer(gameState, p1LName, goalsL1, assistsL1, savesL1, shotsL1)
+                        gameState = updateStats.updateStatsPlayer(gameState, p2LName, goalsL2, assistsL2, savesL2, shotsL2)
+                        gameState = updateStats.updateStatsPlayer(gameState, p3LName, goalsL3, assistsL3, savesL3, shotsL3)
+                        gameState = updateStats.updateStatsPlayer(gameState, p1RName, goalsR1, assistsR1, savesR1, shotsR1)
+                        gameState = updateStats.updateStatsPlayer(gameState, p2RName, goalsR2, assistsR2, savesR2, shotsR2)
+                        gameState = updateStats.updateStatsPlayer(gameState, p3RName, goalsR3, assistsR3, savesR3, shotsR3)
+                        #update team stats in cache
+                        gameState = updateStats.updateStatsTeam(gameState, playersTeamName, p1L, p2L, p3L, resultL)
+                        gameState = updateStats.updateStatsTeam(gameState, opposingTeamName, p1R, p2R, p3R, resultR)
+                        #update team stats in saveFile
+                        playerTeamObjectSaveDataNew = playersTeamObject.getCacheString()    #get current save data from cache for each team class object with updated stats from game played
+                        saveData.replaceLine(gameState, playerTeamObjectSaveDataOld, playerTeamObjectSaveDataNew)   #replaces old team data with new team data to save file
+                        opposingTeamObjectSaveDataNew = opposingTeamObject.getCacheString()    #get current save data from cache for each team class object with updated stats from game played
+                        saveData.replaceLine(gameState, opposingTeamObjectSaveDataOld, opposingTeamObjectSaveDataNew)   #replaces old team data with new team data to save file
+                        
+                        gameState[1] = 'weeklyResults'
                 if btn2Hov == True:
                     print("mouse click cancel btn")
                     gameState[1] = 'lockerRoom'

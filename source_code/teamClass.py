@@ -20,8 +20,8 @@ class TeamClass:
         self.savesSeason = 0
         self.shotsSeason = 0
 
-        self.WLSeason = ""          #string of 1's and 0's with spaces in between
-                                    #1's = wins 0's = losses
+        self.WLSeason = "\n"          #string of 1's and 0's with dash in between
+                                     #1's = wins 0's = losses
         
 
     #Setters
@@ -121,7 +121,7 @@ class TeamClass:
 
     def getWinsSeason(self):
         WL = self.WLSeason
-        statList = WL.split(" ")
+        statList = WL.split("-")
         w = 0
         for i in range(len(statList)):
             if statList[i] == '1':
@@ -130,7 +130,7 @@ class TeamClass:
 
     def getLossesSeason(self):
         WL = self.WLSeason
-        statList = WL.split(" ")
+        statList = WL.split("-")
         l = 0
         for i in range(len(statList)):
             if statList[i] == '0':
@@ -161,33 +161,38 @@ class TeamClass:
     def getShotsSeason(self):
         return self.shotsSeason
 
-    #def getGoalsSeason(self):
-    #    p1Goals = self.p1.getGoalsSeason()
-    #    p2Goals = self.p2.getGoalsSeason()
-    #    p3Goals = self.p3.getGoalsSeason()
-    #    goalsSeason = p1Goals + p2Goals + p3Goals
-    #    return goalsSeason
-
-    #def getAssistsSeason(self):
-    #    p1Assists = self.p1.getAssistsSeason()
-    #    p2Assists = self.p2.getAssistsSeason()
-    #    p3Assists = self.p3.getAssistsSeason()
-    #    assistsSeason = p1Assists + p2Assists + p3Assists
-    #    return assistsSeason
-
-    #def getSavesSeason(self):
-    #    p1Saves = self.p1.getSavesSeason()
-    #    p2Saves = self.p2.getSavesSeason()
-    #    p3Saves = self.p3.getSavesSeason()
-    #    savesSeason = p1Saves + p2Saves + p3Saves
-    #    return savesSeason
+    def getCacheString(self):
+        fileString = (self.name + " " + str(self.winsCareer) + " " + 
+                           str(self.lossesCareer) + " " + str(self.goalsCareer) + " " +
+                           str(self.assistsCareer) + " " + str(self.savesCareer) + " " +
+                           str(self.shotsCareer) + " " + str(self.goalsSeason) + " " +
+                           str(self.assistsSeason) + " " + str(self.savesSeason) + " " +
+                           str(self.shotsSeason) + " " + self.WLSeason)
+        return fileString      
     
-    #def getShotsSeason(self):
-    #    p1Shots = self.p1.getShotsSeason()
-    #    p2Shots = self.p2.getShotsSeason()
-    #    p3Shots = self.p3.getShotsSeason()
-    #    shotsSeason = p1Shots + p2Shots + p3Shots
-    #    return shotsSeason
+    #updaters
+    def updateGoals(self):
+        self.goalsSeason = self.goalsSeason + self.p1.getGoalsSeason() + self.p2.getGoalsSeason() + self.p3.getGoalsSeason()
+        self.goalsCareer = self.goalsCareer + self.p1.getGoalsSeason() + self.p2.getGoalsSeason() + self.p3.getGoalsSeason()
+        
+    def updateAssists(self):
+        self.assistsSeason = self.assistsSeason + self.p1.getAssistsSeason() + self.p2.getAssistsSeason() + self.p3.getAssistsSeason()
+        self.assistsCareer = self.assistsCareer + self.p1.getAssistsSeason() + self.p2.getAssistsSeason() + self.p3.getAssistsSeason()
+        
+    def updateSaves(self):
+        self.savesSeason = self.savesSeason + self.p1.getSavesSeason() + self.p2.getSavesSeason() + self.p3.getSavesSeason()
+        self.savesCareer = self.savesCareer + self.p1.getSavesSeason() + self.p2.getSavesSeason() + self.p3.getSavesSeason()
+        
+    def updateShots(self):
+        self.shotsSeason = self.shotsSeason + self.p1.getShotsSeason() + self.p2.getShotsSeason() + self.p3.getShotsSeason()
+        self.shotsCareer = self.shotsCareer + self.p1.getShotsSeason() + self.p2.getShotsSeason() + self.p3.getShotsSeason()
+        
+    def updateWLR(self, result):
+        self.WLSeason = result + self.WLSeason
+        if result == "1":
+            self.setWinsCareer(self.winsCareer + 1)
+        else:
+            self.setLossesCareer(self.lossesCareer + 1)
 
     #Print out team roster
     def printRoster(self):

@@ -189,39 +189,60 @@ def loadTeamObjects(gameState):
             gameState[3].append(tempTeam)
 
     #ADD TEAM STATS FROM SAVE FILE TO TEAM OBJECTS
-    extraRows = -1
+    row = -1
     statList = []
     
     for i in gameState[3]:
-        extraRows = extraRows + 1 #determines how many rows will be skipped after reading playerObjects in save file
-        teamStats = saveData.read(gameState, "team objects\n", 1, "RLCS Save Data\n", extraRows)
-        print("stats: ", teamStats)
-        print("extra rows: ", extraRows)
+        #statList = i.getFileString()
+        row = row + 1 #determines how many rows will be skipped after reading playerObjects in save file
+        statList = saveData.read(gameState, "team objects\n", 1, "RLCS Save Data\n", row)
+        # print("stats: ", teamStats)
+        # print("extra rows: ", extraRows)
         #split the data string into a list
-        statList = teamStats.split(" ")
+        statList = statList.split(" ")
+        if statList[0] == i.getTeamName():  #check statlist for name to check if match for current team object
+            #create player object, and set all attributes
+            i.setWinsCareer(int(statList[1]))
+            i.setLossesCareer(int(statList[2]))
+            i.setGoalsCareer(int(statList[3]))
+            i.setAssistsCareer(int(statList[4]))
+            i.setSavesCareer(int(statList[5]))
+            i.setShotsCareer(int(statList[6]))
+            i.setGoalsSeason(int(statList[7]))
+            i.setAssistsSeason(int(statList[8]))
+            i.setSavesSeason(int(statList[9]))
+            i.setShotsSeason(int(statList[10]))
+            i.setWLSeason(statList[11])
+        #if current stat list doesn't match current team object find team object and update it
+        else:
+            for x in gameState[3]:
+                if x.getTeamName() == statList[0]:
+                    #create player object, and set all attributes
+                    x.setWinsCareer(int(statList[1]))
+                    x.setLossesCareer(int(statList[2]))
+                    x.setGoalsCareer(int(statList[3]))
+                    x.setAssistsCareer(int(statList[4]))
+                    x.setSavesCareer(int(statList[5]))
+                    x.setShotsCareer(int(statList[6]))
+                    x.setGoalsSeason(int(statList[7]))
+                    x.setAssistsSeason(int(statList[8]))
+                    x.setSavesSeason(int(statList[9]))
+                    x.setShotsSeason(int(statList[10]))
+                    x.setWLSeason(statList[11])
+                    break
+            
 
-        #create a new string without the first three items in statList to make the WLSeason
-        WLSeason = ""
-        num = ""
-        for x in range(len(statList)):
-            print("stat: ", statList[x])
-            if x > 10:
-                if statList[x] != "\n":
-                    num = statList[x]
-                    WLSeason = WLSeason + (num) + " "
+        # #create a new string without the first three items in statList to make the WLSeason
+        # WLSeason = ""
+        # num = ""
+        # for x in range(len(statList)):
+        #     print("stat: ", statList[x])
+        #     if x > 10:
+        #         if statList[x] != "\n":
+        #             num = statList[x]
+        #             WLSeason = WLSeason + (num) + " "
 
-        #create player object, and set all attributes
-        i.setWinsCareer(int(statList[1]))
-        i.setLossesCareer(int(statList[2]))
-        i.setGoalsCareer(int(statList[3]))
-        i.setAssistsCareer(int(statList[4]))
-        i.setSavesCareer(int(statList[5]))
-        i.setShotsCareer(int(statList[6]))
-        i.setGoalsSeason(int(statList[7]))
-        i.setAssistsSeason(int(statList[8]))
-        i.setSavesSeason(int(statList[9]))
-        i.setShotsSeason(int(statList[10]))
-        i.setWLSeason(WLSeason)
+        
         
 
                 

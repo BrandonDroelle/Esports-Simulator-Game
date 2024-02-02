@@ -76,5 +76,26 @@ class PlayerClass:
 
     def getShotsSeason(self):
         return self.shotsSeason
+    
+    #def getFileString(self, gameState):
+        #fileString = self.getName + " " + self.get
+
+    #Adders
+    def addGoals(self, goals):
+        self.goalsSeason = self.goalsSeason + goals
+        self.goalsCareer = self.goalsCareer + goals
+        
+    def addAssists(self, assists):
+        self.assistsSeason = self.assistsSeason + assists
+        self.assistsCareer = self.assistsCareer + assists
+        
+    def addSaves(self, saves):
+        self.savesSeason = self.savesSeason + saves
+        self.savesCareer = self.savesCareer + saves
+        
+    def addShots(self, shots):
+        self.shotsSeason = self.shotsSeason + shots
+        self.shotsCareer = self.shotsCareer + shots
+        
 
 

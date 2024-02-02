@@ -32,7 +32,7 @@ def getPlayerName(gameState):
     return name
 
 #update team name to save file
-def updateTeam(gameState, team):
+def updateTeamName(gameState, team):
     #updates save file with team name
     print("Add team to save file")
     saveState = "player team" + "\n"
@@ -124,7 +124,7 @@ def updateTeams(gameState):
                           teamAssistsCareer + " " + teamSavesCareer + " " +
                           teamShotsCareer + " " + teamGoalsSeason + " " +
                           teamAssistsSeason + " " + teamSavesSeason + " " +
-                          teamShotsSeason + " " + teamWLSeason + "\n")
+                          teamShotsSeason + " " + teamWLSeason)
 
         saveData.write(gameState, exceptionString, teamStatsString)
         exceptionString = teamStatsString
@@ -153,3 +153,4 @@ def addPlayersToSchedule(gameState, teamObjects):
         #print('teamName:', teamName, 'roster:', roster)
         saveData.write(gameState, teamName, roster, 21, exception)
         count = count + 1
+        

@@ -157,7 +157,7 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         #call function to update save file to not new save
                         saveGame.updateSave(gameState)
                         #call function to update save file with current users team name
-                        saveGame.updateTeam(gameState, team)
+                        saveGame.updateTeamName(gameState, team)
                         #call function to update save file with current week
                         saveGame.updateWeek(gameState, 1)
                         
