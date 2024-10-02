@@ -1,4 +1,5 @@
 #updateStats
+import saveGame
 
 def updateStatsPlayer(gameState, playerName, goals, assists, saves, shots):
     for i in gameState[2]:
@@ -11,6 +12,7 @@ def updateStatsPlayer(gameState, playerName, goals, assists, saves, shots):
     return gameState
 
 def updateStatsTeam(gameState, teamName, P1, P2, P3, result):
+    week = saveGame.getWeek(gameState)
     for i in gameState[3]:
         if i.getTeamName() == teamName:
             i.setP1(P1)
@@ -20,6 +22,6 @@ def updateStatsTeam(gameState, teamName, P1, P2, P3, result):
             i.updateAssists()
             i.updateSaves()
             i.updateShots()
-            i.updateWLR(result)
+            i.updateWLR(result, week)
             
     return gameState

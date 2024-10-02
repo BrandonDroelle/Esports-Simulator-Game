@@ -13,6 +13,10 @@ class PlayerClass:
         self.assistsSeason = 0
         self.savesSeason = 0
         self.shotsSeason = 0
+        self.goalsWeek = 0
+        self.assistsWeek = 0
+        self.savesWeek = 0
+        self.shotsWeek = 0
 
     #Methods
     #Setters
@@ -46,6 +50,18 @@ class PlayerClass:
     def setShotsSeason(self, shotsSeason):
         self.shotsSeason = shotsSeason
 
+    def setGoalsWeek(self, goalsWeek):
+        self.goalsWeek = goalsWeek
+
+    def setAssistsWeek(self, assistsWeek):
+        self.assistsWeek = assistsWeek
+
+    def setSavesWeek(self, savesWeek):
+        self.savesWeek = savesWeek
+
+    def setShotsWeek(self, shotsWeek):
+        self.shotsWeek = shotsWeek
+
     #Getters
     def getName(self):
         return self.name
@@ -77,23 +93,39 @@ class PlayerClass:
     def getShotsSeason(self):
         return self.shotsSeason
     
+    def getGoalsWeek(self):
+        return self.goalsWeek
+
+    def getAssistsWeek(self):
+        return self.assistsWeek
+
+    def getSavesWeek(self):
+        return self.savesWeek
+
+    def getShotsWeek(self):
+        return self.shotsWeek
+    
     #def getFileString(self, gameState):
         #fileString = self.getName + " " + self.get
 
     #Adders
     def addGoals(self, goals):
+        self.goalsWeek = goals
         self.goalsSeason = self.goalsSeason + goals
         self.goalsCareer = self.goalsCareer + goals
         
     def addAssists(self, assists):
+        self.assistsWeek = assists
         self.assistsSeason = self.assistsSeason + assists
         self.assistsCareer = self.assistsCareer + assists
         
     def addSaves(self, saves):
+        self.savesWeek = saves
         self.savesSeason = self.savesSeason + saves
         self.savesCareer = self.savesCareer + saves
         
     def addShots(self, shots):
+        self.shotsWeek = shots
         self.shotsSeason = self.shotsSeason + shots
         self.shotsCareer = self.shotsCareer + shots
         

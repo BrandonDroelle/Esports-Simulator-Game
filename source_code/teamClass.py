@@ -173,23 +173,35 @@ class TeamClass:
     
     #updaters
     def updateGoals(self):
-        self.goalsSeason = self.goalsSeason + self.p1.getGoalsSeason() + self.p2.getGoalsSeason() + self.p3.getGoalsSeason()
-        self.goalsCareer = self.goalsCareer + self.p1.getGoalsSeason() + self.p2.getGoalsSeason() + self.p3.getGoalsSeason()
+        self.goalsSeason = self.goalsSeason + self.p1.getGoalsWeek() + self.p2.getGoalsWeek() + self.p3.getGoalsWeek()
+        self.goalsCareer = self.goalsCareer + self.p1.getGoalsWeek() + self.p2.getGoalsWeek() + self.p3.getGoalsWeek()
         
     def updateAssists(self):
-        self.assistsSeason = self.assistsSeason + self.p1.getAssistsSeason() + self.p2.getAssistsSeason() + self.p3.getAssistsSeason()
-        self.assistsCareer = self.assistsCareer + self.p1.getAssistsSeason() + self.p2.getAssistsSeason() + self.p3.getAssistsSeason()
+        self.assistsSeason = self.assistsSeason + self.p1.getAssistsWeek() + self.p2.getAssistsWeek() + self.p3.getAssistsWeek()
+        self.assistsCareer = self.assistsCareer + self.p1.getAssistsWeek() + self.p2.getAssistsWeek() + self.p3.getAssistsWeek()
         
     def updateSaves(self):
-        self.savesSeason = self.savesSeason + self.p1.getSavesSeason() + self.p2.getSavesSeason() + self.p3.getSavesSeason()
-        self.savesCareer = self.savesCareer + self.p1.getSavesSeason() + self.p2.getSavesSeason() + self.p3.getSavesSeason()
+        self.savesSeason = self.savesSeason + self.p1.getSavesWeek() + self.p2.getSavesWeek() + self.p3.getSavesWeek()
+        self.savesCareer = self.savesCareer + self.p1.getSavesWeek() + self.p2.getSavesWeek() + self.p3.getSavesWeek()
         
     def updateShots(self):
-        self.shotsSeason = self.shotsSeason + self.p1.getShotsSeason() + self.p2.getShotsSeason() + self.p3.getShotsSeason()
-        self.shotsCareer = self.shotsCareer + self.p1.getShotsSeason() + self.p2.getShotsSeason() + self.p3.getShotsSeason()
+        self.shotsSeason = self.shotsSeason + self.p1.getShotsWeek() + self.p2.getShotsWeek() + self.p3.getShotsWeek()
+        self.shotsCareer = self.shotsCareer + self.p1.getShotsWeek() + self.p2.getShotsWeek() + self.p3.getShotsWeek()
         
-    def updateWLR(self, result):
-        self.WLSeason = result + self.WLSeason
+    def updateWLR(self, result, week):
+        #self.WLSeason = result + self.WLSeason
+
+        WLSeason = self.getWLSeason()
+        WLSeasonList = WLSeason.split("-")
+        result = result.replace("-", "")
+        if [int(week) - 1] == 20:
+            WLSeasonList[int(week) - 1] = result + "\n"
+        else:
+            WLSeasonList[int(week) - 1] = result
+        
+        WLSeasonList = "-".join(WLSeasonList)
+        self.setWLSeason = WLSeasonList
+
         if result == "1":
             self.setWinsCareer(self.winsCareer + 1)
         else:
