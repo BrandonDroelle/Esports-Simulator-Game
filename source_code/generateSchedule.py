@@ -98,7 +98,8 @@ def getScheduleString(gameState, schedule, teamObjects):
     return scheduleSaveFormat
 
     
-
+#Send in gameState, current week as an int, and current game as an int
+#Return the result of which team won and lost as a string
 def getMatchup(gameState, week, game):
     schedule = gameState[4]
     team1 = "team 1"
@@ -116,7 +117,54 @@ def getMatchup(gameState, week, game):
     #print("team2: ", scheduleList[index])
     team2 = scheduleList[index + 1]
 
-    matchup = team1 + "   W   -   L   " + team2
+    #Check each teams WLRSeason for the current week to see if they won or lost previously
+    #If game not yet played indicated as 
+
+    #Get team1object from name
+    for t in gameState[3]:
+        if t.getTeamName() == team1:
+            team1Object = t
+            break
+    #Get team1 weekly result
+    if(team1 != "None"):
+        team1Results = team1Object.getWLSeason()
+        team1ResultsList = team1Results.split("-")
+        team1Result = team1ResultsList[week - 1]
+    else:
+        team1Result = " "
+
+    if team1Result == "\n" or "3":
+        team1Result = " "
+    elif team1Result == "1":
+        team1Result = "W"
+    elif team1Result == "0":
+        team1Result = "L"
+    elif team1Result == "2":
+        team1Result = "B"
+
+    #Get team2object from name
+    for t in gameState[3]:
+        if t.getTeamName() == team2:
+            team2Object = t
+            break
+    #Get team2 weekly result
+    if(team2 != "None"):
+        team2Results = team2Object.getWLSeason()
+        team2ResultsList = team2Results.split("-")
+        team2Result = team2ResultsList[week - 1]
+    else:
+        team2Result = " "
+
+    if team2Result == "\n" or "3":
+        team2Result = " "
+    elif team2Result == "1":
+        team2Result = "W"
+    elif team2Result == "0":
+        team2Result = "L"
+    elif team2Result == "2":
+        team2Result = "BYE"
+
+    matchup = team1 + "  " + team1Result + "  -  " + team2Result + "  " + team2
 
     return matchup
 

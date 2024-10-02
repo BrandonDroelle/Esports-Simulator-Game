@@ -20,8 +20,9 @@ class TeamClass:
         self.savesSeason = 0
         self.shotsSeason = 0
 
-        self.WLSeason = "\n"          #string of 1's and 0's with dash in between
-                                     #1's = wins 0's = losses
+        self.WLSeason = "3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3\n"          
+                                      #string of numbers with a dash in between them
+                                      #0's = losses : 1's = wins : 2's = bye week : 3's = have not played yet
         
 
     #Setters
