@@ -112,13 +112,15 @@ class TeamClass:
 
     def getWinsCareer(self):
         winsCareer = self.winsCareer
-        winsSeason = self.getWinsSeason()
-        return winsCareer + winsSeason
+        #winsSeason = self.getWinsSeason()
+        #return winsCareer + winsSeason
+        return winsCareer
 
     def getLossesCareer(self):
         lossesCareer = self.lossesCareer
-        lossesSeason = self.getLossesSeason()
-        return lossesCareer + lossesSeason
+        #lossesSeason = self.getLossesSeason()
+        #return lossesCareer + lossesSeason
+        return lossesCareer
 
     def getWinsSeason(self):
         WL = self.WLSeason
@@ -189,8 +191,7 @@ class TeamClass:
         self.shotsCareer = self.shotsCareer + self.p1.getShotsWeek() + self.p2.getShotsWeek() + self.p3.getShotsWeek()
         
     def updateWLR(self, result, week):
-        #self.WLSeason = result + self.WLSeason
-
+        #Update WLSeason
         WLSeason = self.getWLSeason()
         WLSeasonList = WLSeason.split("-")
         result = result.replace("-", "")
@@ -200,12 +201,13 @@ class TeamClass:
             WLSeasonList[int(week) - 1] = result
         
         WLSeasonList = "-".join(WLSeasonList)
-        self.setWLSeason = WLSeasonList
+        self.WLSeason = WLSeasonList
 
+        #Update Wins an Losses for Career
         if result == "1":
-            self.setWinsCareer(self.winsCareer + 1)
-        else:
-            self.setLossesCareer(self.lossesCareer + 1)
+            self.winsCareer = self.winsCareer + 1
+        elif result == "0":
+            self.lossesCareer = self.lossesCareer + 1
 
     #Print out team roster
     def printRoster(self):
