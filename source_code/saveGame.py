@@ -118,13 +118,17 @@ def updateTeams(gameState):
         teamSavesSeason = str(i.getSavesSeason())
         teamShotsSeason = str(i.getShotsSeason())
 
+        teamPlayoffSeed = str(i.getPlayoffSeed())
+        teamPrevPlayoffPos = str(i.getPrevPlayoffPos())
+
         teamWLSeason = str(i.getWLSeason())
         teamStatsString = (teamName + " " + teamWinsCareer + " " +
                           teamLossesCareer + " " + teamGoalsCareer + " " +
                           teamAssistsCareer + " " + teamSavesCareer + " " +
                           teamShotsCareer + " " + teamGoalsSeason + " " +
                           teamAssistsSeason + " " + teamSavesSeason + " " +
-                          teamShotsSeason + " " + teamWLSeason)
+                          teamShotsSeason + " " + teamPlayoffSeed + " " +
+                          teamPrevPlayoffPos + " " + teamWLSeason)
 
         saveData.write(gameState, exceptionString, teamStatsString)
         exceptionString = teamStatsString
