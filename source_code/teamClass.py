@@ -20,10 +20,13 @@ class TeamClass:
         self.savesSeason = 0
         self.shotsSeason = 0
 
+        self.playoffSeed = 0
+        self.prevPlayoffPos = 0
+
         self.WLSeason = "3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3\n"          
                                       #string of numbers with a dash in between them
                                       #0's = losses : 1's = wins : 2's = bye week : 3's = have not played yet
-        
+
 
     #Setters
     def setName(self, name):
@@ -71,6 +74,12 @@ class TeamClass:
 
     def setShotsSeason(self, shotsSeason):
         self.shotsSeason = shotsSeason
+
+    def setPlayoffSeed(self, playoffSeed):
+        self.playoffSeed = playoffSeed
+
+    def setPrevPlayoffPos(self, prevPlayoffPos):
+        self.prevPlayoffPos = prevPlayoffPos
 
     #Getters
     def getTeamName(self):
@@ -163,6 +172,12 @@ class TeamClass:
 
     def getShotsSeason(self):
         return self.shotsSeason
+    
+    def getPlayoffSeed(self):
+        return self.playoffSeed
+    
+    def getPrevPlayoffPos(self):
+        return self.prevPlayoffPos
 
     def getCacheString(self):
         fileString = (self.name + " " + str(self.winsCareer) + " " + 
@@ -170,7 +185,8 @@ class TeamClass:
                            str(self.assistsCareer) + " " + str(self.savesCareer) + " " +
                            str(self.shotsCareer) + " " + str(self.goalsSeason) + " " +
                            str(self.assistsSeason) + " " + str(self.savesSeason) + " " +
-                           str(self.shotsSeason) + " " + self.WLSeason)
+                           str(self.shotsSeason) + " " + str(self.playoffSeed) + " " +
+                           str(self.prevPlayoffPos) + " " + self.WLSeason)
         return fileString      
     
     #updaters

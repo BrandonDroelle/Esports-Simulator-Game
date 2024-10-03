@@ -6,6 +6,7 @@ import generateSchedule
 import createCache
 import updateStats
 import saveData
+import simulationFunctions
 
 # #display settings menu
 def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, button2img, teamLogos, teamNames, keyBoardKeys):
@@ -653,6 +654,33 @@ def gamePreviewMenuFunc(gameState, win, basicFont, backgroundimg, buttonimg, but
                     gameState[1] = 'lockerRoom'
                 if btn3Hov == True:
                     print("mouse click simulate btn")
+                    simResults = simulationFunctions.simulateGame(gameState, playersTeamName, opposingTeamName)
+                    goalsL1 = simResults[0]
+                    assistsL1 = simResults[1]
+                    shotsL1 = simResults[2]
+                    savesL1 = simResults[3]
+                    goalsL2 = simResults[4]
+                    assistsL2 = simResults[5]
+                    shotsL2 = simResults[6]
+                    savesL2 = simResults[7]
+                    goalsL3 = simResults[8]
+                    assistsL3 = simResults[9]
+                    shotsL3 = simResults[10]
+                    savesL3 = simResults[11]
+                    goalsR1 = simResults[12]
+                    assistsR1 = simResults[13]
+                    shotsR1 = simResults[14]
+                    savesR1 = simResults[15]
+                    goalsR2 = simResults[16]
+                    assistsR2 = simResults[17]
+                    shotsR2 = simResults[18]
+                    savesR2 = simResults[19]
+                    goalsR3 = simResults[20]
+                    assistsR3 = simResults[21]
+                    shotsR3 = simResults[22]
+                    savesR3 = simResults[23]
+                    
+
                 #left player 1 arrows
                 if L1GUHov == True:
                     print("mouse click L1G1UHov")

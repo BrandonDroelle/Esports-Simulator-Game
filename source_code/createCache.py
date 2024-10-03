@@ -212,7 +212,9 @@ def loadTeamObjects(gameState):
             i.setAssistsSeason(int(statList[8]))
             i.setSavesSeason(int(statList[9]))
             i.setShotsSeason(int(statList[10]))
-            i.setWLSeason(statList[11])
+            i.setPlayoffSeed(int(statList[11]))
+            i.setPrevPlayoffPos(int(statList[12]))
+            i.setWLSeason(statList[13])
         #if current stat list doesn't match current team object find team object and update it
         else:
             for x in gameState[3]:
@@ -228,7 +230,9 @@ def loadTeamObjects(gameState):
                     x.setAssistsSeason(int(statList[8]))
                     x.setSavesSeason(int(statList[9]))
                     x.setShotsSeason(int(statList[10]))
-                    x.setWLSeason(statList[11])
+                    x.setPlayoffSeed(int(statList[11]))
+                    x.setPrevPlayoffPos(int(statList[12]))
+                    x.setWLSeason(statList[13])
                     break
             
 
