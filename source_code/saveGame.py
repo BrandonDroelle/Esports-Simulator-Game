@@ -103,7 +103,7 @@ def updatePlayers(gameState):
 
 #update team object data to save file
 def updateTeams(gameState):
-    exceptionString = "team objects\n"
+    dataType = "team objects\n"
     for i in gameState[3]:
         teamName = str(i.getTeamName())
         teamWinsCareer = str(i.getWinsCareer())
@@ -122,16 +122,55 @@ def updateTeams(gameState):
         teamPrevPlayoffPos = str(i.getPrevPlayoffPos())
 
         teamWLSeason = str(i.getWLSeason())
+        teamWLPostSeason = str(i.getWLPostSeason())
+
         teamStatsString = (teamName + " " + teamWinsCareer + " " +
                           teamLossesCareer + " " + teamGoalsCareer + " " +
                           teamAssistsCareer + " " + teamSavesCareer + " " +
                           teamShotsCareer + " " + teamGoalsSeason + " " +
                           teamAssistsSeason + " " + teamSavesSeason + " " +
                           teamShotsSeason + " " + teamPlayoffSeed + " " +
-                          teamPrevPlayoffPos + " " + teamWLSeason)
+                          teamPrevPlayoffPos + " " + teamWLSeason + " " +
+                          teamWLPostSeason)
 
-        saveData.write(gameState, exceptionString, teamStatsString)
-        exceptionString = teamStatsString
+        saveData.write(gameState, dataType, teamStatsString)
+        dataType = teamStatsString
+
+#rewrite team object data to save file
+def rewriteTeams(gameState, oldData):
+    count = -1
+    for i in gameState[3]:
+        count = count + 1
+        oldDataString = oldData[count]
+        teamName = str(i.getTeamName())
+        teamWinsCareer = str(i.getWinsCareer())
+        teamLossesCareer = str(i.getLossesCareer())
+        teamGoalsCareer = str(i.getGoalsCareer())
+        teamAssistsCareer = str(i.getAssistsCareer())
+        teamSavesCareer = str(i.getSavesCareer())
+        teamShotsCareer = str(i.getShotsCareer())
+
+        teamGoalsSeason = str(i.getGoalsSeason())
+        teamAssistsSeason = str(i.getAssistsSeason())
+        teamSavesSeason = str(i.getSavesSeason())
+        teamShotsSeason = str(i.getShotsSeason())
+
+        teamPlayoffSeed = str(i.getPlayoffSeed())
+        teamPrevPlayoffPos = str(i.getPrevPlayoffPos())
+
+        teamWLSeason = str(i.getWLSeason())
+        teamWLPostSeason = str(i.getWLPostSeason())
+
+        teamStatsString = (teamName + " " + teamWinsCareer + " " +
+                          teamLossesCareer + " " + teamGoalsCareer + " " +
+                          teamAssistsCareer + " " + teamSavesCareer + " " +
+                          teamShotsCareer + " " + teamGoalsSeason + " " +
+                          teamAssistsSeason + " " + teamSavesSeason + " " +
+                          teamShotsSeason + " " + teamPlayoffSeed + " " +
+                          teamPrevPlayoffPos + " " + teamWLSeason + " " +
+                          teamWLPostSeason)
+
+        saveData.replaceLine(gameState, oldDataString, teamStatsString)
 
 #update schedule to save file
 def updateSchedule(gameState, schedule):
@@ -157,4 +196,26 @@ def addPlayersToSchedule(gameState, teamObjects):
         #print('teamName:', teamName, 'roster:', roster)
         saveData.write(gameState, teamName, roster, 21, exception)
         count = count + 1
+
+#add playoffschedule to save file
+def addPlayoffSchedule(gameState, schedule):
+    print('Add playoff schedule to save file')
+    currentSeason = str(getSeason(gameState))
+    dataType = 'season ' + currentSeason + ' playoff schedule' + '\n'
+    saveData.append(gameState, dataType)
+    saveData.append(gameState, schedule)
+
+#get playoff schedule string
+def getPlayoffSchedule(gameState):
+    print('get playoff schedule string')
+    x = saveData.read(gameState, 'season 1 playoff schedule\n')
+    x = x.replace("\n", "")
+    #x = x.replace(" ", "")
+    return x
         
+#update playoffschedule to save file
+def updatePlayoffSchedule(gameState, schedule):
+    print("Update playoff schedule to save file")
+    currentSeason = str(getSeason(gameState))
+    dataType = 'season ' + currentSeason + ' playoff schedule' + '\n'
+    saveData.write(gameState, dataType, schedule)

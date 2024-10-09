@@ -173,6 +173,13 @@ def selectTeamMenuFunc(gameState, win, basicFont, smallFont, backgroundimg, butt
                         #save season schedule to save file
                         saveGame.updateSchedule(gameState, scheduleString)
                         gameState[4] = createCache.loadSchedule(gameState)
+                        #create and save blank playoff schedule to save file
+                        newPlayoffScheduleString = []
+                        for i in range(44): #potentially 22 playoff games, each game has 2 teams, so 44 potential scheduled teams
+                            newPlayoffScheduleString.append("tbd")
+                        newPlayoffScheduleString = ' '.join(newPlayoffScheduleString)
+                        newPlayoffScheduleString = newPlayoffScheduleString + '\n'
+                        saveGame.addPlayoffSchedule(gameState, newPlayoffScheduleString)
 
 
                         

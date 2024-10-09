@@ -23,9 +23,10 @@ class TeamClass:
         self.playoffSeed = 0
         self.prevPlayoffPos = 0
 
-        self.WLSeason = "3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3\n"          
+        self.WLSeason = "3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3"          
                                       #string of numbers with a dash in between them
                                       #0's = losses : 1's = wins : 2's = bye week : 3's = have not played yet
+        self.WLPostSeason = "3-3-3-3-3-3-3-3-3-3-3-3-3-3-3-3\n"
 
 
     #Setters
@@ -44,6 +45,9 @@ class TeamClass:
     def setWLSeason(self, WLSeason):
         self.WLSeason = WLSeason
 
+    def setWLPostSeason(self, WLPostSeason):
+        self.WLPostSeason = WLPostSeason
+
     def setWinsCareer(self, winsCareer):
         self.winsCareer = winsCareer
 
@@ -61,7 +65,6 @@ class TeamClass:
 
     def setShotsCareer(self, shotsCareer):
         self.shotsCareer = shotsCareer
-
 
     def setGoalsSeason(self, goalsSeason):
         self.goalsSeason = goalsSeason
@@ -96,6 +99,9 @@ class TeamClass:
 
     def getWLSeason(self):
         return self.WLSeason
+    
+    def getWLPostSeason(self):
+        return self.WLPostSeason
 
     def getWLRCareer(self):
         W = self.getWinsCareer()
@@ -149,6 +155,24 @@ class TeamClass:
                 l = l + 1
         return l
 
+    def getWinsPostSeason(self):
+        WL = self.WLPostSeason
+        statList = WL.split("-")
+        w = 0
+        for i in range(len(statList)):
+            if statList[i] == '1':
+                w = w + 1
+        return w
+
+    def getLossesPostSeason(self):
+        WL = self.WLPostSeason
+        statList = WL.split("-")
+        l = 0
+        for i in range(len(statList)):
+            if statList[i] == '0':
+                l = l + 1
+        return l
+
     def getGoalsCareer(self):
         return self.goalsCareer
 
@@ -186,9 +210,23 @@ class TeamClass:
                            str(self.shotsCareer) + " " + str(self.goalsSeason) + " " +
                            str(self.assistsSeason) + " " + str(self.savesSeason) + " " +
                            str(self.shotsSeason) + " " + str(self.playoffSeed) + " " +
-                           str(self.prevPlayoffPos) + " " + self.WLSeason)
+                           str(self.prevPlayoffPos) + " " + self.WLSeason + " " + self.WLPostSeason)
         return fileString      
     
+    def getGameResult(self, week):
+        if week < 22:
+            results = self.WLSeason
+            results = list(results.split("-"))
+            index = week - 1
+            result = results[index]
+            return int(result)
+        else:
+            results = self.WLPostSeason
+            results = list(results.split("-"))
+            index = week - 22
+            result = results[index]
+            return int(result)
+
     #updaters
     def updateGoals(self):
         self.goalsSeason = self.goalsSeason + self.p1.getGoalsWeek() + self.p2.getGoalsWeek() + self.p3.getGoalsWeek()
@@ -210,14 +248,20 @@ class TeamClass:
         #Update WLSeason
         WLSeason = self.getWLSeason()
         WLSeasonList = WLSeason.split("-")
-        result = result.replace("-", "")
-        if [int(week) - 1] == 20:
-            WLSeasonList[int(week) - 1] = result + "\n"
-        else:
+        WLPostSeason = self.getWLPostSeason()
+        WLPostSeasonList = WLPostSeason.split("-")
+
+        result = str(result).replace("-", "")
+        if (int(week) - 1) <= 20:
             WLSeasonList[int(week) - 1] = result
+        else:
+            WLPostSeasonList[int(week) - 22] = result
         
         WLSeasonList = "-".join(WLSeasonList)
         self.WLSeason = WLSeasonList
+
+        WLPostSeasonList = "-".join(WLPostSeasonList)
+        self.WLPostSeason = WLPostSeasonList
 
         #Update Wins an Losses for Career
         if result == "1":
